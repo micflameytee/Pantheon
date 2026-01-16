@@ -2,28 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainUI : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    public GameObject mainMenu;
-    public GameObject lobbyMenu;
-    
-    // Start is called before the first frame update
-    void Start()
+    public void LoadLobby()
     {
-        // Enable main menu, disable all other UI
-        mainMenu.SetActive(true);
-        lobbyMenu.SetActive(false);
-    }
-
-    public void EnterLobby()
-    {
-        mainMenu.SetActive(false);
-        lobbyMenu.SetActive(true);
-    }
-
-    public void LoadGame()
-    {
-        Utility.LoadLevel("Game");
+        Utility.LoadLevel("Lobby");
     }
 
     public void QuitGame()
