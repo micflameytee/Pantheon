@@ -8,7 +8,7 @@ public class HealthSystem : MonoBehaviour
 {
     // Start is called before the first frame update
     public int StartingHealth = 10;
-    public int CurrentHealth;
+    private int CurrentHealth;
 
     public event Action<PlayerController> OnPlayerDeath;
     
@@ -30,8 +30,7 @@ public class HealthSystem : MonoBehaviour
         {
             OnDeath();
         }
-        int HealthPercent = CurrentHealth / StartingHealth * 100;
-        return HealthPercent;
+        return CurrentHealth;
     }
 
     public void OnDeath()
