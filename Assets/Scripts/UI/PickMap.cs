@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 public class PickMap : MonoBehaviour
 {
     public EventSystem eventSystem;
-    public GameObject mapSlotContainer;
+    public MapSlotContainer mapSlotContainer;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        mapSlotContainer.FocusFirst(eventSystem);
     }
 
     // Update is called once per frame

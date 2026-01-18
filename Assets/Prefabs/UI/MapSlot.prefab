@@ -486,3 +486,4 @@ MonoBehaviour:
   icon: {fileID: 7429793835114975125}
   topTextGameObject: {fileID: 3037588352798664130}
   bottomTextGameObject: {fileID: 4432549348009296311}
+  toggle: {fileID: 2294540646755530986}

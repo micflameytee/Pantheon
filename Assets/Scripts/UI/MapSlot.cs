@@ -14,7 +14,7 @@ public class MapSlot : MonoBehaviour
     private TMP_Text topText;
     private TMP_Text bottomText;
 	
-	private Toggle toggle;
+	public Toggle toggle;
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,6 @@ public class MapSlot : MonoBehaviour
         topText = topTextGameObject.GetComponent<TMP_Text>();
         bottomText = bottomTextGameObject.GetComponent<TMP_Text>();
     
-		toggle = GetComponent<Toggle>();
 		toggle.onValueChanged.AddListener(OnToggleChanged);
         
 		// Set style based on initial state
@@ -38,5 +37,9 @@ public class MapSlot : MonoBehaviour
 			topText.fontStyle = FontStyles.Normal;
 			bottomText.fontStyle = FontStyles.Normal;
 		}
+	}
+
+	public void SetToggleGroup(ToggleGroup group) {
+		toggle.group = group;
 	}
 }

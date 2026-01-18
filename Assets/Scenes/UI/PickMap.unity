@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &21477872
+--- !u!1001 &10300491
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -131,10 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1516962171}
     m_Modifications:
-    - target: {fileID: 2294540646755530986, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
-      propertyPath: m_Group
-      value: 
-      objectReference: {fileID: 1516962175}
     - target: {fileID: 7057868469339752192, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
       propertyPath: m_Name
       value: MapSlot (1)
@@ -224,10 +220,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
---- !u!224 &21477873 stripped
+--- !u!224 &10300492 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7702886871205086447, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
-  m_PrefabInstance: {fileID: 21477872}
+  m_PrefabInstance: {fileID: 10300491}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &122903744
 GameObject:
@@ -605,14 +601,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1516962171}
     m_Modifications:
-    - target: {fileID: 2294540646755530986, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
-      propertyPath: m_Group
-      value: 
-      objectReference: {fileID: 1516962175}
-    - target: {fileID: 6330712756642787802, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7057868469339752192, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
       propertyPath: m_Name
       value: MapSlot
@@ -824,7 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1426726430}
-  mapSlotContainer: {fileID: 1516962170}
+  mapSlotContainer: {fileID: 1516962176}
 --- !u!1 &799831858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1325,7 @@ GameObject:
   - component: {fileID: 1516962173}
   - component: {fileID: 1516962172}
   - component: {fileID: 1516962175}
+  - component: {fileID: 1516962176}
   m_Layer: 5
   m_Name: MapSlotContainer
   m_TagString: Untagged
@@ -1357,7 +1346,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 730979984}
-  - {fileID: 21477873}
+  - {fileID: 10300492}
   m_Father: {fileID: 122903745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1442,6 +1431,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 0
+--- !u!114 &1516962176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516962170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ddc4bd96c9a55f6bde2e09d64a2bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSlots: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
