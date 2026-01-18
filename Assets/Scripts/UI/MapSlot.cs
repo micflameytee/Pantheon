@@ -31,8 +31,8 @@ public class MapSlot : MonoBehaviour
     private void OnToggleChanged(bool isOn) {
 		// Italics if selected, normal text if not selected
 		if (isOn) {
-			topText.fontStyle = FontStyles.Italic;
-			bottomText.fontStyle = FontStyles.Italic;
+			topText.fontStyle = FontStyles.Italic | FontStyles.Underline;
+			bottomText.fontStyle = FontStyles.Italic | FontStyles.Underline;
 		} else {
 			topText.fontStyle = FontStyles.Normal;
 			bottomText.fontStyle = FontStyles.Normal;

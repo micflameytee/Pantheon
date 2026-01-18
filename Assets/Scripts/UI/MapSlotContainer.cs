@@ -7,7 +7,9 @@ using UnityEngine.EventSystems;
 public class MapSlotContainer : MonoBehaviour
 {
     private ToggleGroup toggleGroup;
-    public MapSlot[] mapSlots;
+    
+    //[HideInInspector]
+    private MapSlot[] mapSlots;
     
     // Start is called before the first frame update
     void Start()
