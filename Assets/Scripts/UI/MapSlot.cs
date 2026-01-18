@@ -13,17 +13,30 @@ public class MapSlot : MonoBehaviour
 
     private TMP_Text topText;
     private TMP_Text bottomText;
+	
+	private Toggle toggle;
     
     // Start is called before the first frame update
     void Start()
     {
         topText = topTextGameObject.GetComponent<TMP_Text>();
         bottomText = bottomTextGameObject.GetComponent<TMP_Text>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+    
+		toggle = GetComponent<Toggle>();
+		toggle.onValueChanged.AddListener(OnToggleChanged);
         
-    }
+		// Set style based on initial state
+        OnToggleChanged(toggle.isOn);
+	}
+
+    private void OnToggleChanged(bool isOn) {
+		// Italics if selected, normal text if not selected
+		if (isOn) {
+			topText.fontStyle = FontStyles.Italic;
+			bottomText.fontStyle = FontStyles.Italic;
+		} else {
+			topText.fontStyle = FontStyles.Normal;
+			bottomText.fontStyle = FontStyles.Normal;
+		}
+	}
 }

@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 7702886871205086447}
   - component: {fileID: 6437532927163814031}
   - component: {fileID: 4160470130257343898}
-  - component: {fileID: 2583926790587256401}
+  - component: {fileID: 2294540646755530986}
   - component: {fileID: 2697056094643814874}
   m_Layer: 5
   m_Name: MapSlot
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2583926790587256401
+--- !u!114 &2294540646755530986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7057868469339752192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -448,7 +448,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.96862745, g: 0.5882353, b: 0.09019608, a: 1}
     m_PressedColor: {r: 0.9764706, g: 0.7607843, b: 0.16862746, a: 1}
     m_SelectedColor: {r: 0.96862745, g: 0.5882353, b: 0.09019608, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -464,21 +464,13 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4160470130257343898}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadLobby
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  m_IsOn: 0
 --- !u!114 &2697056094643814874
 MonoBehaviour:
   m_ObjectHideFlags: 0
