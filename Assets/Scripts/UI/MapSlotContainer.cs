@@ -11,8 +11,8 @@ public class MapSlotContainer : MonoBehaviour
     //[HideInInspector]
     private MapSlot[] mapSlots;
     
-    // Start is called before the first frame update
-    void Start()
+    // NOTE: mapSlots needs to be initialized before MainMenu calls FocusFirst
+    void Awake()
     {
         toggleGroup = GetComponent<ToggleGroup>();
 
