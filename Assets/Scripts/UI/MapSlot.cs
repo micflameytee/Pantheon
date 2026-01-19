@@ -11,16 +11,16 @@ public class MapSlot : MonoBehaviour
     public GameObject topTextGameObject;
     public GameObject bottomTextGameObject;
 
-    private TMP_Text topText;
-    private TMP_Text bottomText;
+    private TMP_Text _topText;
+    private TMP_Text _bottomText;
 	
 	public Toggle toggle;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        topText = topTextGameObject.GetComponent<TMP_Text>();
-        bottomText = bottomTextGameObject.GetComponent<TMP_Text>();
+        _topText = topTextGameObject.GetComponent<TMP_Text>();
+        _bottomText = bottomTextGameObject.GetComponent<TMP_Text>();
     
 		toggle.onValueChanged.AddListener(OnToggleChanged);
         
@@ -28,14 +28,35 @@ public class MapSlot : MonoBehaviour
         OnToggleChanged(toggle.isOn);
 	}
 
+    public void SetData(string topText, MapData.MapMode mapMode, Sprite sprite = null)
+    {
+	    _topText.text = topText;
+
+	    switch (mapMode)
+	    {
+		    case MapData.MapMode.FFA:
+			    _bottomText.text = "FFA";
+			    break;
+		    case MapData.MapMode._2V2:
+			    _bottomText.text = "2V2";
+			    break;
+		    default:
+			    Debug.LogWarning("Unknown map mode: " + mapMode);
+			    _bottomText.text = string.Empty;
+			    break;
+	    }
+	    
+	    if (sprite) { icon.sprite = sprite; }
+    }
+
     private void OnToggleChanged(bool isOn) {
 		// Italics if selected, normal text if not selected
 		if (isOn) {
-			topText.fontStyle = FontStyles.Italic | FontStyles.Underline;
-			bottomText.fontStyle = FontStyles.Italic | FontStyles.Underline;
+			_topText.fontStyle = FontStyles.Italic | FontStyles.Underline;
+			_bottomText.fontStyle = FontStyles.Italic | FontStyles.Underline;
 		} else {
-			topText.fontStyle = FontStyles.Normal;
-			bottomText.fontStyle = FontStyles.Normal;
+			_topText.fontStyle = FontStyles.Normal;
+			_bottomText.fontStyle = FontStyles.Normal;
 		}
 	}
 
