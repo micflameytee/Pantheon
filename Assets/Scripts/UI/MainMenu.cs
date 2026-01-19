@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
     
     public void LoadLobby()
     {
-        Utility.LoadLevel("Lobby");
+        Utility.LoadLevel("GameplayScene");
+        // Utility.LoadLevel("Lobby");
     }
 
     public void QuitGame()

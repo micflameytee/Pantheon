@@ -22,15 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "NextScene",
-                    "type": "Button",
-                    "id": "dee914d0-7eaf-46aa-8026-44ac26134613",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -187,10 +178,27 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "MenuActions",
+            "id": "9b942f68-29ec-43ad-8861-b906a86708d0",
+            "actions": [
+                {
+                    "name": "NextScene",
+                    "type": "Button",
+                    "id": "adf70c7c-37a9-4852-9b33-f3f697fc0ad7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "4130cc2b-518f-4038-8fab-7ede171d7028",
+                    "id": "ca0519f7-2499-44d8-a54a-4b2271618733",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
@@ -201,7 +209,7 @@
                 },
                 {
                     "name": "",
-                    "id": "a18a1dae-693a-4088-ac18-22dd7ec3fc2c",
+                    "id": "666b2ac9-a7b4-4534-911d-20fe17669108",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",

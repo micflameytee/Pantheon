@@ -16,8 +16,14 @@ public class HealthSystem : MonoBehaviour
     // Start is called before the first frame update
     public int StartingHealth = 10;
     private int CurrentHealth;
-    
-    public String Tag;
+
+    public string Tag
+    {
+        get
+        {
+            return gameObject.tag;
+        }
+    }
 
     public event Action<PlayerController> OnPlayerDeath;
     
@@ -49,6 +55,7 @@ public class HealthSystem : MonoBehaviour
 
     public void OnDeath()
     {
+        
         if (Tag != null && Tag == "Wall")
         {
             Collider.enabled = false;

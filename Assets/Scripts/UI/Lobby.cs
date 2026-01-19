@@ -6,9 +6,4 @@ using UnityEngine.InputSystem;
 public class Lobby : MonoBehaviour
 {
 
-    public void LoadPickMap()
-    {
-        Debug.Log("Loading level");
-        Utility.LoadLevel("PickMap");
-    }
 }

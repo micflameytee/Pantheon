@@ -163,6 +163,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 14c4a429-1fd7-4cb6-82bf-69666e422405
     m_ActionName: GameActions/Attack[/Keyboard/space,/Keyboard/rightShift,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dee914d0-7eaf-46aa-8026-44ac26134613
+    m_ActionName: GameActions/NextScene[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: KeyboardLeft
   m_DefaultActionMap: GameActions
@@ -202,7 +206,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
 --- !u!114 &1562376642465694606
 MonoBehaviour:
   m_ObjectHideFlags: 0

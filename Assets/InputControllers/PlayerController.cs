@@ -50,8 +50,6 @@ public class PlayerController : MonoBehaviour
         Quaternion oldRotation = transform.rotation;
         transform.rotation = Quaternion.identity;
         
-        
-        
         transform.rotation = oldRotation;
 
         if (_moveDirection.sqrMagnitude > 0f)
@@ -68,9 +66,11 @@ public class PlayerController : MonoBehaviour
     }
     
 
-    public void SetGhost()
+    public void SetGhost(bool isGhost)
     {
-        _isGhost = true;
-        _spriteRenderer.color = new  Color32(50, 255, 50, 128);
+        _isGhost = isGhost;
+        _spriteRenderer.color = isGhost 
+            ? new  Color32(50, 255, 50, 128)
+            : new  Color32(255, 255, 255, 255);;
     }
 }

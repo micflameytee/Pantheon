@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Angel
+  - LobbyView
   layers:
   - Default
   - TransparentFX

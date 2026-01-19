@@ -44,15 +44,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""NextScene"",
-                    ""type"": ""Button"",
-                    ""id"": ""dee914d0-7eaf-46aa-8026-44ac26134613"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,10 +200,27 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""MenuActions"",
+            ""id"": ""9b942f68-29ec-43ad-8861-b906a86708d0"",
+            ""actions"": [
+                {
+                    ""name"": ""NextScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""adf70c7c-37a9-4852-9b33-f3f697fc0ad7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""4130cc2b-518f-4038-8fab-7ede171d7028"",
+                    ""id"": ""ca0519f7-2499-44d8-a54a-4b2271618733"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -223,7 +231,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a18a1dae-693a-4088-ac18-22dd7ec3fc2c"",
+                    ""id"": ""666b2ac9-a7b4-4534-911d-20fe17669108"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -275,7 +283,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_GameActions = asset.FindActionMap("GameActions", throwIfNotFound: true);
         m_GameActions_Move = m_GameActions.FindAction("Move", throwIfNotFound: true);
         m_GameActions_Attack = m_GameActions.FindAction("Attack", throwIfNotFound: true);
-        m_GameActions_NextScene = m_GameActions.FindAction("NextScene", throwIfNotFound: true);
+        // MenuActions
+        m_MenuActions = asset.FindActionMap("MenuActions", throwIfNotFound: true);
+        m_MenuActions_NextScene = m_MenuActions.FindAction("NextScene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -339,14 +349,12 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private List<IGameActionsActions> m_GameActionsActionsCallbackInterfaces = new List<IGameActionsActions>();
     private readonly InputAction m_GameActions_Move;
     private readonly InputAction m_GameActions_Attack;
-    private readonly InputAction m_GameActions_NextScene;
     public struct GameActionsActions
     {
         private @GameInputActions m_Wrapper;
         public GameActionsActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_GameActions_Move;
         public InputAction @Attack => m_Wrapper.m_GameActions_Attack;
-        public InputAction @NextScene => m_Wrapper.m_GameActions_NextScene;
         public InputActionMap Get() { return m_Wrapper.m_GameActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -362,9 +370,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
-            @NextScene.started += instance.OnNextScene;
-            @NextScene.performed += instance.OnNextScene;
-            @NextScene.canceled += instance.OnNextScene;
         }
 
         private void UnregisterCallbacks(IGameActionsActions instance)
@@ -375,9 +380,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
-            @NextScene.started -= instance.OnNextScene;
-            @NextScene.performed -= instance.OnNextScene;
-            @NextScene.canceled -= instance.OnNextScene;
         }
 
         public void RemoveCallbacks(IGameActionsActions instance)
@@ -395,6 +397,52 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         }
     }
     public GameActionsActions @GameActions => new GameActionsActions(this);
+
+    // MenuActions
+    private readonly InputActionMap m_MenuActions;
+    private List<IMenuActionsActions> m_MenuActionsActionsCallbackInterfaces = new List<IMenuActionsActions>();
+    private readonly InputAction m_MenuActions_NextScene;
+    public struct MenuActionsActions
+    {
+        private @GameInputActions m_Wrapper;
+        public MenuActionsActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @NextScene => m_Wrapper.m_MenuActions_NextScene;
+        public InputActionMap Get() { return m_Wrapper.m_MenuActions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActionsActions set) { return set.Get(); }
+        public void AddCallbacks(IMenuActionsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MenuActionsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MenuActionsActionsCallbackInterfaces.Add(instance);
+            @NextScene.started += instance.OnNextScene;
+            @NextScene.performed += instance.OnNextScene;
+            @NextScene.canceled += instance.OnNextScene;
+        }
+
+        private void UnregisterCallbacks(IMenuActionsActions instance)
+        {
+            @NextScene.started -= instance.OnNextScene;
+            @NextScene.performed -= instance.OnNextScene;
+            @NextScene.canceled -= instance.OnNextScene;
+        }
+
+        public void RemoveCallbacks(IMenuActionsActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMenuActionsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MenuActionsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MenuActionsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MenuActionsActions @MenuActions => new MenuActionsActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -426,6 +474,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface IMenuActionsActions
+    {
         void OnNextScene(InputAction.CallbackContext context);
     }
 }
