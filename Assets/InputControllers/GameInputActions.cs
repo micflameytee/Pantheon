@@ -44,6 +44,15 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""dee914d0-7eaf-46aa-8026-44ac26134613"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -200,6 +209,28 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4130cc2b-518f-4038-8fab-7ede171d7028"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a18a1dae-693a-4088-ac18-22dd7ec3fc2c"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -244,6 +275,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_GameActions = asset.FindActionMap("GameActions", throwIfNotFound: true);
         m_GameActions_Move = m_GameActions.FindAction("Move", throwIfNotFound: true);
         m_GameActions_Attack = m_GameActions.FindAction("Attack", throwIfNotFound: true);
+        m_GameActions_NextScene = m_GameActions.FindAction("NextScene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -307,12 +339,14 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private List<IGameActionsActions> m_GameActionsActionsCallbackInterfaces = new List<IGameActionsActions>();
     private readonly InputAction m_GameActions_Move;
     private readonly InputAction m_GameActions_Attack;
+    private readonly InputAction m_GameActions_NextScene;
     public struct GameActionsActions
     {
         private @GameInputActions m_Wrapper;
         public GameActionsActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_GameActions_Move;
         public InputAction @Attack => m_Wrapper.m_GameActions_Attack;
+        public InputAction @NextScene => m_Wrapper.m_GameActions_NextScene;
         public InputActionMap Get() { return m_Wrapper.m_GameActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -328,6 +362,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @NextScene.started += instance.OnNextScene;
+            @NextScene.performed += instance.OnNextScene;
+            @NextScene.canceled += instance.OnNextScene;
         }
 
         private void UnregisterCallbacks(IGameActionsActions instance)
@@ -338,6 +375,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @NextScene.started -= instance.OnNextScene;
+            @NextScene.performed -= instance.OnNextScene;
+            @NextScene.canceled -= instance.OnNextScene;
         }
 
         public void RemoveCallbacks(IGameActionsActions instance)
@@ -386,5 +426,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnNextScene(InputAction.CallbackContext context);
     }
 }
