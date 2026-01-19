@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
     
+    private Rigidbody2D rb;
+    
     private static int playerNumber;
 
     public float MoveSpeed = 10f;
@@ -31,6 +33,11 @@ public class PlayerController : MonoBehaviour
         _damageSystem.PreformAttack();
     }
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     private void Awake()
     {
         _damageSystem.Initialize(_healthSystem);
@@ -42,7 +49,9 @@ public class PlayerController : MonoBehaviour
     {
         Quaternion oldRotation = transform.rotation;
         transform.rotation = Quaternion.identity;
-        transform.Translate( MoveSpeed * Time.deltaTime * _moveDirection);  
+        
+        
+        
         transform.rotation = oldRotation;
 
         if (_moveDirection.sqrMagnitude > 0f)
@@ -50,8 +59,14 @@ public class PlayerController : MonoBehaviour
             // convert the _moveDirection into a 2d rotation direction
             float angle = Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg - 90f;
             transform.rotation = Quaternion.Euler(0, 0, angle);
+            //Debug.Log(transform.rotation.eulerAngles.y);
         }
     }
+    
+    void FixedUpdate() {
+            rb.velocity = _moveDirection * MoveSpeed;
+    }
+    
 
     public void SetGhost()
     {
