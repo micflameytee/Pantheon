@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private SpriteRenderer _spriteRenderer;
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
-    public float Cooldown { get; set; }
+    public float RespawnCooldown { get; set; }
     
     private Rigidbody2D rb;
     
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Cooldown = 0f;
+        RespawnCooldown = 100000000000f;
     }
 
     private void Awake()
@@ -56,8 +56,13 @@ public class PlayerController : MonoBehaviour
         
         transform.rotation = oldRotation;
         
-        Cooldown -= Time.deltaTime;
-        
+        RespawnCooldown -= Time.deltaTime;
+
+        if (RespawnCooldown <= 0f)
+        {
+            //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
+            _isGhost = false;
+        }
         
 
         if (_moveDirection.sqrMagnitude > 0f)
@@ -72,13 +77,17 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() {
             rb.velocity = _moveDirection * MoveSpeed;
     }
-    
+
+    public void ResetCooldown()
+    {
+        RespawnCooldown = 0f;
+    }
 
     public void SetGhost(bool isGhost)
     {
         if (GetComponent<PlayerController>().ownedStatue.stillThere())
         {
-            Cooldown = 3f;
+            RespawnCooldown = 3f;
         }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 

@@ -19,6 +19,7 @@ public class LevelController : MonoBehaviour
             player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
             _angels[i].owner = player;
             player.ownedStatue = _angels[i];
+            player.ResetCooldown();
             i++;
         }
     }
