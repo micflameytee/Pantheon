@@ -1448,7 +1448,7 @@ MonoBehaviour:
   mapSlotPrefab: {fileID: 7702886871205086447, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
   maps:
   - {fileID: 11400000, guid: b1e0a2365cf4245bfb7114ba59b7dcfd, type: 2}
-  - {fileID: 11400000, guid: ac934fadd832f44588d15ad1ec71f091, type: 2}
+  - {fileID: 11400000, guid: 5334fc84c697d47b8ae540aa884c69a7, type: 2}
 --- !u!1001 &1771439922
 PrefabInstance:
   m_ObjectHideFlags: 0
