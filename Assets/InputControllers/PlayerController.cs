@@ -50,9 +50,6 @@ public class PlayerController : MonoBehaviour
         Quaternion oldRotation = transform.rotation;
         transform.rotation = Quaternion.identity;
         
-        //float moveX = Input.GetAxisRaw("Horizontal");
-        //float moveY = Input.GetAxisRaw("Vertical");
-        //_moveDirection = new Vector2(moveX, moveY).normalized;
         
         
         transform.rotation = oldRotation;
@@ -62,6 +59,7 @@ public class PlayerController : MonoBehaviour
             // convert the _moveDirection into a 2d rotation direction
             float angle = Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg - 90f;
             transform.rotation = Quaternion.Euler(0, 0, angle);
+            //Debug.Log(transform.rotation.eulerAngles.y);
         }
     }
     

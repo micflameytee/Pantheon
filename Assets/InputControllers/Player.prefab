@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1019575279079355177}
@@ -215,7 +215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095298682ea86ac4eac0381157d171ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCollider: {fileID: 4239934385659928093}
+  WallCollider: {fileID: 4639254537943607164, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+  _spriteRenderer: {fileID: 3190010535762698972}
   StartingHealth: 10
+  Tag: 
 --- !u!50 &6441804837208826776
 Rigidbody2D:
   serializedVersion: 4
@@ -290,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   StrikeCooldown: 1
-  radius: 0.7
+  radius: 0.4
 --- !u!212 &549617278790578720
 SpriteRenderer:
   m_ObjectHideFlags: 0
