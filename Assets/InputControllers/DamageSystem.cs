@@ -46,7 +46,7 @@ public class DamageSystem : MonoBehaviour
             {
                 Debug.Log($"{_myHealthSystem.name} is attacking {targetSystem.name}");
                 
-                targetSystem.TakeDamage(Damage);
+                targetSystem.TakeDamage(Damage, this.gameObject);
             }
         }
 

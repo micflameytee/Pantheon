@@ -33,10 +33,17 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = StartingHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject Cause)
     {
+        if (gameObject.tag == "Angel" && GetComponent<Statue>().owner == Cause.GetComponent<PlayerController>())
+        {
+                Debug.Log($"This statue is owned by {name} has {CurrentHealth} / {StartingHealth} health");
+                return;
+        }
         CurrentHealth -= damage;
         Debug.Log($"Player {name} has {CurrentHealth} / {StartingHealth} health");
+        
+        
         CheckHealth();
     }
 
@@ -61,6 +68,14 @@ public class HealthSystem : MonoBehaviour
             Collider.enabled = false;
             _spriteRenderer.color = new  Color32(200, 200, 0, 255);
         }
-        OnPlayerDeath?.Invoke(GetComponent<PlayerController>());
+
+        if (tag != null && tag == "Angel")
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            OnPlayerDeath?.Invoke(GetComponent<PlayerController>());
+        }
     }
 }

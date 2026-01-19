@@ -6,12 +6,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public Statue ownedStatue { get; set; }
+    
     
     [SerializeField]private DamageSystem _damageSystem;
     [SerializeField]private HealthSystem _healthSystem;
     [SerializeField]private SpriteRenderer _spriteRenderer;
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
+    public float Cooldown { get; set; }
     
     private Rigidbody2D rb;
     
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Cooldown = 0f;
     }
 
     private void Awake()
@@ -51,6 +55,10 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.identity;
         
         transform.rotation = oldRotation;
+        
+        Cooldown -= Time.deltaTime;
+        
+        
 
         if (_moveDirection.sqrMagnitude > 0f)
         {
@@ -68,6 +76,10 @@ public class PlayerController : MonoBehaviour
 
     public void SetGhost(bool isGhost)
     {
+        if (GetComponent<PlayerController>().ownedStatue.stillThere())
+        {
+            Cooldown = 3f;
+        }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 
             ? new  Color32(50, 255, 50, 128)
