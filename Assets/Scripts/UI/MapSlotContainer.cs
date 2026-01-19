@@ -19,6 +19,9 @@ public class MapSlotContainer : MonoBehaviour
     // NOTE: mapSlots needs to be initialized before MainMenu calls FocusFirst
     void Awake()
     {
+        // Grab current EventSystem (from the Gameplay scene)
+        eventSystem = EventSystem.current;
+        
         // Kill all example / testing child map slots 
         foreach(Transform child in transform)
         {
