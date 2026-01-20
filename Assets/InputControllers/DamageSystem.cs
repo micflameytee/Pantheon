@@ -14,11 +14,13 @@ public class DamageSystem : MonoBehaviour
     
     private RaycastHit2D[] _hits = new RaycastHit2D[20];
     private HealthSystem _myHealthSystem;
+    private PlayerController _player;
 
 
-    public void Initialize(HealthSystem healthSystem)
+    public void Initialize(PlayerController player)
     {
-        _myHealthSystem = healthSystem;
+        _player = player;
+        _myHealthSystem = player.GetComponent<HealthSystem>();
     }
     
 
@@ -46,7 +48,7 @@ public class DamageSystem : MonoBehaviour
             {
                 Debug.Log($"{_myHealthSystem.name} is attacking {targetSystem.name}");
                 
-                targetSystem.TakeDamage(Damage);
+                targetSystem.TakeDamage(Damage, _player);
             }
         }
 

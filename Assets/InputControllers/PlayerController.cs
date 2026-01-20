@@ -3,15 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    public Statue ownedStatue { get; set; }
+    
     
     [SerializeField]private DamageSystem _damageSystem;
     [SerializeField]private HealthSystem _healthSystem;
     [SerializeField]private SpriteRenderer _spriteRenderer;
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
+    private float RespawnCooldown { get; set; }
+    public float respawnCooldownMax = 3f;
     
     private Rigidbody2D rb;
     
@@ -36,11 +41,12 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        RespawnCooldown = 100000000000f;
     }
 
     private void Awake()
     {
-        _damageSystem.Initialize(_healthSystem);
+        _damageSystem.Initialize(this);
         playerNumber++;
         name = $"Player {playerNumber}";
     }
@@ -51,6 +57,16 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.identity;
         
         transform.rotation = oldRotation;
+        
+        RespawnCooldown -= Time.deltaTime;
+
+        if (_isGhost && RespawnCooldown <= 0f)
+        {
+            //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
+            SetGhost(false);
+            transform.position = ownedStatue.GetSpawnPoint().position;
+        }
+        
 
         if (_moveDirection.sqrMagnitude > 0f)
         {
@@ -64,10 +80,18 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() {
             rb.velocity = _moveDirection * MoveSpeed;
     }
-    
+
+    public void ResetCooldown()
+    {
+        RespawnCooldown = 0f;
+    }
 
     public void SetGhost(bool isGhost)
     {
+        if (isGhost && ownedStatue != null && ownedStatue.StillThere())
+        {
+            RespawnCooldown = respawnCooldownMax;
+        }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 
             ? new  Color32(50, 255, 50, 128)

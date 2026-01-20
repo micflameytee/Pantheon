@@ -75,10 +75,13 @@ public class GlobalPlayerManager : MonoBehaviour
     {
         if (players.Contains(player))
         {
-            players.Remove(player);
+            if (!player.ownedStatue.StillThere())
+            {
+                players.Remove(player);
+            }
             player.SetGhost(true);
             // Destroy(player.gameObject);
-            if (players.Count == 1)
+            if (players.Count < 2)
             {
                 Debug.Log($"MESSAGE: Player {players[0].name} has won");
                 _gameOver = true;

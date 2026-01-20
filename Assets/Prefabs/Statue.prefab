@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 6860571095489018268}
   - component: {fileID: 5300645674846901134}
   - component: {fileID: 3682285824834840340}
+  - component: {fileID: -7807884654476687516}
   m_Layer: 0
-  m_Name: Angel
+  m_Name: Statue
   m_TagString: Angel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,4 +164,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3958722301349725570}
   StartingHealth: 15
-  Tag: Angel
+--- !u!114 &-7807884654476687516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383458483986708462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14748a90c81738f43b35de1cbc0f9b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 3958722301349725570}
+  UnDamagedSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  DamagedSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStillThere: 1
