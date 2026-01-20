@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Map Data", fileName = "Map")]    
@@ -31,10 +32,44 @@ public class MapData : ScriptableObject
                 return "Godless Deathmatch";
             default:
                 Debug.LogWarning("Unknown map mode: " + mapMode);
-                return "";
+                return "Unknown map mode";
         }
     }
 
+    // Get all map modes as strings
+    public static List<String> GetMapModeStrings()
+    {
+        List<String> mapModeStrings = new List<string>();
+        
+        var values = Enum.GetValues(typeof(MapMode));
+
+        foreach (MapMode value in values)
+        {
+            mapModeStrings.Add(GetMapModeString(value));
+        }
+        
+        return mapModeStrings;
+    }
+
+    // Get the map mode description
+    public static string GetMapModeDescription(MapMode mapMode)
+    {
+        switch (mapMode)
+        {
+            case MapMode.NORMAL:
+                return "Statues and gods";
+            case MapMode.GODLESS:
+                return "Statues but no gods";
+            case MapMode.DEATHMATCH:
+                return "Gods but no statues";
+            case MapMode.GODLESS_DEATHMATCH:
+                return "No statues, no gods";
+            default:
+                Debug.LogWarning("Unknown map mode: " + mapMode);
+                return "Unknown map mode";
+        }
+    }
+    
     // Player ranges
     [Range(2, 8)] public int playerMin = 2;
 
