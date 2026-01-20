@@ -11,6 +11,9 @@ public class MapSlot : MonoBehaviour
     public GameObject topTextGameObject;
     public GameObject bottomTextGameObject;
 
+    
+    private MapData.MapMode[] _supportedModes;
+
     private TMP_Text _topText;
     private TMP_Text _bottomText;
 	
@@ -28,14 +31,37 @@ public class MapSlot : MonoBehaviour
         OnToggleChanged(toggle.isOn);
 	}
 
-    public void SetData(string topText, MapData.MapMode mapMode, Sprite sprite = null)
+    public void SetData(string topText, MapData.MapMode[] supportedModes, Sprite sprite = null)
     {
 	    _topText.text = topText;
-	    _bottomText.text = MapData.GetMapModeString(mapMode);
-	    
-	    if (sprite) { icon.sprite = sprite; }
+	    _bottomText.text = "";
+	    //_bottomText.text = MapData.GetMapModeString(mapMode);
+
+	    _supportedModes = supportedModes;
+
+	    if (sprite)
+	    {
+		    icon.sprite = sprite;
+	    }
     }
 
+    public void SetToggleGroup(ToggleGroup group) {
+		toggle.group = group;
+	}
+
+	public bool IsSupportedMode(MapData.MapMode mode)
+	{
+		foreach (MapData.MapMode _mode in _supportedModes)
+		{
+			if (_mode == mode)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
     private void OnToggleChanged(bool isOn) {
 		// Italics if selected, normal text if not selected
 		if (isOn) {
@@ -47,7 +73,5 @@ public class MapSlot : MonoBehaviour
 		}
 	}
 
-	public void SetToggleGroup(ToggleGroup group) {
-		toggle.group = group;
-	}
+
 }

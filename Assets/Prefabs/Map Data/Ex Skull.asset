@@ -15,6 +15,6 @@ MonoBehaviour:
   sceneName: SceneName
   mapName: Skull
   icon: {fileID: 21300000, guid: 4bc86754a35e5806f8dc54515528dd4b, type: 3}
-  supportedModes: 
+  supportedModes: 0200000003000000
   playerMin: 2
   playerMax: 2

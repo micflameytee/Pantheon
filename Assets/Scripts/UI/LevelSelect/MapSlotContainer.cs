@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -8,13 +10,13 @@ public class MapSlotContainer : MonoBehaviour
 {
     public EventSystem eventSystem;
     private ToggleGroup _toggleGroup;
-    
-    //[HideInInspector]
-    private GameObject _firstSlot;
 
     public Transform mapSlotPrefab;
 
     public MapData[] maps;
+    private List<GameObject> _mapSlots = new List<GameObject>();
+    
+    public TMP_Dropdown gamemode;
     
     // NOTE: mapSlots needs to be initialized before MainMenu calls FocusFirst
     void Awake()
@@ -34,13 +36,12 @@ public class MapSlotContainer : MonoBehaviour
         {
             Transform instance = Instantiate(mapSlotPrefab, transform);
             MapSlot mapSlot = instance.GetComponent<MapSlot>();
+            _mapSlots.Add(instance.gameObject);
             
             // Apply map name, map mode and map icon to the map slot from the map data
-            mapSlot.SetData(maps[i].mapName, MapData.MapMode.NORMAL, maps[i].icon);
+            mapSlot.SetData(maps[i].mapName, maps[i].supportedModes, maps[i].icon);
             mapSlot.SetToggleGroup(_toggleGroup);
             
-            // Set the first slot 
-            if (i == 0) { _firstSlot = mapSlot.gameObject; }
         }
 
         // Get all child MapSlots
@@ -49,6 +50,27 @@ public class MapSlotContainer : MonoBehaviour
 
     void Start()
     {
-        eventSystem.SetSelectedGameObject(_firstSlot);
+        UpdateFiltering();
+        Debug.Log(transform.GetChild(0).gameObject);
+        eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
+    }
+
+    // Update visibility of MapSlots based on which category is selected
+    public void UpdateFiltering()
+    {
+        foreach (GameObject mapSlot in _mapSlots)
+        {
+            MapSlot mapSlotScript = mapSlot.GetComponent<MapSlot>();
+
+            if (mapSlotScript.IsSupportedMode((MapData.MapMode) gamemode.value))
+            {
+                mapSlot.SetActive(true);
+            }
+            else
+            {
+                mapSlot.SetActive(false);
+            }
+            
+        }
     }
 }
