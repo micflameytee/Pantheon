@@ -176,3 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14748a90c81738f43b35de1cbc0f9b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 3958722301349725570}
+  UnDamagedSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  DamagedSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  isStillThere: 1

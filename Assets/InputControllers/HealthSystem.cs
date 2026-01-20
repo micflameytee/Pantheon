@@ -16,6 +16,7 @@ public class HealthSystem : MonoBehaviour
     // Start is called before the first frame update
     public int StartingHealth = 10;
     private int CurrentHealth;
+    private Statue _statue;
 
     public string Tag
     {
@@ -30,15 +31,16 @@ public class HealthSystem : MonoBehaviour
     private void Awake()
     {
         Collider = GetComponent<Collider2D>();
+        _statue = GetComponent<Statue>();
         CurrentHealth = StartingHealth;
     }
 
-    public void TakeDamage(int damage, GameObject Cause)
+    public void TakeDamage(int damage, PlayerController damageSource)
     {
-        if (gameObject.tag == "Angel" && GetComponent<Statue>().owner == Cause.GetComponent<PlayerController>())
+        if (_statue?.owner == damageSource)
         {
-                Debug.Log($"This statue is owned by {name} has {CurrentHealth} / {StartingHealth} health");
-                return;
+            Debug.Log($"This statue is owned by {name} has {CurrentHealth} / {StartingHealth} health");
+            return;
         }
         CurrentHealth -= damage;
         Debug.Log($"Player {name} has {CurrentHealth} / {StartingHealth} health");
@@ -63,15 +65,16 @@ public class HealthSystem : MonoBehaviour
     public void OnDeath()
     {
         
-        if (Tag != null && Tag == "Wall")
+        if (CompareTag("Wall"))
         {
             Collider.enabled = false;
             _spriteRenderer.color = new  Color32(200, 200, 0, 255);
         }
 
-        if (tag != null && tag == "Angel")
+        if (_statue != null)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            _statue.SetRemoved();
         }
         else
         {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private SpriteRenderer _spriteRenderer;
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
-    public float RespawnCooldown { get; set; }
+    private float RespawnCooldown { get; set; }
+    public float respawnCooldownMax = 3f;
     
     private Rigidbody2D rb;
     
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _damageSystem.Initialize(_healthSystem);
+        _damageSystem.Initialize(this);
         playerNumber++;
         name = $"Player {playerNumber}";
     }
@@ -58,10 +60,11 @@ public class PlayerController : MonoBehaviour
         
         RespawnCooldown -= Time.deltaTime;
 
-        if (RespawnCooldown <= 0f)
+        if (_isGhost && RespawnCooldown <= 0f)
         {
             //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
-            _isGhost = false;
+            SetGhost(false);
+            transform.position = ownedStatue.GetSpawnPoint().position;
         }
         
 
@@ -85,9 +88,9 @@ public class PlayerController : MonoBehaviour
 
     public void SetGhost(bool isGhost)
     {
-        if (GetComponent<PlayerController>().ownedStatue.stillThere())
+        if (isGhost && ownedStatue != null && ownedStatue.StillThere())
         {
-            RespawnCooldown = 3f;
+            RespawnCooldown = respawnCooldownMax;
         }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 

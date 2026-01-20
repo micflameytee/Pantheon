@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    public Transform[] SpawnPoints;
     private List<PlayerController> _players;
-    private List<Statue> _angels;
+    [SerializeField] private List<Statue> _angels;
 
     public void StartGame(List<PlayerController> players)
     {
@@ -15,11 +14,21 @@ public class LevelController : MonoBehaviour
         
         foreach (PlayerController player in _players)
         {
-            //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
-            player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
-            _angels[i].owner = player;
-            player.ownedStatue = _angels[i];
+            //check that there is an angel for this player
+            
             player.ResetCooldown();
+            player.SetGhost(false);
+            
+            //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
+            Statue angel = _angels[i];
+            player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
+            angel.owner = player;
+            player.ownedStatue = angel;
+            
+            player.transform.position = angel.GetSpawnPoint().position;
+            
+            
+            // _currentSpawnPointIndex = (_currentSpawnPointIndex + 1) % spawnPoints.Length;
             i++;
         }
     }
