@@ -36,7 +36,7 @@ public class MapSlotContainer : MonoBehaviour
             MapSlot mapSlot = instance.GetComponent<MapSlot>();
             
             // Apply map name, map mode and map icon to the map slot from the map data
-            mapSlot.SetData(maps[i].mapName, maps[i].mapMode, maps[i].icon);
+            mapSlot.SetData(maps[i].mapName, MapData.MapMode.NORMAL, maps[i].icon);
             mapSlot.SetToggleGroup(_toggleGroup);
             
             // Set the first slot 

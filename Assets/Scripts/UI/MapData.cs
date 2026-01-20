@@ -5,15 +5,16 @@ using UnityEngine;
 public class MapData : ScriptableObject
 {
     // The name of the actual scene to load
-    public string sceneName { get; private set; }
+    public string sceneName = "SceneName";
     
     // The name of the map
-    public string mapName { get; private set; }
-    
-    public Sprite icon { get; private set; }
+    public string mapName = "Map Name";
+
+    public Sprite icon;
     
     public enum MapMode {NORMAL, GODLESS, DEATHMATCH, GODLESS_DEATHMATCH}
-    public MapMode mapMode {get; private set;}
+
+    public MapMode[] supportedModes;
 
     // Get the map mode as a string
     public static string GetMapModeString(MapMode mapMode)
@@ -38,6 +39,15 @@ public class MapData : ScriptableObject
     [Range(2, 8)] public int playerMin = 2;
 
     [Range(2, 8)] public int playerMax = 2;
+    
+    // Getters and setters
+    // These need to be added manually - they vanish in the editor with the { get, set } trick
+    public string GetSceneName() { return sceneName; }
+    public string GetMapName() { return mapName; }
+    
+    public Sprite GetIcon() { return icon; }
+    
+    public MapMode[] GetSupportedModes() { return supportedModes; }
     
     public int GetPlayerMin() {
         return playerMin;
