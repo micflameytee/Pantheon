@@ -31,20 +31,7 @@ public class MapSlot : MonoBehaviour
     public void SetData(string topText, MapData.MapMode mapMode, Sprite sprite = null)
     {
 	    _topText.text = topText;
-
-	    switch (mapMode)
-	    {
-		    case MapData.MapMode.FFA:
-			    _bottomText.text = "FFA";
-			    break;
-		    case MapData.MapMode._2V2:
-			    _bottomText.text = "2V2";
-			    break;
-		    default:
-			    Debug.LogWarning("Unknown map mode: " + mapMode);
-			    _bottomText.text = string.Empty;
-			    break;
-	    }
+	    _bottomText.text = MapData.GetMapModeString(mapMode);
 	    
 	    if (sprite) { icon.sprite = sprite; }
     }

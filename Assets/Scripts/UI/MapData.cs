@@ -5,20 +5,45 @@ using UnityEngine;
 public class MapData : ScriptableObject
 {
     // The name of the actual scene to load
-    public string sceneName = "SceneName";
+    public string sceneName { get; private set; }
     
     // The name of the map
-    public string mapName = "Awesome Map";
+    public string mapName { get; private set; }
     
-    public Sprite icon;
+    public Sprite icon { get; private set; }
     
-    public enum MapMode {FFA, _2V2}
-    public MapMode mapMode = MapMode.FFA;
-    
-    // Player ranges
-    [Range(2, 8)]
-    public int playerMin = 2;
+    public enum MapMode {NORMAL, GODLESS, DEATHMATCH, GODLESS_DEATHMATCH}
+    public MapMode mapMode {get; private set;}
 
-    [Range(2, 8)]
-    public int playerMax = 2;
+    // Get the map mode as a string
+    public static string GetMapModeString(MapMode mapMode)
+    {
+        switch (mapMode)
+        {
+            case MapMode.NORMAL:
+                return "Normal";
+            case MapMode.GODLESS:
+                return "Godless";
+            case MapMode.DEATHMATCH:
+                return "Deathmatch";
+            case MapMode.GODLESS_DEATHMATCH:
+                return "Godless Deathmatch";
+            default:
+                Debug.LogWarning("Unknown map mode: " + mapMode);
+                return "";
+        }
+    }
+
+    // Player ranges
+    [Range(2, 8)] public int playerMin = 2;
+
+    [Range(2, 8)] public int playerMax = 2;
+    
+    public int GetPlayerMin() {
+        return playerMin;
+    }
+    
+    public int GetPlayerMax() {
+        return playerMax;
+    }
 }
