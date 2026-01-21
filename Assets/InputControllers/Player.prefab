@@ -105,7 +105,8 @@ MonoBehaviour:
   _damageSystem: {fileID: 5003109382455446858}
   _healthSystem: {fileID: 1562376642465694606}
   _spriteRenderer: {fileID: 3190010535762698972}
-  MoveSpeed: 10
+  respawnCooldownMax: 3
+  MoveSpeed: 5
 --- !u!114 &1229857841627432410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +166,8 @@ MonoBehaviour:
     m_ActionName: GameActions/Attack[/Keyboard/space,/Keyboard/rightShift,/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: dee914d0-7eaf-46aa-8026-44ac26134613
-    m_ActionName: GameActions/NextScene[/Keyboard/enter]
+    m_ActionId: adf70c7c-37a9-4852-9b33-f3f697fc0ad7
+    m_ActionName: MenuActions/NextScene[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: KeyboardLeft
   m_DefaultActionMap: GameActions
@@ -221,7 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3190010535762698972}
   StartingHealth: 3
-  Tag: 
 --- !u!50 &6441804837208826776
 Rigidbody2D:
   serializedVersion: 4
@@ -248,7 +248,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &3664494587790424217
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   StrikeCooldown: 1
-  radius: 0.4
+  radius: 0.2
 --- !u!212 &549617278790578720
 SpriteRenderer:
   m_ObjectHideFlags: 0
