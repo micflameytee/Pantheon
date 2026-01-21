@@ -1128,6 +1128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamemode: {fileID: 95930729}
   description: {fileID: 1620037142}
+  gamemodeDropdown: {fileID: 95930727}
 --- !u!1 &670029576
 GameObject:
   m_ObjectHideFlags: 0

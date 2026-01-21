@@ -25,7 +25,7 @@ public class MapSlotContainer : MonoBehaviour
     void Awake()
     {
         // Grab current EventSystem (from the Gameplay scene)
-        eventSystem = EventSystem.current;
+        // eventSystem = EventSystem.current;
         
         // Kill all example / testing child map slots 
         foreach(Transform child in transform)
@@ -57,8 +57,8 @@ public class MapSlotContainer : MonoBehaviour
     void Start()
     {
         UpdateFiltering();
-        Debug.Log(transform.GetChild(0).gameObject);
-        eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
+        //Debug.Log(transform.GetChild(0).gameObject);
+        //eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
     }
 
     // Update visibility of MapSlots based on which category is selected
