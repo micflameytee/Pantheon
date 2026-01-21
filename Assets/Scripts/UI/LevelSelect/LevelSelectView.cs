@@ -10,7 +10,7 @@ namespace UI.LevelSelect
 
         private void Awake()
         {
-            SelectLevel("FreeForAll1");
+            SelectLevel("3PlayerStatueNonSpecificGods1");
         }
 
         
