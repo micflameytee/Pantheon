@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63edb1333c3459dbcfcea4299f7bebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentSelectedLevel: 
+  mapSlotContainer: {fileID: 1516962176}
 --- !u!1 &829921207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,9 +2622,12 @@ MonoBehaviour:
   eventSystem: {fileID: 0}
   mapSlotPrefab: {fileID: 7702886871205086447, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
   maps:
-  - {fileID: 11400000, guid: 6cc32158ab5a1d4c4b9641a0f719f08d, type: 2}
-  - {fileID: 11400000, guid: 4af74808f6a2bb734ba7e593dd9160e5, type: 2}
+  - {fileID: 11400000, guid: b321992ddcb07c2319babbdb8ae628f3, type: 2}
+  - {fileID: 11400000, guid: a2383132a3749051899c57f4fc9cceef, type: 2}
+  - {fileID: 11400000, guid: 012d7f1e158e7005190e223082f1dcc5, type: 2}
+  - {fileID: 11400000, guid: 910710bc01120e3699be3c35ecad1207, type: 2}
   gamemode: {fileID: 95930729}
+  currentSelectedScene: 
 --- !u!1 &1620037140
 GameObject:
   m_ObjectHideFlags: 0

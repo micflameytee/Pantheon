@@ -18,6 +18,8 @@ public class MapSlot : MonoBehaviour
     private TMP_Text _bottomText;
 	
 	public Toggle toggle;
+
+	[HideInInspector] public string sceneName;
     
     // Start is called before the first frame update
     void Awake()
@@ -31,10 +33,11 @@ public class MapSlot : MonoBehaviour
         OnToggleChanged(toggle.isOn);
 	}
 
-    public void SetData(string topText, MapData.MapMode[] supportedModes, Sprite sprite = null)
+    public void SetData(string topText, MapData.MapMode[] supportedModes, string sceneName, Sprite sprite = null)
     {
 	    _topText.text = topText;
 	    _bottomText.text = "";
+	    this.sceneName = sceneName;
 	    //_bottomText.text = MapData.GetMapModeString(mapMode);
 
 	    _supportedModes = supportedModes;

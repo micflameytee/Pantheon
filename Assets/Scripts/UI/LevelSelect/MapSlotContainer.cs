@@ -18,6 +18,9 @@ public class MapSlotContainer : MonoBehaviour
     
     public TMP_Dropdown gamemode;
     
+    [HideInInspector]
+    public string currentSelectedScene; 
+    
     // NOTE: mapSlots needs to be initialized before MainMenu calls FocusFirst
     void Awake()
     {
@@ -38,8 +41,11 @@ public class MapSlotContainer : MonoBehaviour
             MapSlot mapSlot = instance.GetComponent<MapSlot>();
             _mapSlots.Add(instance.gameObject);
             
+            Toggle toggle = instance.GetComponent<Toggle>();
+            toggle.onValueChanged.AddListener(delegate { OnMapSlotSelected(mapSlot); });
+            
             // Apply map name, map mode and map icon to the map slot from the map data
-            mapSlot.SetData(maps[i].mapName, maps[i].supportedModes, maps[i].icon);
+            mapSlot.SetData(maps[i].mapName, maps[i].supportedModes, maps[i].sceneName, maps[i].icon);
             mapSlot.SetToggleGroup(_toggleGroup);
             
         }
@@ -72,5 +78,10 @@ public class MapSlotContainer : MonoBehaviour
             }
             
         }
+    }
+
+    public void OnMapSlotSelected(MapSlot mapSlot)
+    {
+        currentSelectedScene = mapSlot.sceneName;
     }
 }
