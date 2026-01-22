@@ -9,13 +9,13 @@ using UnityEngine.Serialization;
 public class HealthSystem : MonoBehaviour
 {
     
-    private Collider2D Collider;
+    private Collider2D _collider;
     [SerializeField]private SpriteRenderer _spriteRenderer;
     
     
     // Start is called before the first frame update
-    public int StartingHealth = 10;
-    private int CurrentHealth;
+    public int startingHealth = 10;
+    public int currentHealth;
     private Statue _statue;
 
     public string Tag
@@ -30,20 +30,25 @@ public class HealthSystem : MonoBehaviour
     
     private void Awake()
     {
-        Collider = GetComponent<Collider2D>();
+        _collider = GetComponent<Collider2D>();
         _statue = GetComponent<Statue>();
-        CurrentHealth = StartingHealth;
+        currentHealth = startingHealth;
+        
+        if (CompareTag("Wall") && currentHealth >= 5)
+        {
+            _spriteRenderer.color = new  Color32(200, 100, 200, 255);
+        }
     }
 
     public void TakeDamage(int damage, PlayerController damageSource)
     {
         if (_statue?.owner == damageSource)
         {
-            Debug.Log($"This statue is owned by {name} has {CurrentHealth} / {StartingHealth} health");
+            Debug.Log($"This statue is owned by {name} has {currentHealth} / {startingHealth} health");
             return;
         }
-        CurrentHealth -= damage;
-        Debug.Log($"Player {name} has {CurrentHealth} / {StartingHealth} health");
+        currentHealth -= damage;
+        Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
         
         
         CheckHealth();
@@ -51,15 +56,16 @@ public class HealthSystem : MonoBehaviour
 
     public int CheckHealth()
     {
-        if (tag != null && tag == "Wall" && CurrentHealth == 1)
+        
+        if (CompareTag("Wall") && currentHealth == 1)
         {
             _spriteRenderer.color = new  Color32(200, 100, 0, 255);
         }
-        if (CurrentHealth <= 0)
+        if (currentHealth <= 0)
         {
             OnDeath();
         }
-        return CurrentHealth;
+        return currentHealth;
     }
 
     public void OnDeath()
@@ -67,7 +73,7 @@ public class HealthSystem : MonoBehaviour
         
         if (CompareTag("Wall"))
         {
-            Collider.enabled = false;
+            _collider.enabled = false;
             _spriteRenderer.color = new  Color32(200, 200, 0, 255);
         }
 

@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    public Statue ownedStatue { get; set; }
+    public Statue OwnedStatue { get; set; }
     
     
     [SerializeField]private DamageSystem _damageSystem;
@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
     private float RespawnCooldown { get; set; }
     public float respawnCooldownMax = 3f;
     
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     
-    private static int playerNumber;
+    private static int _playerNumber;
 
-    public float MoveSpeed = 10f;
+public float moveSpeed = 5f;
     private Vector2 _moveDirection = Vector2.zero;
     
     
@@ -40,15 +40,15 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         RespawnCooldown = 100000000000f;
     }
 
     private void Awake()
     {
         _damageSystem.Initialize(this);
-        playerNumber++;
-        name = $"Player {playerNumber}";
+        _playerNumber++;
+        name = $"Player {_playerNumber}";
     }
 
     private void Update()
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         {
             //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
             SetGhost(false);
-            transform.position = ownedStatue.GetSpawnPoint().position;
+            transform.position = OwnedStatue.GetSpawnPoint().position;
         }
         
 
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     }
     
     void FixedUpdate() {
-            rb.velocity = _moveDirection * MoveSpeed;
+            _rb.velocity = _moveDirection * moveSpeed;
     }
 
     public void ResetCooldown()
@@ -88,13 +88,18 @@ public class PlayerController : MonoBehaviour
 
     public void SetGhost(bool isGhost)
     {
-        if (isGhost && ownedStatue != null && ownedStatue.StillThere())
+        if (isGhost && OwnedStatue !=null && OwnedStatue.StillThere())
         {
             RespawnCooldown = respawnCooldownMax;
+        }
+        else
+        {
+            RespawnCooldown = 86400f;
+            _healthSystem.currentHealth = _healthSystem.startingHealth;
         }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 
             ? new  Color32(50, 255, 50, 128)
-            : new  Color32(255, 255, 255, 255);;
+            : new  Color32(255, 255, 255, 255);
     }
 }

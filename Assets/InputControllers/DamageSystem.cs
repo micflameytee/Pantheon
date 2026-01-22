@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DamageSystem : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int Damage = 1;
-    public float StrikeCooldown = 1f;
+    public int damage = 1;
+    public float strikeCooldown = 1f;
     public float radius = 1;
     private float _cooldownTimer = 0f;
     
@@ -48,11 +49,11 @@ public class DamageSystem : MonoBehaviour
             {
                 Debug.Log($"{_myHealthSystem.name} is attacking {targetSystem.name}");
                 
-                targetSystem.TakeDamage(Damage, _player);
+                targetSystem.TakeDamage(damage, _player);
             }
         }
 
-        _cooldownTimer = StrikeCooldown;
+        _cooldownTimer = strikeCooldown;
     }
 
     public void OnDrawGizmos()

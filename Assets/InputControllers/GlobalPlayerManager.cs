@@ -75,7 +75,7 @@ public class GlobalPlayerManager : MonoBehaviour
     {
         if (players.Contains(player))
         {
-            if (!player.ownedStatue.StillThere())
+            if (!player.OwnedStatue.StillThere())
             {
                 players.Remove(player);
             }

@@ -106,7 +106,7 @@ MonoBehaviour:
   _healthSystem: {fileID: 1562376642465694606}
   _spriteRenderer: {fileID: 3190010535762698972}
   respawnCooldownMax: 3
-  MoveSpeed: 5
+  moveSpeed: 4
 --- !u!114 &1229857841627432410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3190010535762698972}
-  StartingHealth: 3
+  startingHealth: 3
+  currentHealth: 0
 --- !u!50 &6441804837208826776
 Rigidbody2D:
   serializedVersion: 4
@@ -294,8 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff82df94fde534c43aeebdd9d6e11082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
-  StrikeCooldown: 1
+  damage: 1
+  strikeCooldown: 1
   radius: 0.2
 --- !u!212 &549617278790578720
 SpriteRenderer:

@@ -23,7 +23,7 @@ public class LevelController : MonoBehaviour
             Statue angel = _angels[i];
             player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
             angel.owner = player;
-            player.ownedStatue = angel;
+            player.OwnedStatue = angel;
             
             player.transform.position = angel.GetSpawnPoint().position;
             
