@@ -31,8 +31,7 @@ public class Statue : MonoBehaviour
     {
         isStillThere = false;
         // change sprite to crumbled statue
-        //_spriteRenderer.sprite = DamagedSprite;
-        _spriteRenderer.color = new  Color32(200, 200, 0, 255);
+        _spriteRenderer.sprite = DamagedSprite;
     }
 
     public bool StillThere()

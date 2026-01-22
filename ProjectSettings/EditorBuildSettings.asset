@@ -32,5 +32,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3 player/3PlayerRoomWorld.unity
     guid: 8c182108aaecf7443abb5bd944727691
+  - enabled: 1
+    path: Assets/Scenes/4 player/4PlayerDefault.unity
+    guid: ed7c6ec920469d94895946ed59cb3a31
+  - enabled: 1
+    path: Assets/Scenes/4 player/4PlayerFilledWorld.unity
+    guid: da4a83c934fab524a903adc6057ea3c8
+  - enabled: 1
+    path: Assets/Scenes/8 player/8PlayerDefault.unity
+    guid: 98ab31ee7acfc744780f5cf79bb7c9ba
+  - enabled: 1
+    path: Assets/Scenes/8 player/8PlayerFilledWorld.unity
+    guid: 27724c31c5079aa44930fa5cc9ed8b88
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 015a516c520680e4b8c5077200185f63, type: 2}

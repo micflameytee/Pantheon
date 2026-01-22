@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.625
@@ -196,6 +200,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -300,6 +308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.125
@@ -372,6 +384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.625
@@ -433,6 +449,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -496,6 +516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.625
@@ -557,6 +581,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -651,6 +679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.375
@@ -713,6 +745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.625
@@ -774,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -949,6 +989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -1005,6 +1049,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1068,6 +1116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -1124,6 +1176,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1187,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.375
@@ -1248,6 +1308,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1311,6 +1375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -1371,6 +1439,10 @@ PrefabInstance:
     - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: Tag
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1438,6 +1510,10 @@ PrefabInstance:
       propertyPath: Tag
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.375
@@ -1499,6 +1575,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1562,6 +1642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -1618,6 +1702,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1680,6 +1768,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1774,6 +1866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.625
@@ -1836,6 +1932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (80)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.625
@@ -1897,6 +1997,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1991,6 +2095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -2051,6 +2159,10 @@ PrefabInstance:
     - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: Tag
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2114,6 +2226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -2175,6 +2291,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2334,6 +2454,10 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[2]
       value: 
       objectReference: {fileID: 463797346}
+    - target: {fileID: 3682285824834840340, guid: 57dfa7ccc245d1945aab047029faf8fd, type: 3}
+      propertyPath: startingHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4436973508741395529, guid: 57dfa7ccc245d1945aab047029faf8fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5
@@ -2424,6 +2548,10 @@ PrefabInstance:
       propertyPath: Tag
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.125
@@ -2486,6 +2614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -2542,6 +2674,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2605,6 +2741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -2666,6 +2806,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2732,6 +2876,10 @@ PrefabInstance:
     - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: Tag
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2843,6 +2991,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.125
@@ -2904,6 +3056,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2972,6 +3128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.625
@@ -3033,6 +3193,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3096,6 +3260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -3157,6 +3325,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3220,6 +3392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.625
@@ -3281,6 +3457,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3370,6 +3550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -3431,6 +3615,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3494,6 +3682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.625
@@ -3555,6 +3747,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (81)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3618,6 +3814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.625
@@ -3679,6 +3879,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3742,6 +3946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -3803,6 +4011,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3970,6 +4182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.875
@@ -4085,6 +4301,10 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[2]
       value: 
       objectReference: {fileID: 1342130554}
+    - target: {fileID: 3682285824834840340, guid: 57dfa7ccc245d1945aab047029faf8fd, type: 3}
+      propertyPath: startingHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4436973508741395529, guid: 57dfa7ccc245d1945aab047029faf8fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -4160,6 +4380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.625
@@ -4222,6 +4446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.375
@@ -4283,6 +4511,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4354,6 +4586,10 @@ PrefabInstance:
     - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: Tag
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4453,6 +4689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -4514,6 +4754,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4608,6 +4852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.625
@@ -4669,6 +4917,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4744,6 +4996,10 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[2]
       value: 
       objectReference: {fileID: 226091608}
+    - target: {fileID: 3682285824834840340, guid: 57dfa7ccc245d1945aab047029faf8fd, type: 3}
+      propertyPath: startingHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4436973508741395529, guid: 57dfa7ccc245d1945aab047029faf8fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4871,6 +5127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.125
@@ -4937,6 +5197,10 @@ PrefabInstance:
       propertyPath: Tag
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.875
@@ -4998,6 +5262,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5061,6 +5329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -5123,6 +5395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -5179,6 +5455,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5240,6 +5520,10 @@ PrefabInstance:
     - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: Tag
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5307,6 +5591,10 @@ PrefabInstance:
       propertyPath: Tag
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.625
@@ -5373,6 +5661,10 @@ PrefabInstance:
       propertyPath: Tag
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.375
@@ -5433,6 +5725,10 @@ PrefabInstance:
     - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: Tag
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5496,6 +5792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -5552,6 +5852,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5610,6 +5914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.625
@@ -5666,6 +5974,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5740,6 +6052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.625
@@ -5806,6 +6122,10 @@ PrefabInstance:
       propertyPath: Tag
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.125
@@ -5871,6 +6191,10 @@ PrefabInstance:
     - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: Tag
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5939,6 +6263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.625
@@ -6000,6 +6328,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6068,6 +6400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.125
@@ -6129,6 +6465,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6192,6 +6532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.875
@@ -6253,6 +6597,10 @@ PrefabInstance:
     - target: {fileID: 3436960729013557540, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_Name
       value: BreakableWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126047720118845286, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
+      propertyPath: startingHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202559111133131944, guid: d0ec36bf13c08b243bd2092c0b664c67, type: 3}
       propertyPath: m_LocalPosition.x
