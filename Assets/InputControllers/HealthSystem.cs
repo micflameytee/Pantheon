@@ -14,7 +14,6 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private Sprite UnDamagedSprite;
     [SerializeField] private Sprite DamagedSprite;
     [SerializeField] private Sprite DestroyedSprite;
-    Vector2 originalSize;
     
     
     // Start is called before the first frame update
@@ -37,16 +36,18 @@ public class HealthSystem : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _statue = GetComponent<Statue>();
         currentHealth = startingHealth;
-        originalSize = _spriteRenderer.size;
         if (CompareTag("Wall"))
         {
             _spriteRenderer.sprite = UnDamagedSprite;
-            _spriteRenderer.size = originalSize; 
             
-        if (currentHealth >= 5)
+            
+            if (currentHealth >= 5)
             {
-                _spriteRenderer.color = new  Color32(200, 100, 200, 255);
+                //_spriteRenderer.color = new  Color32(255, 100, 100, 255);
             }
+        } else if(CompareTag("Angel"))
+        {
+            _spriteRenderer.sprite = UnDamagedSprite;
         }
     }
 
@@ -70,8 +71,10 @@ public class HealthSystem : MonoBehaviour
         if (CompareTag("Wall") && currentHealth == startingHealth / 2)
         {
             _spriteRenderer.sprite = DamagedSprite;
-            _spriteRenderer.size = originalSize; 
             //_spriteRenderer.color = new  Color32(200, 100, 0, 255);
+        } else if(CompareTag("Angel") && currentHealth == startingHealth / 2)
+        {
+            _spriteRenderer.sprite = DamagedSprite;
         }
         if (currentHealth <= 0)
         {
@@ -87,8 +90,10 @@ public class HealthSystem : MonoBehaviour
         {
             _collider.enabled = false;
             _spriteRenderer.sprite = DestroyedSprite;
-            _spriteRenderer.size = originalSize; 
             //_spriteRenderer.color = new  Color32(200, 200, 0, 255);
+        } else if(CompareTag("Angel"))
+        {
+            _spriteRenderer.sprite = DestroyedSprite;
         }
 
         if (_statue != null)
