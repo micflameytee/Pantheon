@@ -11,6 +11,11 @@ public class MapSlot : MonoBehaviour
     public GameObject topTextGameObject;
     public GameObject bottomTextGameObject;
 
+    [HideInInspector]
+    public int playerMin;
+    [HideInInspector]
+    public int playerMax;
+
     
     private MapData.MapMode[] _supportedModes;
 
@@ -33,15 +38,19 @@ public class MapSlot : MonoBehaviour
         OnToggleChanged(toggle.isOn);
 	}
 
-    public void SetData(string topText, MapData.MapMode[] supportedModes, string sceneName, Sprite sprite = null)
+    public void SetData(string sceneName, string mapName, MapData.MapMode[] supportedModes, int playerMin, int playerMax, Sprite sprite = null)
     {
-	    _topText.text = topText;
+	    _topText.text = mapName;
 	    _bottomText.text = "";
 	    this.sceneName = sceneName;
-	    //_bottomText.text = MapData.GetMapModeString(mapMode);
-
+	    
 	    _supportedModes = supportedModes;
 
+	    this.playerMin = playerMin; 
+	    this.playerMax = playerMax;
+	    //_bottomText.text = MapData.GetMapModeString(mapMode);
+
+	    
 	    if (sprite)
 	    {
 		    icon.sprite = sprite;

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class MapSlotContainer : MonoBehaviour
 {
-    public EventSystem eventSystem;
+    private GlobalPlayerManager _globalPlayerManager;
     private ToggleGroup _toggleGroup;
 
     public Transform mapSlotPrefab;
@@ -26,6 +26,8 @@ public class MapSlotContainer : MonoBehaviour
     {
         // Grab current EventSystem (from the Gameplay scene)
         // eventSystem = EventSystem.current;
+        
+        _globalPlayerManager = FindObjectOfType<GlobalPlayerManager>();
         
         // Kill all example / testing child map slots 
         foreach(Transform child in transform)
@@ -45,7 +47,7 @@ public class MapSlotContainer : MonoBehaviour
             toggle.onValueChanged.AddListener(delegate { OnMapSlotSelected(mapSlot); });
             
             // Apply map name, map mode and map icon to the map slot from the map data
-            mapSlot.SetData(maps[i].mapName, maps[i].supportedModes, maps[i].sceneName, maps[i].icon);
+            mapSlot.SetData(maps[i].sceneName, maps[i].mapName, maps[i].supportedModes, maps[i].playerMin, maps[i].playerMax, maps[i].icon);
             mapSlot.SetToggleGroup(_toggleGroup);
             
         }
@@ -64,16 +66,31 @@ public class MapSlotContainer : MonoBehaviour
     // Update visibility of MapSlots based on which category is selected
     public void UpdateFiltering()
     {
+        int count = _globalPlayerManager.players.Count;
+        // Debug.Log(count);
+        
         foreach (GameObject mapSlot in _mapSlots)
         {
             MapSlot mapSlotScript = mapSlot.GetComponent<MapSlot>();
-
+            
+            // Filter out maps if unsupported gamemode
             if (mapSlotScript.IsSupportedMode((MapData.MapMode) gamemode.value))
             {
                 mapSlot.SetActive(true);
             }
             else
             {
+                mapSlot.SetActive(false);
+            }
+            
+            // Filter out maps if unsupported player count
+            if (count >= mapSlotScript.playerMin && count <= mapSlotScript.playerMax)
+            {
+                Debug.Log("Allowing " + mapSlotScript.sceneName);
+            }
+            else
+            {
+                Debug.Log("Removing " + mapSlotScript.sceneName);
                 mapSlot.SetActive(false);
             }
             
