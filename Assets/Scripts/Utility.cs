@@ -9,4 +9,9 @@ public class Utility : MonoBehaviour
     {
         SceneManager.LoadScene(levelName);
     }
+
+    public static void UnloadLevel(string levelName)
+    {
+        SceneManager.UnloadSceneAsync(levelName);
+    }
 }

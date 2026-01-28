@@ -7,6 +7,7 @@ namespace UI.LevelSelect
     {
         public Action<string> OnLevelSelected;
         public MapSlotContainer mapSlotContainer;
+        public string lobbySceneName;
 
         private void Awake()
         {
@@ -25,6 +26,12 @@ namespace UI.LevelSelect
         public void StartLevel()
         {
             OnLevelSelected?.Invoke(mapSlotContainer.currentSelectedScene);
+        }
+
+        public void BackToLobby()
+        {
+            Utility.UnloadLevel("GameplayScene");
+            Utility.LoadLevel("GameplayScene");
         }
     }
 }
