@@ -55,7 +55,7 @@ public class DamageSystem : MonoBehaviour
 
         _cooldownTimer = strikeCooldown;
     }
-
+    
     public void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
