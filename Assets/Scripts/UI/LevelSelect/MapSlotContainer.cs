@@ -17,6 +17,7 @@ public class MapSlotContainer : MonoBehaviour
     private List<GameObject> _mapSlots = new List<GameObject>();
     
     public TMP_Dropdown gamemode;
+    public Button playButton;
     
     [HideInInspector]
     public string currentSelectedScene; 
@@ -51,16 +52,11 @@ public class MapSlotContainer : MonoBehaviour
             mapSlot.SetToggleGroup(_toggleGroup);
             
         }
-
-        // Get all child MapSlots
-        // _mapSlots = this.GetComponentsInChildren<MapSlot>();
     }
 
     void Start()
     {
         UpdateFiltering();
-        //Debug.Log(transform.GetChild(0).gameObject);
-        //eventSystem.SetSelectedGameObject(transform.GetChild(0).gameObject);
     }
 
     // Update visibility of MapSlots based on which category is selected
@@ -86,19 +82,35 @@ public class MapSlotContainer : MonoBehaviour
             // Filter out maps if unsupported player count
             if (count >= mapSlotScript.playerMin && count <= mapSlotScript.playerMax)
             {
-                Debug.Log("Allowing " + mapSlotScript.sceneName);
+                // Debug.Log("Allowing " + mapSlotScript.sceneName);
             }
             else
             {
-                Debug.Log("Removing " + mapSlotScript.sceneName);
+                // Debug.Log("Removing " + mapSlotScript.sceneName);
                 mapSlot.SetActive(false);
             }
-            
         }
+        
+        UpdatePlayButton();
     }
 
     public void OnMapSlotSelected(MapSlot mapSlot)
     {
         currentSelectedScene = mapSlot.sceneName;
+        UpdatePlayButton();
+    }
+
+    // Checks whether the play button needs to be disabled (no valid map selected) and updates it accordingly
+    void UpdatePlayButton()
+    {
+        playButton.interactable = false;
+        foreach (Toggle toggle in _toggleGroup.ActiveToggles())
+        {
+            if (toggle.gameObject.activeInHierarchy)
+            {
+                playButton.interactable = true;
+                Debug.Log(toggle.gameObject.name + " is active");
+            }
+        }
     }
 }

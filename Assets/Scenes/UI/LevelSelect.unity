@@ -2030,7 +2030,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.96862745, g: 0.5882353, b: 0.09019608, a: 1}
     m_PressedColor: {r: 0.9764706, g: 0.7607843, b: 0.16862746, a: 1}
     m_SelectedColor: {r: 0.96862745, g: 0.5882353, b: 0.09019608, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.60784316, g: 0.67058825, b: 0.69803923, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2620,7 +2620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ddc4bd96c9a55f6bde2e09d64a2bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 0}
   mapSlotPrefab: {fileID: 7702886871205086447, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
   maps:
   - {fileID: 11400000, guid: b321992ddcb07c2319babbdb8ae628f3, type: 2}
@@ -2638,6 +2637,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0920640217a07b64e80af2d9475dc1de, type: 2}
   - {fileID: 11400000, guid: f8488b539cd1dde46aa414b4f04c5111, type: 2}
   gamemode: {fileID: 95930729}
+  playButton: {fileID: 1059376417}
   currentSelectedScene: 
 --- !u!1 &1620037140
 GameObject:
