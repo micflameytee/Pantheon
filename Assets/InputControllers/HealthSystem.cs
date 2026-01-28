@@ -53,15 +53,13 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage, PlayerController damageSource)
     {
-        if (_statue?.owner == damageSource)
+        if (_statue != null && _statue.owner !=null && _statue?.owner == damageSource)
         {
             Debug.Log($"This statue is owned by {name} has {currentHealth} / {startingHealth} health");
             return;
         }
         currentHealth -= damage;
         Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
-        
-        
         CheckHealth();
     }
 

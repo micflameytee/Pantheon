@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Free for all/AnyNumber.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/3 player/3PlayerDefault.unity
+    path: Assets/Scenes/3 player/3PlayerDefaultWorld.unity
     guid: 795e34baa75feb24e96975eff0e02f75
   - enabled: 1
     path: Assets/Scenes/3 player/3PlayerFilledWorld.unity
@@ -33,31 +33,31 @@ EditorBuildSettings:
     path: Assets/Scenes/3 player/3PlayerRoomWorld.unity
     guid: 8c182108aaecf7443abb5bd944727691
   - enabled: 1
-    path: Assets/Scenes/4 player/4PlayerDefault.unity
+    path: Assets/Scenes/4 player/4PlayerDefaultWorld.unity
     guid: ed7c6ec920469d94895946ed59cb3a31
   - enabled: 1
     path: Assets/Scenes/4 player/4PlayerFilledWorld.unity
     guid: da4a83c934fab524a903adc6057ea3c8
   - enabled: 1
-    path: Assets/Scenes/8 player/8PlayerDefault.unity
+    path: Assets/Scenes/8 player/8PlayerDefaultWorld.unity
     guid: 98ab31ee7acfc744780f5cf79bb7c9ba
   - enabled: 1
     path: Assets/Scenes/8 player/8PlayerFilledWorld.unity
     guid: 27724c31c5079aa44930fa5cc9ed8b88
   - enabled: 1
-    path: Assets/Scenes/2 player/2PlayerDefault.unity
+    path: Assets/Scenes/2 player/2PlayerDefaultWorld.unity
     guid: 9b6ed9cebd29d8a4d9b50e3ec514c028
   - enabled: 1
     path: Assets/Scenes/2 player/2PlayerFilledWorld.unity
     guid: 6ef88b6ba1fdb644da6c1ebbe114c933
   - enabled: 1
-    path: Assets/Scenes/2 player/2PlayerMaze.unity
+    path: Assets/Scenes/2 player/2PlayerMazeWorld.unity
     guid: fd1970cc27e43fd4381ffd57ee1d5559
   - enabled: 1
     path: Assets/Scenes/2 player/2PlayerRoomWorld.unity
     guid: dbc2cefcf3f698e40887bd1c5386dae4
   - enabled: 1
-    path: Assets/Scenes/4 player/4PlayerMaze.unity
+    path: Assets/Scenes/4 player/4PlayerMazeWorld.unity
     guid: 2c0bd3fd84123fe4e91d8e8ab08da8e6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 015a516c520680e4b8c5077200185f63, type: 2}

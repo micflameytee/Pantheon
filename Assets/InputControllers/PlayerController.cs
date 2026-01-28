@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
     private bool _isGhost;
     private float RespawnCooldown { get; set; }
     public float respawnCooldownMax = 3f;
-    
+
+    public bool CanMove { get; set; } = true;
+
     private Rigidbody2D _rb;
     
     private static int _playerNumber;
@@ -67,7 +69,6 @@ public float moveSpeed = 5f;
             transform.position = OwnedStatue.GetSpawnPoint().position;
         }
         
-
         if (_moveDirection.sqrMagnitude > 0f)
         {
             // convert the _moveDirection into a 2d rotation direction
@@ -78,7 +79,12 @@ public float moveSpeed = 5f;
     }
     
     void FixedUpdate() {
-            _rb.velocity = _moveDirection * moveSpeed;
+        if (!CanMove)
+        {
+            _rb.velocity = Vector2.zero;
+            return;
+        }
+        _rb.velocity = _moveDirection * moveSpeed;
     }
 
     public void ResetCooldown()
