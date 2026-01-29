@@ -8,7 +8,8 @@ public class BearTrap : MonoBehaviour
 {
     public PlayerController owner { get; set; }
     private PlayerController _otherController;
-    [SerializeField]private float _movementCooldown = 5f;
+    private float _movementCooldown = 5f;
+    [SerializeField]private float MaxCooldown = 5f;
     private bool cooldownActive = false;
     
     
@@ -16,6 +17,11 @@ public class BearTrap : MonoBehaviour
     {
         Debug.Log($"bearTrap");
         _otherController = other.GetComponent<PlayerController>();
+        if (_otherController.GetGhost())
+        {
+            Debug.Log($"dead");
+            return;
+        }
         if (_otherController != null && other.CompareTag("Player") && owner != _otherController)
         {
             Debug.Log($"other player");
@@ -38,6 +44,7 @@ public class BearTrap : MonoBehaviour
         {
             cooldownActive = false;
             _otherController.CanMove = true;
+            _movementCooldown = MaxCooldown;
         }
     }
 }
