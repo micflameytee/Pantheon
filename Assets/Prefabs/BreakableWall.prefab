@@ -132,6 +132,7 @@ MonoBehaviour:
   DestroyedSprite: {fileID: 21300000, guid: c95a4be0bde2f8a4cb23104494ab126b, type: 3}
   startingHealth: 2
   currentHealth: 0
+  hitSound: {fileID: 8300000, guid: 792df7a7388071045b840d7d831faa0e, type: 3}
 --- !u!61 &2628243784900595070
 BoxCollider2D:
   m_ObjectHideFlags: 0

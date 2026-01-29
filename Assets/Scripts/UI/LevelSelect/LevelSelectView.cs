@@ -25,11 +25,13 @@ namespace UI.LevelSelect
 
         public void StartLevel()
         {
+            SFX.Instance.PlaySound("ui_select");
             OnLevelSelected?.Invoke(mapSlotContainer.currentSelectedScene);
         }
 
         public void BackToLobby()
         {
+            SFX.Instance.PlaySound("ui_back");
             Utility.UnloadLevel("GameplayScene");
             Utility.LoadLevel("GameplayScene");
         }

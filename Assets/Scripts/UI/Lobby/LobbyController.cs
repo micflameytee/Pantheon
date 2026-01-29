@@ -47,6 +47,7 @@ namespace UI.Lobby
         {
             yield return SceneManager.UnloadSceneAsync("Lobby");
             _view = null;
+            SFX.Instance.PlaySound("ui_select");
         }
 
 
@@ -54,6 +55,7 @@ namespace UI.Lobby
         {
             _playerCount++;
             _view?.AddNewPlayer(player, "Player " + _playerCount);
+            SFX.Instance.PlaySound("ui_chime");
         }
     }
 }

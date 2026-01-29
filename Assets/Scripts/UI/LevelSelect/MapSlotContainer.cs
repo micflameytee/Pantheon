@@ -96,6 +96,7 @@ public class MapSlotContainer : MonoBehaviour
 
     public void OnMapSlotSelected(MapSlot mapSlot)
     {
+        SFX.Instance.PlaySound("ui_select");
         currentSelectedScene = mapSlot.sceneName;
         UpdatePlayButton();
     }

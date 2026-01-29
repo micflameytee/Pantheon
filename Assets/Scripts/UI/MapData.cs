@@ -71,9 +71,9 @@ public class MapData : ScriptableObject
     }
     
     // Player ranges
-    [Range(2, 8)] public int playerMin = 2;
+    [Range(1, 8)] public int playerMin = 2;
 
-    [Range(2, 8)] public int playerMax = 2;
+    [Range(1, 8)] public int playerMax = 2;
     
     // Getters and setters
     // These need to be added manually - they vanish in the editor with the { get, set } trick
