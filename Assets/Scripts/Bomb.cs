@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Bomb : MonoBehaviour
 {   
-    private PlayerController owner { get; set; }
+    public PlayerController owner { get; set; }
     public int damage = 3;    
     private RaycastHit2D[] _hits = new RaycastHit2D[20];
     private PlayerController _otherController;
@@ -31,6 +31,11 @@ public class Bomb : MonoBehaviour
     {
         Debug.Log($"bomb");
         _otherController = other.GetComponent<PlayerController>();
+        if (_otherController.GetGhost())
+        {
+            Debug.Log($"dead");
+            return;
+        }
         if (_otherController != null && other.CompareTag("Player") && owner != _otherController)
         {
             Debug.Log($"other player");
