@@ -1446,6 +1446,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 869580847}
   focusButton: {fileID: 846421402}
+--- !u!1 &1599311549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599311551}
+  - component: {fileID: 1599311550}
+  - component: {fileID: 1599311552}
+  m_Layer: 0
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1599311550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599311549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bea7d24baa6040d6bfb75ce2759a7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1599311551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599311549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599311552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599311549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acf0e293faba5b5b92cb9e06da63757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPlayerPrefab: {fileID: 6668202923414297235, guid: 47f759c9775561a8eb797d01650cccb6, type: 3}
+  audioClips:
+  - {fileID: 8300000, guid: ed7bb32a1c9708d4ebca50d30a0a3c8c, type: 3}
+  - {fileID: 8300000, guid: 8ad7079d1542a9940a6e87fdb052e565, type: 3}
+  - {fileID: 8300000, guid: 792df7a7388071045b840d7d831faa0e, type: 3}
+  - {fileID: 8300000, guid: 4d3377eee3b6298489a29a75a851cd42, type: 3}
+  - {fileID: 8300000, guid: 49b847bcc6f64f544b5f3627585d271c, type: 3}
+  - {fileID: 8300000, guid: 80792f0c49cc85c4a90fece84eff7667, type: 3}
+  - {fileID: 8300000, guid: 2f82d0b9de126c84bb01e66eb4701fb9, type: 3}
+  - {fileID: 8300000, guid: f6eb8cdbbf46b2f4ea40973483eb7947, type: 3}
+  - {fileID: 8300000, guid: 6d8072b76c369e54bbacc601c8d0b4ae, type: 3}
+  - {fileID: 8300000, guid: 314b7db16ad798d41b23036b8f79bb97, type: 3}
+  - {fileID: 8300000, guid: 216d350dbeba838439fbecd2cf27c6bb, type: 3}
+  - {fileID: 8300000, guid: 7de643bb53b0b6e4486aedbd6be5e03f, type: 3}
+  - {fileID: 8300000, guid: cfc448320164e0f438234c8b1ba60d45, type: 3}
 --- !u!1 &2051275937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,3 +1659,4 @@ SceneRoots:
   - {fileID: 514734681}
   - {fileID: 887966344}
   - {fileID: 869580848}
+  - {fileID: 1599311551}
