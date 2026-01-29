@@ -3008,7 +3008,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bbc24a4943bbef54b8d0d8eb172aecdc, type: 2}
   - {fileID: 11400000, guid: 0920640217a07b64e80af2d9475dc1de, type: 2}
   - {fileID: 11400000, guid: f8488b539cd1dde46aa414b4f04c5111, type: 2}
-  - {fileID: 11400000, guid: 5288085aa2a794cb680c55c33735408c, type: 2}
   gamemode: {fileID: 95930729}
   playButton: {fileID: 1059376417}
   currentSelectedScene: 
