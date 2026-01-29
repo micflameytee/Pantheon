@@ -19,6 +19,7 @@ public class HealthSystem : MonoBehaviour
     // Start is called before the first frame update
     public int startingHealth = 10;
     public int currentHealth;
+    public AudioClip hitSound;
     private Statue _statue;
 
     public string Tag
@@ -59,6 +60,7 @@ public class HealthSystem : MonoBehaviour
             return;
         }
         currentHealth -= damage;
+        SFX.Instance.PlaySound(hitSound, transform.position);
         Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
         CheckHealth();
     }

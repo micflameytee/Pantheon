@@ -486,4 +486,14 @@ MonoBehaviour:
   icon: {fileID: 7429793835114975125}
   topTextGameObject: {fileID: 3037588352798664130}
   bottomTextGameObject: {fileID: 4432549348009296311}
+  playerMin: 0
+  playerMax: 0
   toggle: {fileID: 2294540646755530986}
+  navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  sceneName: 

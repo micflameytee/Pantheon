@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     private Vector2 _moveDirection = Vector2.zero;
+    public AudioClip damageSound;
     
     
     public void HandleMove(InputAction.CallbackContext context)

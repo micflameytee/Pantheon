@@ -23,6 +23,7 @@ public class MapSlot : MonoBehaviour
     private TMP_Text _bottomText;
 	
 	public Toggle toggle;
+	public Navigation navigation;
 
 	[HideInInspector] public string sceneName;
     
@@ -36,7 +37,9 @@ public class MapSlot : MonoBehaviour
         
 		// Set style based on initial state
         OnToggleChanged(toggle.isOn);
-	}
+        
+        navigation = toggle.navigation;
+    }
 
     public void SetData(string sceneName, string mapName, MapData.MapMode[] supportedModes, int playerMin, int playerMax, Sprite sprite = null)
     {
