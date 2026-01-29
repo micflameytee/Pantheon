@@ -44,24 +44,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""BearTrap"",
-                    ""type"": ""Button"",
-                    ""id"": ""162860b8-9713-4a71-909b-477429d3e2e8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""LandMine"",
-                    ""type"": ""Button"",
-                    ""id"": ""42d35958-c700-4e7b-8397-1958a2924d8b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -218,72 +200,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f088d461-82bc-412d-8e48-b9b964c19351"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""BearTrap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5e63b012-4fbe-4501-802e-746592f03778"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardLeft"",
-                    ""action"": ""BearTrap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""01c70ce4-c466-4653-9f67-175c28c000cb"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad2"",
-                    ""action"": ""BearTrap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""002d9a70-7033-4871-88e0-a658f29d0eed"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""LandMine"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0092231a-b653-4bb9-b683-61bd4a9aef9c"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardLeft"",
-                    ""action"": ""LandMine"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2a23b06f-36a2-4aa7-a4c0-3e3fb208153e"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad2"",
-                    ""action"": ""LandMine"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -351,8 +267,8 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Gamepad2"",
-            ""bindingGroup"": ""Gamepad2"",
+            ""name"": ""KeyboardRight"",
+            ""bindingGroup"": ""KeyboardRight"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -367,8 +283,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_GameActions = asset.FindActionMap("GameActions", throwIfNotFound: true);
         m_GameActions_Move = m_GameActions.FindAction("Move", throwIfNotFound: true);
         m_GameActions_Attack = m_GameActions.FindAction("Attack", throwIfNotFound: true);
-        m_GameActions_BearTrap = m_GameActions.FindAction("BearTrap", throwIfNotFound: true);
-        m_GameActions_LandMine = m_GameActions.FindAction("LandMine", throwIfNotFound: true);
         // MenuActions
         m_MenuActions = asset.FindActionMap("MenuActions", throwIfNotFound: true);
         m_MenuActions_NextScene = m_MenuActions.FindAction("NextScene", throwIfNotFound: true);
@@ -435,16 +349,12 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private List<IGameActionsActions> m_GameActionsActionsCallbackInterfaces = new List<IGameActionsActions>();
     private readonly InputAction m_GameActions_Move;
     private readonly InputAction m_GameActions_Attack;
-    private readonly InputAction m_GameActions_BearTrap;
-    private readonly InputAction m_GameActions_LandMine;
     public struct GameActionsActions
     {
         private @GameInputActions m_Wrapper;
         public GameActionsActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_GameActions_Move;
         public InputAction @Attack => m_Wrapper.m_GameActions_Attack;
-        public InputAction @BearTrap => m_Wrapper.m_GameActions_BearTrap;
-        public InputAction @LandMine => m_Wrapper.m_GameActions_LandMine;
         public InputActionMap Get() { return m_Wrapper.m_GameActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -460,12 +370,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
-            @BearTrap.started += instance.OnBearTrap;
-            @BearTrap.performed += instance.OnBearTrap;
-            @BearTrap.canceled += instance.OnBearTrap;
-            @LandMine.started += instance.OnLandMine;
-            @LandMine.performed += instance.OnLandMine;
-            @LandMine.canceled += instance.OnLandMine;
         }
 
         private void UnregisterCallbacks(IGameActionsActions instance)
@@ -476,12 +380,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
-            @BearTrap.started -= instance.OnBearTrap;
-            @BearTrap.performed -= instance.OnBearTrap;
-            @BearTrap.canceled -= instance.OnBearTrap;
-            @LandMine.started -= instance.OnLandMine;
-            @LandMine.performed -= instance.OnLandMine;
-            @LandMine.canceled -= instance.OnLandMine;
         }
 
         public void RemoveCallbacks(IGameActionsActions instance)
@@ -563,21 +461,19 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardLeftSchemeIndex];
         }
     }
-    private int m_Gamepad2SchemeIndex = -1;
-    public InputControlScheme Gamepad2Scheme
+    private int m_KeyboardRightSchemeIndex = -1;
+    public InputControlScheme KeyboardRightScheme
     {
         get
         {
-            if (m_Gamepad2SchemeIndex == -1) m_Gamepad2SchemeIndex = asset.FindControlSchemeIndex("Gamepad2");
-            return asset.controlSchemes[m_Gamepad2SchemeIndex];
+            if (m_KeyboardRightSchemeIndex == -1) m_KeyboardRightSchemeIndex = asset.FindControlSchemeIndex("KeyboardRight");
+            return asset.controlSchemes[m_KeyboardRightSchemeIndex];
         }
     }
     public interface IGameActionsActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnBearTrap(InputAction.CallbackContext context);
-        void OnLandMine(InputAction.CallbackContext context);
     }
     public interface IMenuActionsActions
     {

@@ -11,6 +11,4 @@ public class PlayerDefinition : ScriptableObject
     
     public event Action<Vector2> OnMove;
     public event Action OnAttack;
-    public event Action OnBomb;
-    public event Action OnBearTrap;
 }

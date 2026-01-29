@@ -17,12 +17,6 @@ public class PlayerController : MonoBehaviour
     private bool _isGhost;
     private float RespawnCooldown { get; set; }
     public float respawnCooldownMax = 3f;
-    private float CurrentTrapCooldown = 0f;
-    public float maxTrapCooldown = 3f;
-    
-    
-    public Bomb bomb;
-    public BearTrap bearTrap;
 
     public bool CanMove { get; set; } = true;
 
@@ -30,7 +24,7 @@ public class PlayerController : MonoBehaviour
     
     private static int _playerNumber;
 
-    public float moveSpeed = 5f;
+public float moveSpeed = 5f;
     private Vector2 _moveDirection = Vector2.zero;
     
     
@@ -44,28 +38,6 @@ public class PlayerController : MonoBehaviour
         if (_isGhost)
             return;
         _damageSystem.PreformAttack();
-    }
-
-    public void HandleBomb(InputAction.CallbackContext context)
-    {
-        if (CurrentTrapCooldown > 0 || _isGhost)
-        {
-            return;
-        }
-        var newInstance = Instantiate(bomb, transform.position, transform.rotation);
-        newInstance.owner = this;
-        CurrentTrapCooldown = maxTrapCooldown;
-    }
-
-    public void HandleBearTrap(InputAction.CallbackContext context)
-    {
-        if (CurrentTrapCooldown > 0 || _isGhost)
-        {
-            return;
-        }
-        var newInstance = Instantiate(bearTrap, transform.position, transform.rotation);
-        newInstance.owner = this;
-        CurrentTrapCooldown = maxTrapCooldown;
     }
 
     private void Start()
@@ -88,7 +60,6 @@ public class PlayerController : MonoBehaviour
         
         transform.rotation = oldRotation;
         
-        CurrentTrapCooldown -= Time.deltaTime;
         RespawnCooldown -= Time.deltaTime;
 
         if (_isGhost && RespawnCooldown <= 0f)
@@ -136,10 +107,5 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer.color = isGhost 
             ? new  Color32(50, 255, 50, 128)
             : new  Color32(255, 255, 255, 255);
-    }
-
-    public bool GetGhost()
-    {
-        return _isGhost;
     }
 }

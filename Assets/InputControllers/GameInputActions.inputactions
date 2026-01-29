@@ -22,24 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "BearTrap",
-                    "type": "Button",
-                    "id": "162860b8-9713-4a71-909b-477429d3e2e8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LandMine",
-                    "type": "Button",
-                    "id": "42d35958-c700-4e7b-8397-1958a2924d8b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -196,72 +178,6 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f088d461-82bc-412d-8e48-b9b964c19351",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "BearTrap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5e63b012-4fbe-4501-802e-746592f03778",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardLeft",
-                    "action": "BearTrap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "01c70ce4-c466-4653-9f67-175c28c000cb",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad2",
-                    "action": "BearTrap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "002d9a70-7033-4871-88e0-a658f29d0eed",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "LandMine",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0092231a-b653-4bb9-b683-61bd4a9aef9c",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardLeft",
-                    "action": "LandMine",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2a23b06f-36a2-4aa7-a4c0-3e3fb208153e",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad2",
-                    "action": "LandMine",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -329,8 +245,8 @@
             ]
         },
         {
-            "name": "Gamepad2",
-            "bindingGroup": "Gamepad2",
+            "name": "KeyboardRight",
+            "bindingGroup": "KeyboardRight",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",

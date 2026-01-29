@@ -106,9 +106,6 @@ MonoBehaviour:
   _healthSystem: {fileID: 1562376642465694606}
   _spriteRenderer: {fileID: 3190010535762698972}
   respawnCooldownMax: 3
-  maxTrapCooldown: 3
-  bomb: {fileID: 863313588442113378, guid: c460e88af10dad347b8993b5c926a8a6, type: 3}
-  bearTrap: {fileID: 3835916652855587187, guid: ec7b7aef5ce3b5a449f56e621be0132d, type: 3}
   moveSpeed: 4
 --- !u!114 &1229857841627432410
 MonoBehaviour:
@@ -171,38 +168,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: adf70c7c-37a9-4852-9b33-f3f697fc0ad7
     m_ActionName: MenuActions/NextScene[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3124456977024137407}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: HandleBearTrap
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 162860b8-9713-4a71-909b-477429d3e2e8
-    m_ActionName: GameActions/BearTrap[/XInputControllerWindows/buttonNorth,/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3124456977024137407}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: HandleBomb
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 42d35958-c700-4e7b-8397-1958a2924d8b
-    m_ActionName: GameActions/LandMine[/XInputControllerWindows/buttonEast,/Keyboard/j]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: KeyboardLeft
   m_DefaultActionMap: GameActions
