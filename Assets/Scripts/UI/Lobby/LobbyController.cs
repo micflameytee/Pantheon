@@ -47,7 +47,6 @@ namespace UI.Lobby
         {
             yield return SceneManager.UnloadSceneAsync("Lobby");
             _view = null;
-            SFX.Instance.PlaySound("ui_select");
         }
 
 

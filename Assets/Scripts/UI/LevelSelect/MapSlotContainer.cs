@@ -50,7 +50,9 @@ public class MapSlotContainer : MonoBehaviour
             // Apply map name, map mode and map icon to the map slot from the map data
             mapSlot.SetData(maps[i].sceneName, maps[i].mapName, maps[i].supportedModes, maps[i].playerMin, maps[i].playerMax, maps[i].icon);
             mapSlot.SetToggleGroup(_toggleGroup);
-            
+
+            // Focus gamemode picker if up input pressed
+            mapSlot.navigation.selectOnUp = gamemode;
         }
     }
 
@@ -90,6 +92,17 @@ public class MapSlotContainer : MonoBehaviour
                 mapSlot.SetActive(false);
             }
         }
+
+        foreach (GameObject mapSlot in _mapSlots)
+        {
+            if (mapSlot.activeInHierarchy)
+            {
+                //Debug.Log("Enabling MapSLot");
+                mapSlot.GetComponent<Toggle>().isOn = true;
+                // OnMapSlotSelected(mapSlot.GetComponent<MapSlot>());
+                break;
+            }
+        }
         
         UpdatePlayButton();
     }
@@ -110,7 +123,7 @@ public class MapSlotContainer : MonoBehaviour
             if (toggle.gameObject.activeInHierarchy)
             {
                 playButton.interactable = true;
-                Debug.Log(toggle.gameObject.name + " is active");
+                // Debug.Log(toggle.gameObject.name + " is active");
             }
         }
     }
