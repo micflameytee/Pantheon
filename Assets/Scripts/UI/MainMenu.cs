@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     
     public void LoadLobby()
     {
-        SFX.Instance.PlaySound("explosion");
+        // SFX.Instance.PlaySound("explosion");
         Utility.LoadLevel("GameplayScene");
         // Utility.LoadLevel("Lobby");
     }

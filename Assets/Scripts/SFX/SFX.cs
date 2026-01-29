@@ -22,24 +22,10 @@ public class SFX : MonoBehaviour
         {
             _sounds.Add(clip.name, clip);
         }
-
-        // _sounds.GetValueOrDefault("arrow");
     }
 
-    public void PlaySound(string soundName)
-    {
-        AudioClip sound = _sounds.GetValueOrDefault(soundName);
-        Transform instance = Instantiate(soundPlayerPrefab, transform);
-        
-        AudioSource audioSource = instance.GetComponent<AudioSource>();
-        audioSource.clip = sound;
-        
-        Debug.Log("[SFX] Playing sound " + soundName);
-        StartCoroutine(PlaySoundAndWait(audioSource, instance.gameObject));
-    }
-
-    // Play a positional sound effect.
-    public void PlaySound(string soundName, Vector3 position)
+    // Play a sound loaded into the SFX bank
+    public void PlaySound(string soundName, Vector3 position = default)
     {
         AudioClip sound = _sounds.GetValueOrDefault(soundName);
         Transform instance = Instantiate(soundPlayerPrefab, transform);
@@ -49,6 +35,19 @@ public class SFX : MonoBehaviour
         instance.position = position;
         
         Debug.Log("[SFX] Playing sound " + soundName);
+        StartCoroutine(PlaySoundAndWait(audioSource, instance.gameObject));
+    }
+
+    // Play an AudioClip sound
+    public void PlaySound(AudioClip sound, Vector3 position = default)
+    {
+        Transform instance = Instantiate(soundPlayerPrefab, transform);
+        
+        AudioSource audioSource = instance.GetComponent<AudioSource>();
+        audioSource.clip = sound;
+        instance.position = position;
+        
+        Debug.Log("[SFX] Playing sound " + sound.name);
         StartCoroutine(PlaySoundAndWait(audioSource, instance.gameObject));
     }
 
