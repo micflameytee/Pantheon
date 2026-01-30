@@ -10,7 +10,7 @@ public class HealthSystem : MonoBehaviour
 {
     
     private Collider2D _collider;
-    [SerializeField]private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite UnDamagedSprite;
     [SerializeField] private Sprite DamagedSprite;
     [SerializeField] private Sprite DestroyedSprite;
@@ -21,6 +21,18 @@ public class HealthSystem : MonoBehaviour
     public int currentHealth;
     public AudioClip hitSound;
     private Statue _statue;
+
+    private float damageCooldown = 0f;
+    [SerializeField] private float MaxCooldown = 0.1f;
+    
+    private HealthType myType;
+    
+    private enum HealthType
+    {
+        player,
+        statue,
+        wall
+    }
 
     public string Tag
     {
@@ -34,10 +46,24 @@ public class HealthSystem : MonoBehaviour
     
     private void Awake()
     {
+        if (CompareTag("Wall"))
+        {
+            myType = HealthType.wall;
+        }
+        else if (CompareTag("Angel"))
+        {
+            myType = HealthType.statue;
+        }
+        else if (CompareTag("Player"))
+        {
+            myType = HealthType.player;
+        }
+        
+        
         _collider = GetComponent<Collider2D>();
         _statue = GetComponent<Statue>();
         currentHealth = startingHealth;
-        if (CompareTag("Wall"))
+        if (IsWall)
         {
             _spriteRenderer.sprite = UnDamagedSprite;
             
@@ -46,19 +72,40 @@ public class HealthSystem : MonoBehaviour
             {
                 //_spriteRenderer.color = new  Color32(255, 100, 100, 255);
             }
-        } else if(CompareTag("Angel"))
+        }
+        else if(IsStatue)
         {
             _spriteRenderer.sprite = UnDamagedSprite;
         }
     }
 
+
+    private bool IsWall =>  myType == HealthType.wall;
+    private bool IsStatue =>  myType == HealthType.statue;
+    private bool IsPlayer =>  myType == HealthType.player;
+    private bool IsDamaged => currentHealth < startingHealth;
+    
+    public void Update()
+    {
+        damageCooldown -= Time.deltaTime;
+    }
+
     public void TakeDamage(int damage, PlayerController damageSource)
     {
+        if (damageCooldown >= 0f)
+        {
+            return;
+        }
+        else
+        {
+            damageCooldown = MaxCooldown;
+        }
         if (_statue != null && _statue.owner !=null && _statue?.owner == damageSource)
         {
             Debug.Log($"This statue is owned by {name} has {currentHealth} / {startingHealth} health");
             return;
         }
+
         currentHealth -= damage;
         SFX.Instance.PlaySound(hitSound, transform.position);
         Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
@@ -68,11 +115,7 @@ public class HealthSystem : MonoBehaviour
     public int CheckHealth()
     {
         
-        if (CompareTag("Wall") && currentHealth == startingHealth / 2)
-        {
-            _spriteRenderer.sprite = DamagedSprite;
-            //_spriteRenderer.color = new  Color32(200, 100, 0, 255);
-        } else if(CompareTag("Angel") && currentHealth == startingHealth / 2)
+        if ((IsWall || IsStatue) && IsDamaged)
         {
             _spriteRenderer.sprite = DamagedSprite;
         }
@@ -83,15 +126,15 @@ public class HealthSystem : MonoBehaviour
         return currentHealth;
     }
 
+
     public void OnDeath()
     {
         
-        if (CompareTag("Wall"))
+        if (IsWall)
         {
             _collider.enabled = false;
             _spriteRenderer.sprite = DestroyedSprite;
-            //_spriteRenderer.color = new  Color32(200, 200, 0, 255);
-        } else if(CompareTag("Angel"))
+        } else if(IsStatue)
         {
             _spriteRenderer.sprite = DestroyedSprite;
         }

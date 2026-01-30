@@ -9,19 +9,21 @@ public class DamageSystem : MonoBehaviour
 {
     // Start is called before the first frame update
     public int damage = 1;
-    public float strikeCooldown = 1f;
+    public float strikeCooldown = 0.5f;
     public float radius = 1;
     private float _cooldownTimer = 0f;
     
     private RaycastHit2D[] _hits = new RaycastHit2D[20];
     private HealthSystem _myHealthSystem;
     private PlayerController _player;
+    [SerializeField] private SwordAnimation _swordAnimation;
 
 
     public void Initialize(PlayerController player)
     {
         _player = player;
         _myHealthSystem = player.GetComponent<HealthSystem>();
+        _swordAnimation.SwingTime = strikeCooldown;
     }
     
 
@@ -37,6 +39,7 @@ public class DamageSystem : MonoBehaviour
             return;
         }
         
+        _swordAnimation.PerformAnimation();
         
         Debug.Log(name + " is attacking");
         SFX.Instance.PlaySound(_player.damageSound, transform.position);

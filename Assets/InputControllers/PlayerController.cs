@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private SpriteRenderer _spriteRenderer;
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
+    public bool annoyingGhost;
     private float RespawnCooldown { get; set; }
     public float respawnCooldownMax = 3f;
     private float CurrentTrapCooldown = 0f;
@@ -137,6 +138,15 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer.color = isGhost 
             ? new  Color32(50, 255, 50, 128)
             : new  Color32(255, 255, 255, 255);
+        
+        if (!annoyingGhost && _isGhost)
+        {
+            GetComponent<Collider2D>().enabled = false;
+        }
+        else if (!annoyingGhost && !_isGhost)
+        {
+            GetComponent<Collider2D>().enabled = true;
+        }
     }
 
     public bool GetGhost()
