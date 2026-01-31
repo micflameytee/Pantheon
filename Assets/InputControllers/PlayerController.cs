@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private float RespawnCooldown { get; set; }
     public float respawnCooldownMax = 3f;
     private float CurrentTrapCooldown = 0f;
-    public float maxTrapCooldown = 3f;
+    public float maxTrapCooldown = 5f;
     
     
     public Bomb bomb;

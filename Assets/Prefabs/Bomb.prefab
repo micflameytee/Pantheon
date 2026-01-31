@@ -220,4 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   radius: 0.5
+  BombSprite: {fileID: 3219782000505448382}
   ExplosionSprite: {fileID: 4131438155719621340}
+  destroyedBomb: {fileID: 21300000, guid: 22c5b43cee4ddee44854be40f537b859, type: 3}

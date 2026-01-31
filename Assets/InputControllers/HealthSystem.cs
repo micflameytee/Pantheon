@@ -13,6 +13,9 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite UnDamagedSprite;
     [SerializeField] private Sprite DamagedSprite;
+    [SerializeField] private Sprite moreDamagedSprite;
+    [SerializeField] private Sprite alotMoreDamagedSprite;
+    [SerializeField] private Sprite almostDestroyedSprite;
     [SerializeField] private Sprite DestroyedSprite;
     
     
@@ -115,9 +118,21 @@ public class HealthSystem : MonoBehaviour
     public int CheckHealth()
     {
         
-        if ((IsWall || IsStatue) && IsDamaged && currentHealth > 0)
+        if ((IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 5)
         {
             _spriteRenderer.sprite = DamagedSprite;
+        } 
+        else if (moreDamagedSprite != null && (IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 4)
+        {
+            _spriteRenderer.sprite = moreDamagedSprite;
+        }
+        else if (alotMoreDamagedSprite != null && (IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 3)
+        {
+            _spriteRenderer.sprite = alotMoreDamagedSprite;
+        }
+        else if (almostDestroyedSprite != null && (IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 2)
+        {
+            _spriteRenderer.sprite = almostDestroyedSprite;
         }
         if (currentHealth <= 0)
         {

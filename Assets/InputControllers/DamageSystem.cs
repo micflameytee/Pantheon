@@ -9,7 +9,7 @@ public class DamageSystem : MonoBehaviour
 {
     // Start is called before the first frame update
     public int damage = 1;
-    public float strikeCooldown = 0.5f;
+    public float strikeCooldown = 0.25f;
     public float radius = 1;
     private float _cooldownTimer = 0f;
     

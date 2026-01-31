@@ -11,8 +11,9 @@ public class Bomb : MonoBehaviour
     private RaycastHit2D[] _hits = new RaycastHit2D[20];
     private PlayerController _otherController;
     public float radius = 1;
-
+    [SerializeField] private SpriteRenderer BombSprite;
     [SerializeField] private SpriteRenderer ExplosionSprite;
+    [SerializeField] private Sprite destroyedBomb;
     private float _explosionTimer = 0f;
 
     private void Awake()
@@ -46,6 +47,7 @@ public class Bomb : MonoBehaviour
 
     public void Explode()
     {
+        BombSprite.sprite = destroyedBomb;
         _explosionTimer = 2f;
         ExplosionSprite.enabled = true;
         Vector2 position = new Vector2(transform.position.x, transform.position.y);

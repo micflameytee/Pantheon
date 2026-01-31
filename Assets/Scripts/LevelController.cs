@@ -24,7 +24,15 @@ public class LevelController : MonoBehaviour
             player.SetGhost(false);
             
             //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
-            Statue angel = angels[i];
+            Statue angel;
+            if (angels.Count == 1)
+            {
+                angel = angels[0];
+            }
+            else
+            {
+                angel = angels[i];   
+            }
             player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
             angel.owner = player;
             player.OwnedStatue = angel;
@@ -33,6 +41,11 @@ public class LevelController : MonoBehaviour
             
             
             i++;
+        }
+
+        if (angels.Count == 1)
+        {
+            angels[0].SetRemoved();
         }
 
         foreach (Transform trapSpawn in trapSpawns)

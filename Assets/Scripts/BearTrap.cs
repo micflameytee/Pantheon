@@ -7,6 +7,8 @@ using UnityEngine;
 public class BearTrap : MonoBehaviour
 {
     public PlayerController owner { get; set; }
+    [SerializeField] private SpriteRenderer GlueSprite;
+    [SerializeField] private Sprite driedGlue;
     private PlayerController _otherController;
     private float _movementCooldown = 5f;
     [SerializeField]private float MaxCooldown = 5f;
@@ -42,6 +44,7 @@ public class BearTrap : MonoBehaviour
 
         if (_movementCooldown <= 0f)
         {
+            GlueSprite.sprite = driedGlue;
             cooldownActive = false;
             _otherController.CanMove = true;
             _movementCooldown = MaxCooldown;

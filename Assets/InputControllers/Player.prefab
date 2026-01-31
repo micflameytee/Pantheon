@@ -226,6 +226,9 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 3190010535762698972}
   UnDamagedSprite: {fileID: 0}
   DamagedSprite: {fileID: 0}
+  moreDamagedSprite: {fileID: 0}
+  alotMoreDamagedSprite: {fileID: 0}
+  almostDestroyedSprite: {fileID: 0}
   DestroyedSprite: {fileID: 0}
   startingHealth: 3
   currentHealth: 0
@@ -292,7 +295,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.67
 --- !u!1 &3664494587790424217
 GameObject:
   m_ObjectHideFlags: 0
