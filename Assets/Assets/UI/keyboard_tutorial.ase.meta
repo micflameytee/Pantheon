@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: keyboard_tutorial
     originalName: 
-    pivot: {x: 0.50396824, y: -0.070866145}
+    pivot: {x: 0.52916664, y: -0.10569106}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 252
-      height: 127
+      width: 240
+      height: 123
     spriteID: ea043357a5872ec238684b345adaa9fa
     spriteBone: []
     spriteOutline: []
@@ -152,9 +152,9 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 11
-        y: 9
-        width: 252
-        height: 127
+        y: 13
+        width: 240
+        height: 123
       spriteId: ea043357a5872ec238684b345adaa9fa
     linkedCells: []
     parentIndex: -1
