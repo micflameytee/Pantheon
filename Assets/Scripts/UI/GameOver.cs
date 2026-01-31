@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour
     
     public void SetWinner(string playerName)
     {
-        winnerText.text = "Player " + playerName + " wins!";
+        winnerText.text = playerName + " wins!";
     }
     
     public void LoadLobby()

@@ -60,7 +60,7 @@ public class GlobalPlayerManager : MonoBehaviour
         
         // Not how you're meant to do this
         yield return SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Additive);
-        _gameOverController = GameObject.Find("GameOverController").GetComponent<GameOver>();
+        _gameOverController = GameObject.Find("GameOver").GetComponent<GameOver>();
         _gameOverController.SetWinner(players[0].name);
     }
 
