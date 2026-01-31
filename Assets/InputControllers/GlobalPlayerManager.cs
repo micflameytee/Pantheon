@@ -14,7 +14,8 @@ public class GlobalPlayerManager : MonoBehaviour
     
     public PlayerInputManager playerInputManager;
     private LevelSelectController _levelSelectController;
-    private LevelController _leveController;
+    private LevelController _levelController;
+    private GameOver _gameOverController;
     private bool _gameOver;
 
     private void Awake()
@@ -45,19 +46,22 @@ public class GlobalPlayerManager : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(selectedLevel, LoadSceneMode.Additive);
         //  tell the players that they can now play
 
-        _leveController = GameObject.Find("LevelController").GetComponent<LevelController>();
+        _levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
         foreach (PlayerController player in players)
         {
             player.SetGhost(false);
         }
-        _leveController.StartGame(players);
+        _levelController.StartGame(players);
         while (!_gameOver)
         {
             yield return null;
         }
         yield return SceneManager.UnloadSceneAsync(selectedLevel);
         
-        SceneManager.LoadScene("MainMenu");
+        // Not how you're meant to do this
+        yield return SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Additive);
+        _gameOverController = GameObject.Find("GameOverController").GetComponent<GameOver>();
+        _gameOverController.SetWinner(players[0].name);
     }
 
     public void OnPlayerAdded(PlayerInput player)
