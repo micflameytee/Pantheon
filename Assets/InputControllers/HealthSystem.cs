@@ -115,7 +115,7 @@ public class HealthSystem : MonoBehaviour
     public int CheckHealth()
     {
         
-        if ((IsWall || IsStatue) && IsDamaged)
+        if ((IsWall || IsStatue) && IsDamaged && currentHealth > 0)
         {
             _spriteRenderer.sprite = DamagedSprite;
         }

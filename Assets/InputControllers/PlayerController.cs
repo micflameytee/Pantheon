@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     public Statue OwnedStatue { get; set; }
     
-    
     [SerializeField]private DamageSystem _damageSystem;
     [SerializeField]private HealthSystem _healthSystem;
     [SerializeField]private SpriteRenderer _spriteRenderer;
