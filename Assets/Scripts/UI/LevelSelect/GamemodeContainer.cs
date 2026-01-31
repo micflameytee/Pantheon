@@ -21,7 +21,15 @@ public class GamemodeContainer : MonoBehaviour
     void Start()
     {
         gamemode.ClearOptions();
-        gamemode.AddOptions(MapData.GetMapModeStrings());
+        //gamemode.AddOptions(MapData.GetMapModeStrings());
+        // TODO: NOTE: Temporarily disabled other map modes here, uncomment previous line to enable
+        // <fudge>
+        List <string> options = new List<string>();
+        options.Add(MapData.GetMapModeString(MapData.MapMode.GODLESS));
+        options.Add(MapData.GetMapModeString(MapData.MapMode.GODLESS_DEATHMATCH));
+        // </fudge>
+        
+        gamemode.AddOptions(options);
         UpdateDescription();
         
         _eventSystem.SetSelectedGameObject(gamemodeDropdown);
@@ -29,6 +37,18 @@ public class GamemodeContainer : MonoBehaviour
 
     public void UpdateDescription()
     {
-        description.text = MapData.GetMapModeDescription((MapData.MapMode) gamemode.value);
+        // description.text = MapData.GetMapModeDescription((MapData.MapMode) gamemode.value);
+        // TODO: NOTE: Temporarily disabled other map modes here, uncomment previous line to enable
+        // <fudge>
+        if (gamemode.value == 0)
+        {
+            description.text = MapData.GetMapModeDescription(MapData.MapMode.GODLESS);
+        }
+        else
+        {
+            description.text = MapData.GetMapModeDescription(MapData.MapMode.GODLESS_DEATHMATCH);
+        }
+        // </fudge>
+        
     }
 }
