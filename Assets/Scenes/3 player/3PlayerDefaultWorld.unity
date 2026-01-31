@@ -2975,10 +2975,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7828648ebd53543a119ee35f6b317a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angels:
+  angels:
   - {fileID: 1868168526}
   - {fileID: 695367214}
   - {fileID: 1564520728}
+  bomb: {fileID: 0}
+  bearTrap: {fileID: 0}
+  trapSpawns: []
 --- !u!1001 &856382256
 PrefabInstance:
   m_ObjectHideFlags: 0
