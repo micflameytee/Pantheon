@@ -125,10 +125,15 @@ public class HealthSystem : MonoBehaviour
         int SpriteCount = SpriteStates.Count;
         int currentHealthSprite = (int)((SpriteCount - 1) * damagePercent);
         _spriteRenderer.sprite = SpriteStates[currentHealthSprite];
-
+        
+        
 
         if (currentHealth <= 0)
         {
+            if (IsWall)
+            {
+                _collider.enabled = false;
+            }
             OnDeath();
         }
 
