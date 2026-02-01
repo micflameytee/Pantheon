@@ -4,27 +4,13 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    public Transform healthSpritePrefab;
-    private List<GameObject> _sprites = new List<GameObject>();
+    public List<GameObject> _sprites = new List<GameObject>();
     
-    public int maxHealth;
-    public int currentHealth;
     
     void Awake()
     {
-        // Kill all preview sprites 
-        foreach(Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
         
-        for (int i = 0; i < maxHealth; i++)
-        {
-            Transform instance = Instantiate(healthSpritePrefab, transform);
-            // Shift each sprite by 0.2 on X axis
-            instance.position = new Vector3(i * 0.2f, 0, 0);
-            _sprites.Add(instance.gameObject);
-        }
+        
     }
 
     // Update is called once per frame
@@ -35,10 +21,36 @@ public class HealthBar : MonoBehaviour
     
     public void SetHealth(int health)
     {
-    }
+        if (health <= 0)
+        {
+            foreach (GameObject sprite in _sprites)
+            {
+                sprite.SetActive(false);
+            }
 
-    public int GetHealth()
-    {
-        return currentHealth;
+            return;
+        }
+        
+        switch (health)
+        {
+            case 1:
+                _sprites[0].SetActive(true);
+                _sprites[1].SetActive(false);
+                _sprites[2].SetActive(false);
+                break;
+            case 2:
+                _sprites[0].SetActive(true);
+                _sprites[1].SetActive(true);
+                _sprites[2].SetActive(false);
+                break;
+            case 3:
+                foreach (GameObject sprite in _sprites)
+                {
+                    sprite.SetActive(true);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

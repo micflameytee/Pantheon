@@ -20,6 +20,8 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private Sprite DestroyedSprite;
     */
     
+    [SerializeField] private HealthBar _healthBar;
+    
     [SerializeField] private List<Sprite> SpriteStates;
     private int CurSpriteNum;
     
@@ -109,6 +111,10 @@ public class HealthSystem : MonoBehaviour
         }
 
         currentHealth -= damage;
+        if (_healthBar != null)
+        {
+            _healthBar.SetHealth(currentHealth);
+        }
         SFX.Instance.PlaySound(hitSound, transform.position);
         Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
         CheckHealth();
