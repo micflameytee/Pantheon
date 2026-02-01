@@ -77,6 +77,10 @@ public class HealthSystem : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _statue = GetComponent<Statue>();
         currentHealth = startingHealth;
+        if (_healthBar != null)
+        {
+            _healthBar.SetHealth(startingHealth);
+        }
         if (IsWall || IsStatue)
         {
             _spriteRenderer.sprite = SpriteStates[0];

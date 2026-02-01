@@ -109,7 +109,6 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 3190010535762698972}
   _spriteColours: []
   ghostSprite: {fileID: 0}
-  _healthBar: {fileID: 3916672027352721686}
   annoyingGhost: 0
   respawnCooldownMax: 3
   glueTrapCooldown: 1
@@ -229,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3190010535762698972}
-  _healthBar: {fileID: 0}
+  _healthBar: {fileID: 3916672027352721686}
   SpriteStates: []
   startingHealth: 3
   currentHealth: 0
