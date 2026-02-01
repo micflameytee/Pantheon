@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
     public bool annoyingGhost;
     private float RespawnCooldown { get; set; }
     public float respawnCooldownMax = 3f;
-    private float CurrentTrapCooldown = 0f;
-    public float maxTrapCooldown = 5f;
+    private float CurrentGlueTrapCooldown = 0f;
+    private float CurrentBombCooldown = 0f;
+    public float glueTrapCooldown = 1f;
+    public float bombCooldown = 10f;
     
     
     public Bomb bomb;
@@ -49,24 +51,24 @@ public class PlayerController : MonoBehaviour
 
     public void HandleBomb(InputAction.CallbackContext context)
     {
-        if (CurrentTrapCooldown > 0 || _isGhost)
+        if (CurrentBombCooldown > 0 || _isGhost)
         {
             return;
         }
         var newInstance = Instantiate(bomb, transform.position, transform.rotation);
         newInstance.owner = this;
-        CurrentTrapCooldown = maxTrapCooldown;
+        CurrentBombCooldown = bombCooldown;
     }
 
     public void HandleBearTrap(InputAction.CallbackContext context)
     {
-        if (CurrentTrapCooldown > 0 || _isGhost)
+        if (CurrentGlueTrapCooldown > 0 || _isGhost)
         {
             return;
         }
         var newInstance = Instantiate(bearTrap, transform.position, transform.rotation);
         newInstance.owner = this;
-        CurrentTrapCooldown = maxTrapCooldown;
+        CurrentGlueTrapCooldown = glueTrapCooldown;
     }
 
     private void Start()
@@ -89,7 +91,8 @@ public class PlayerController : MonoBehaviour
         
         transform.rotation = oldRotation;
         
-        CurrentTrapCooldown -= Time.deltaTime;
+        CurrentGlueTrapCooldown -= Time.deltaTime;
+        CurrentBombCooldown -= Time.deltaTime;
         RespawnCooldown -= Time.deltaTime;
 
         if (_isGhost && RespawnCooldown <= 0f)

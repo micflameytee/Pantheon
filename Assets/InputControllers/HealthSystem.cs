@@ -11,12 +11,17 @@ public class HealthSystem : MonoBehaviour
     
     private Collider2D _collider;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    /**
     [SerializeField] private Sprite UnDamagedSprite;
     [SerializeField] private Sprite DamagedSprite;
     [SerializeField] private Sprite moreDamagedSprite;
     [SerializeField] private Sprite alotMoreDamagedSprite;
     [SerializeField] private Sprite almostDestroyedSprite;
     [SerializeField] private Sprite DestroyedSprite;
+    */
+    
+    [SerializeField] private List<Sprite> SpriteStates;
+    private int CurSpriteNum;
     
     
     // Start is called before the first frame update
@@ -66,19 +71,9 @@ public class HealthSystem : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _statue = GetComponent<Statue>();
         currentHealth = startingHealth;
-        if (IsWall)
+        if (IsWall || IsStatue)
         {
-            _spriteRenderer.sprite = UnDamagedSprite;
-            
-            
-            if (currentHealth >= 5)
-            {
-                //_spriteRenderer.color = new  Color32(255, 100, 100, 255);
-            }
-        }
-        else if(IsStatue)
-        {
-            _spriteRenderer.sprite = UnDamagedSprite;
+            _spriteRenderer.sprite = SpriteStates[0];
         }
     }
 
@@ -117,23 +112,15 @@ public class HealthSystem : MonoBehaviour
 
     public int CheckHealth()
     {
+        int SpriteCount = SpriteStates.Count;
+        for (int i = 0; i < SpriteCount; i++)
+        {
+            if ((IsWall || IsStatue) && IsDamaged && /**CurSpriteNum > i &&*/ currentHealth > startingHealth / SpriteCount * (SpriteCount - i))
+            {
+                _spriteRenderer.sprite = SpriteStates[i];
+            }
+        }
         
-        if ((IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 5)
-        {
-            _spriteRenderer.sprite = DamagedSprite;
-        } 
-        else if (moreDamagedSprite != null && (IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 4)
-        {
-            _spriteRenderer.sprite = moreDamagedSprite;
-        }
-        else if (alotMoreDamagedSprite != null && (IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 3)
-        {
-            _spriteRenderer.sprite = alotMoreDamagedSprite;
-        }
-        else if (almostDestroyedSprite != null && (IsWall || IsStatue) && IsDamaged && currentHealth > startingHealth / 6 * 2)
-        {
-            _spriteRenderer.sprite = almostDestroyedSprite;
-        }
         if (currentHealth <= 0)
         {
             OnDeath();
@@ -145,13 +132,10 @@ public class HealthSystem : MonoBehaviour
     public void OnDeath()
     {
         
-        if (IsWall)
+        if (IsWall || IsStatue)
         {
             _collider.enabled = false;
-            _spriteRenderer.sprite = DestroyedSprite;
-        } else if(IsStatue)
-        {
-            _spriteRenderer.sprite = DestroyedSprite;
+            _spriteRenderer.sprite = SpriteStates[SpriteStates.Count - 1];
         }
 
         if (_statue != null)
