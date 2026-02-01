@@ -163,12 +163,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3958722301349725570}
-  UnDamagedSprite: {fileID: 21300000, guid: 3c8aa64414bef414db20304d9e2256ca, type: 3}
-  DamagedSprite: {fileID: 21300000, guid: 4023166c19ef69e4ab160a595c19ab20, type: 3}
-  DestroyedSprite: {fileID: 21300000, guid: 7c249fab49b29e444bf72245d3b0b6cd, type: 3}
+  SpriteStates:
+  - {fileID: 21300000, guid: 3c8aa64414bef414db20304d9e2256ca, type: 3}
+  - {fileID: 21300000, guid: 4023166c19ef69e4ab160a595c19ab20, type: 3}
+  - {fileID: 21300000, guid: 7c249fab49b29e444bf72245d3b0b6cd, type: 3}
   startingHealth: 15
   currentHealth: 0
   hitSound: {fileID: 8300000, guid: 2f82d0b9de126c84bb01e66eb4701fb9, type: 3}
+  MaxCooldown: 0.1
 --- !u!114 &-7807884654476687516
 MonoBehaviour:
   m_ObjectHideFlags: 0

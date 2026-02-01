@@ -127,12 +127,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 2367222492334794326}
-  UnDamagedSprite: {fileID: 21300000, guid: 7b98ad48005b0eb48b12d22b61db0c42, type: 3}
-  DamagedSprite: {fileID: 21300000, guid: 418d70486b8a548958a8d2bc0f0d78a8, type: 3}
-  moreDamagedSprite: {fileID: 21300000, guid: 8f03bf52f4ee24afd8e73312d6bf2b74, type: 3}
-  alotMoreDamagedSprite: {fileID: 21300000, guid: 0f3aca7145d7d408f8c18ea82a8d3496, type: 3}
-  almostDestroyedSprite: {fileID: 21300000, guid: 71576a4d04001436e91bdc99c861931f, type: 3}
-  DestroyedSprite: {fileID: 21300000, guid: 55fef6d5337074cd4ac643e342fa096d, type: 3}
+  SpriteStates:
+  - {fileID: 21300000, guid: 0149f9dd8ad4749eb8d4b30568df7705, type: 3}
+  - {fileID: 21300000, guid: 418d70486b8a548958a8d2bc0f0d78a8, type: 3}
+  - {fileID: 21300000, guid: 8f03bf52f4ee24afd8e73312d6bf2b74, type: 3}
+  - {fileID: 21300000, guid: 0f3aca7145d7d408f8c18ea82a8d3496, type: 3}
+  - {fileID: 21300000, guid: 71576a4d04001436e91bdc99c861931f, type: 3}
+  - {fileID: 21300000, guid: 55fef6d5337074cd4ac643e342fa096d, type: 3}
   startingHealth: 2
   currentHealth: 0
   hitSound: {fileID: 8300000, guid: 792df7a7388071045b840d7d831faa0e, type: 3}

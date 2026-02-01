@@ -66,7 +66,11 @@ public class HealthSystem : MonoBehaviour
         {
             myType = HealthType.player;
         }
-        
+
+        if (!IsPlayer)
+        {
+            Debug.Assert(SpriteStates.Count != 0, "no sprite states for health system", this);
+        }
         
         _collider = GetComponent<Collider2D>();
         _statue = GetComponent<Statue>();
@@ -112,31 +116,28 @@ public class HealthSystem : MonoBehaviour
 
     public int CheckHealth()
     {
-        int SpriteCount = SpriteStates.Count;
-        for (int i = 0; i < SpriteCount; i++)
+        if (currentHealth < 0)
         {
-            if ((IsWall || IsStatue) && IsDamaged && /**CurSpriteNum > i &&*/ currentHealth > startingHealth / SpriteCount * (SpriteCount - i))
-            {
-                _spriteRenderer.sprite = SpriteStates[i];
-            }
+            currentHealth = 0;
         }
-        
+
+        float damagePercent = (float)(startingHealth - currentHealth) / startingHealth;
+        int SpriteCount = SpriteStates.Count;
+        int currentHealthSprite = (int)((SpriteCount - 1) * damagePercent);
+        _spriteRenderer.sprite = SpriteStates[currentHealthSprite];
+
+
         if (currentHealth <= 0)
         {
             OnDeath();
         }
+
         return currentHealth;
     }
 
 
     public void OnDeath()
     {
-        
-        if (IsWall || IsStatue)
-        {
-            _collider.enabled = false;
-            _spriteRenderer.sprite = SpriteStates[SpriteStates.Count - 1];
-        }
 
         if (_statue != null)
         {
