@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8021908726429304474}
   - component: {fileID: 4131438155719621340}
+  - component: {fileID: 6498802050524237304}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -84,6 +85,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6498802050524237304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855466216444932689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9135a673606c5545b22e624cc4836ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 4131438155719621340}
+  _sprites:
+  - {fileID: -2061559122, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 2085217550, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1498917285, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1398831916, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1081181981, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1769364012, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 591576443, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 2023437236, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -1362230705, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 390689744, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1857910992, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -1912352536, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1676780614, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -1185454429, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -573943856, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1519904096, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -593571063, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -133561810, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1691782922, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -1713226141, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 709595278, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: 1857916745, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -2008263767, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  - {fileID: -1562402650, guid: 4fccb66cdb407154a88c6b33e71a7c39, type: 3}
+  AnimationTime: 0.5
+  AutoPlay: 0
+  LoopAnimation: 0
 --- !u!1 &6726668196985224782
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,4 +264,5 @@ MonoBehaviour:
   radius: 0.5
   BombSprite: {fileID: 3219782000505448382}
   ExplosionSprite: {fileID: 4131438155719621340}
+  _spriteAnimation: {fileID: 6498802050524237304}
   destroyedBomb: {fileID: 21300000, guid: 22c5b43cee4ddee44854be40f537b859, type: 3}

@@ -121,12 +121,13 @@ public class HealthSystem : MonoBehaviour
             currentHealth = 0;
         }
 
-        float damagePercent = (float)(startingHealth - currentHealth) / startingHealth;
-        int SpriteCount = SpriteStates.Count;
-        int currentHealthSprite = (int)((SpriteCount - 1) * damagePercent);
-        _spriteRenderer.sprite = SpriteStates[currentHealthSprite];
-        
-        
+        if (!IsPlayer)
+        {
+            float damagePercent = (float)(startingHealth - currentHealth) / startingHealth;
+            int SpriteCount = SpriteStates.Count;
+            int currentHealthSprite = (int)((SpriteCount - 1) * damagePercent);
+            _spriteRenderer.sprite = SpriteStates[currentHealthSprite];
+        }
 
         if (currentHealth <= 0)
         {

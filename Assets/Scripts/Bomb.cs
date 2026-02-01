@@ -13,8 +13,8 @@ public class Bomb : MonoBehaviour
     public float radius = 1;
     [SerializeField] private SpriteRenderer BombSprite;
     [SerializeField] private SpriteRenderer ExplosionSprite;
+    [SerializeField] private SpriteAnimation _spriteAnimation;
     [SerializeField] private Sprite destroyedBomb;
-    private float _explosionTimer = 0f;
 
     private void Awake()
     {
@@ -25,7 +25,6 @@ public class Bomb : MonoBehaviour
     {
         float thisRadius = transform.localScale.magnitude;
         ExplosionSprite.transform.localScale = 2f * radius / thisRadius * Vector3.one;
-        ExplosionSprite.enabled =false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,8 +47,7 @@ public class Bomb : MonoBehaviour
     public void Explode()
     {
         BombSprite.sprite = destroyedBomb;
-        _explosionTimer = 2f;
-        ExplosionSprite.enabled = true;
+        _spriteAnimation.PlayAnimation();
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         int numHits = Physics2D.CircleCastNonAlloc(position, radius, Vector2.zero, _hits, 0f);
         for (int i = 0; i < numHits; i++)
@@ -57,15 +55,6 @@ public class Bomb : MonoBehaviour
             RaycastHit2D hit = _hits[i];
             HealthSystem targetSystem = hit.collider.GetComponent<HealthSystem>(); 
             targetSystem?.TakeDamage(damage, owner);
-        }
-    }
-
-    private void Update()
-    {
-        _explosionTimer -=  Time.deltaTime;
-        if (_explosionTimer < 0f && ExplosionSprite.gameObject.activeSelf)
-        {
-            ExplosionSprite.enabled = false;
         }
     }
 
