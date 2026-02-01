@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private DamageSystem _damageSystem;
     [SerializeField]private HealthSystem _healthSystem;
     [SerializeField]private SpriteRenderer _spriteRenderer;
+    [SerializeField]private List<Sprite> _spriteColours;
+    [SerializeField]private Sprite ghostSprite;
+    
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
     public bool annoyingGhost;
@@ -110,6 +113,11 @@ public class PlayerController : MonoBehaviour
             //Debug.Log(transform.rotation.eulerAngles.y);
         }
     }
+
+    public void SetPlayerColour(int playerNumber)
+    {
+        _spriteRenderer.sprite = _spriteColours[playerNumber];
+    }
     
     void FixedUpdate() {
         if (!CanMove)
@@ -127,6 +135,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetGhost(bool isGhost)
     {
+        _spriteRenderer.sprite = ghostSprite;
         if (isGhost && OwnedStatue !=null && OwnedStatue.StillThere())
         {
             RespawnCooldown = respawnCooldownMax;
@@ -138,7 +147,7 @@ public class PlayerController : MonoBehaviour
         }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 
-            ? new  Color32(50, 255, 50, 128)
+            ? new  Color32(255, 255, 50, 63)
             : new  Color32(255, 255, 255, 255);
         
         if (!annoyingGhost && _isGhost)

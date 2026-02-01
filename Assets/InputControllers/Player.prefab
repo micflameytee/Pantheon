@@ -106,6 +106,12 @@ MonoBehaviour:
   _damageSystem: {fileID: 5003109382455446858}
   _healthSystem: {fileID: 1562376642465694606}
   _spriteRenderer: {fileID: 3190010535762698972}
+  _spriteColours:
+  - {fileID: 21300000, guid: 62d34048b9cdb6743b0321cf0580582b, type: 3}
+  - {fileID: 21300000, guid: 3b4d68455d7a360419333a27a1427145, type: 3}
+  - {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
+  - {fileID: 21300000, guid: 69ac68a29a15edb4ab7a979977fe7cfc, type: 3}
+  ghostSprite: {fileID: 21300000, guid: fa1be4d47efa0ee428ae95bc57b49233, type: 3}
   annoyingGhost: 0
   respawnCooldownMax: 3
   glueTrapCooldown: 2

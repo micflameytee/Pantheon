@@ -19,7 +19,7 @@ public class LevelController : MonoBehaviour
         foreach (PlayerController player in _players)
         {
             //check that there is an angel for this player
-            
+            player.SetPlayerColour(i);
             player.ResetCooldown();
             player.SetGhost(false);
             
