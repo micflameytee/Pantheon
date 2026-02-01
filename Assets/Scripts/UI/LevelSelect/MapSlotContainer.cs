@@ -72,12 +72,26 @@ public class MapSlotContainer : MonoBehaviour
             MapSlot mapSlotScript = mapSlot.GetComponent<MapSlot>();
             
             // Filter out maps if unsupported gamemode
-            if (mapSlotScript.IsSupportedMode((MapData.MapMode) gamemode.value))
+            // <fudge>
+            MapData.MapMode jank;
+
+            if (gamemode.value == 0)
+            {
+                jank = MapData.MapMode.GODLESS;
+            }
+            else
+            {
+                jank = MapData.MapMode.GODLESS_DEATHMATCH;
+            }
+            // </fudge>
+            // (MapData.MapMode) gamemode.value
+            if (mapSlotScript.IsSupportedMode(jank))
             {
                 mapSlot.SetActive(true);
             }
             else
             {
+                Debug.Log(mapSlot.GetComponent<MapSlot>().sceneName + " not supported!");
                 mapSlot.SetActive(false);
             }
             

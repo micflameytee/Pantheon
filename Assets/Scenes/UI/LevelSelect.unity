@@ -2994,6 +2994,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapSlotPrefab: {fileID: 7702886871205086447, guid: 88dcd15af33529ff0b7ba39f599a164e, type: 3}
   maps:
+  - {fileID: 11400000, guid: 873a17ee9c294a246a26e933a65411bb, type: 2}
+  - {fileID: 11400000, guid: bbc24a4943bbef54b8d0d8eb172aecdc, type: 2}
+  - {fileID: 11400000, guid: 0920640217a07b64e80af2d9475dc1de, type: 2}
+  - {fileID: 11400000, guid: f8488b539cd1dde46aa414b4f04c5111, type: 2}
   - {fileID: 11400000, guid: b321992ddcb07c2319babbdb8ae628f3, type: 2}
   - {fileID: 11400000, guid: a2383132a3749051899c57f4fc9cceef, type: 2}
   - {fileID: 11400000, guid: 012d7f1e158e7005190e223082f1dcc5, type: 2}
@@ -3004,10 +3008,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99498a44b13286d45ac49405359b2a4c, type: 2}
   - {fileID: 11400000, guid: 74979fb6b8b8f72498acbd86feab3bdd, type: 2}
   - {fileID: 11400000, guid: af5197785a9bda74ab7346654a8f5f12, type: 2}
-  - {fileID: 11400000, guid: 873a17ee9c294a246a26e933a65411bb, type: 2}
-  - {fileID: 11400000, guid: bbc24a4943bbef54b8d0d8eb172aecdc, type: 2}
-  - {fileID: 11400000, guid: 0920640217a07b64e80af2d9475dc1de, type: 2}
-  - {fileID: 11400000, guid: f8488b539cd1dde46aa414b4f04c5111, type: 2}
   gamemode: {fileID: 95930729}
   playButton: {fileID: 1059376417}
   currentSelectedScene: 
