@@ -124,6 +124,15 @@ public class HealthSystem : MonoBehaviour
         CheckHealth();
     }
 
+    public void ResetHealth()
+    {
+        currentHealth = startingHealth;
+        if (_healthBar != null)
+        {
+            _healthBar.SetHealth(startingHealth);
+        }
+    }
+
     public int CheckHealth()
     {
         if (currentHealth < 0)

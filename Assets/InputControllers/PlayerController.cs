@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             RespawnCooldown = 86400f;
-            _healthSystem.currentHealth = _healthSystem.startingHealth;
+            _healthSystem.ResetHealth();
         }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 

@@ -203,7 +203,7 @@
                     "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KeyboardLeft",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
