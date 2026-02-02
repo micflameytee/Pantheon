@@ -7,7 +7,7 @@ public class Statue : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite UnDamagedSprite;
-    [SerializeField] private Sprite DamagedSprite;
+    [SerializeField] private Sprite destroyedSprite;
     [SerializeField] private Transform[] spawnPoints;
     
     public PlayerController owner { get; set; }
@@ -31,7 +31,7 @@ public class Statue : MonoBehaviour
     {
         isStillThere = false;
         // change sprite to crumbled statue
-        //_spriteRenderer.sprite = DamagedSprite;
+        _spriteRenderer.sprite = destroyedSprite;
     }
 
     public bool StillThere()

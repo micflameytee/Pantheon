@@ -91,7 +91,7 @@ public class MapSlotContainer : MonoBehaviour
             }
             else
             {
-                Debug.Log(mapSlot.GetComponent<MapSlot>().sceneName + " not supported!");
+//                Debug.Log(mapSlot.GetComponent<MapSlot>().sceneName + " not supported!");
                 mapSlot.SetActive(false);
             }
             

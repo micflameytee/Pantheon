@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private DamageSystem _damageSystem;
     [SerializeField]private HealthSystem _healthSystem;
     [SerializeField]private SpriteRenderer _spriteRenderer;
-    [SerializeField]private List<Sprite> _spriteColours;
+    [SerializeField]private Sprite[] _spriteColours;
     [SerializeField]private Sprite ghostSprite;
+    
+    private int playerNumber = 0;
     
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
@@ -114,9 +116,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SetPlayerColour(int playerNumber)
+    public void SetPlayerColour(int curPlayerNumber)
     {
-        _spriteRenderer.sprite = _spriteColours[playerNumber];
+        this.playerNumber = curPlayerNumber;
     }
     
     void FixedUpdate() {
@@ -135,7 +137,15 @@ public class PlayerController : MonoBehaviour
 
     public void SetGhost(bool isGhost)
     {
-        _spriteRenderer.sprite = ghostSprite;
+        if (isGhost)
+        {
+            _spriteRenderer.sprite = ghostSprite;
+        }
+        else
+        {
+            Debug.Log($"index: {_playerNumber} \n size: {_spriteColours.Length}");
+            _spriteRenderer.sprite = _spriteColours[playerNumber];            
+        }
         if (isGhost && OwnedStatue !=null && OwnedStatue.StillThere())
         {
             RespawnCooldown = respawnCooldownMax;
@@ -147,7 +157,7 @@ public class PlayerController : MonoBehaviour
         }
         _isGhost = isGhost;
         _spriteRenderer.color = isGhost 
-            ? new  Color32(255, 255, 50, 63)
+            ? new  Color32(255, 255, 255, 127)
             : new  Color32(255, 255, 255, 255);
         
         if (!annoyingGhost && _isGhost)

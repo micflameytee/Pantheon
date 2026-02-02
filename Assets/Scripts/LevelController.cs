@@ -45,6 +45,7 @@ public class LevelController : MonoBehaviour
 
         if (angels.Count == 1)
         {
+            angels[0].GetComponent<HealthSystem>().currentHealth = 0;
             angels[0].SetRemoved();
         }
 
