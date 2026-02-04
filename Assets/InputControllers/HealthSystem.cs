@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlayerGods;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -31,7 +32,8 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private float MaxCooldown = 0.1f;
     
     private HealthType myType;
-    
+    private PlayerController _player;
+
     private enum HealthType
     {
         player,
@@ -48,6 +50,7 @@ public class HealthSystem : MonoBehaviour
     }
 
     public event Action<PlayerController> OnPlayerDeath;
+    public event Action<PlayerController> OnPlayerDamaged;
     
     private void Awake()
     {
@@ -76,6 +79,7 @@ public class HealthSystem : MonoBehaviour
         
         _collider = GetComponent<Collider2D>();
         _statue = GetComponent<Statue>();
+        _player = GetComponent<PlayerController>();
         currentHealth = startingHealth;
         if (_healthBar != null)
         {
@@ -92,7 +96,8 @@ public class HealthSystem : MonoBehaviour
     private bool IsStatue =>  myType == HealthType.statue;
     private bool IsPlayer =>  myType == HealthType.player;
     private bool IsDamaged => currentHealth < startingHealth;
-    
+    public PlayerClassBase PlayerClass { get; set; }
+
     public void Update()
     {
         damageCooldown -= Time.deltaTime;
@@ -100,7 +105,10 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage, PlayerController damageSource)
     {
-        if (damageCooldown >= 0f || (IsPlayer && IsStone))
+        damage = PlayerClass?.CalculateDamage(damage) ?? damage;
+        
+        
+        if (damageCooldown >= 0f || damage <= 0)
         {
             return;
         }
@@ -119,6 +127,12 @@ public class HealthSystem : MonoBehaviour
         {
             _healthBar.SetHealth(currentHealth);
         }
+
+        if (_player != null)
+        {
+            OnPlayerDamaged?.Invoke(_player);
+        }
+
         SFX.Instance.PlaySound(hitSound, transform.position);
         Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
         CheckHealth();
@@ -171,7 +185,7 @@ public class HealthSystem : MonoBehaviour
         }
         else
         {
-            OnPlayerDeath?.Invoke(GetComponent<PlayerController>());
+            OnPlayerDeath?.Invoke(_player);
         }
     }
 }

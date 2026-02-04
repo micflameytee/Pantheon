@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UI.PlayerHud;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,7 +12,7 @@ namespace UI.Lobby
         private bool _isGameStartRequested = false;
         private GameInputActions _inputActions;
         private int _playerCount;
-        
+
         public IEnumerator LoadLobby()
         {
             Debug.Log($"Loading Lobby");

@@ -1,26 +1,36 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlayerGods;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Object = System.Object;
 
 public class Gods : MonoBehaviour
 {
-    
+    [SerializeField] private List<PlayerClassBase> PlayerClasses;
+    private PlayerClassBase _currentPlayerClass;
+    private int _currentPlayerClassIndex;
+    public PlayerClassBase CurrentPlayerClass => _currentPlayerClass;
+
     public PlayerController player;
     public HealthSystem healthSystem;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite stoneBody;
     public Sprite normalSprite;
+
+    public event Action<godTypes> OnGodTypeChanged;
+    public event Action<PlayerClassBase> OnPlayerClassChanged;
     
     public enum godTypes
     {
+        None,
         Trickster,
         Defender,
         Speedster,
         SpellCaster
     }
-    public godTypes? godType;
+    public godTypes godType;
     
     
     private float curSpecialCooldown = 0f;
@@ -37,48 +47,48 @@ public class Gods : MonoBehaviour
     {
         player = this.GetComponent<PlayerController>();
         healthSystem = this.GetComponent<HealthSystem>();
-        setType(godTypes.Defender);
+        SetPlayerClassIndex(0);
+        //setType(godTypes.Trickster);
         //normalSprite = _spriteRenderer.sprite;
     }
 
     public void HandleSpecialAbility(InputAction.CallbackContext context)
     {
-        if(godType.HasValue && curSpecialCooldown <= 0 && !player.GetGhost())
+        if (curSpecialCooldown <= 0 && !player.GetGhost())
         {
-        
-            if (godType == godTypes.Trickster)
+            switch (godType)
             {
-                TricksterAbility();
+                case godTypes.Trickster:
+                    TricksterAbility();
+                    break;
+                case godTypes.Defender:
+                    DefenderAbility();
+                    break;
+                case godTypes.Speedster:
+                    SpeedsterAbility();
+                    break;
+                case godTypes.SpellCaster:
+                    SpellCasterAbility();
+                    break;
+                
             }
-
-            if (godType == godTypes.Defender)
-            {
-                DefenderAbility();
-            }
-
-            if (godType == godTypes.Speedster)
-            {
-                SpeedsterAbility();
-            }
-
-            if (godType == godTypes.SpellCaster)
-            {
-                SpellCasterAbility();
-            }
-            
         }
+        
+        
+        //  Command pattern
+        _currentPlayerClass.PerformSpecialAbility();
     }
 
     private void SpellCasterAbility()
     {
-        throw new NotImplementedException();
+        Debug.Log($"not implemented yet");
     }
     
 
 
     private void SpeedsterAbility()
     {
-        throw new NotImplementedException();
+        Debug.Log($"not implemented yet");
     }
 
     
@@ -120,6 +130,7 @@ public class Gods : MonoBehaviour
     
     void Update()
     {
+        _currentPlayerClass.Tick();
         curSpecialCooldown -= Time.deltaTime;      
         curAbilityTime -= Time.deltaTime;
         if (godType == godTypes.Defender && player.IsStone && curAbilityTime <= 0)
@@ -128,5 +139,46 @@ public class Gods : MonoBehaviour
             healthSystem.IsStone = false;
             _spriteRenderer.sprite = normalSprite;
         }
+    }
+
+    /// <summary>
+    /// Trigger god change
+    /// </summary>
+    public void ChangeGod()
+    {
+        if (godType == godTypes.SpellCaster)
+        {
+            godType = godTypes.Trickster;
+        }
+        else
+        {
+            godType++;
+        }
+        OnGodTypeChanged?.Invoke(godType);
+
+
+        // Command Pattern method
+        _currentPlayerClassIndex++;
+        SetPlayerClassIndex(_currentPlayerClassIndex);
+    }
+
+    private void SetPlayerClassIndex(int index)
+    {
+        if (index >= PlayerClasses.Count)
+        {
+            index = 0;
+        }
+        _currentPlayerClassIndex  = index;
+        var playerClass = PlayerClasses[index];
+        if (_currentPlayerClass != null)
+        {
+            Destroy(_currentPlayerClass);
+        }
+        _currentPlayerClass = Instantiate(playerClass);
+        _currentPlayerClass.name = playerClass.name;
+        _currentPlayerClass.PlayerController = player;
+        healthSystem.PlayerClass = _currentPlayerClass;
+        
+        OnPlayerClassChanged?.Invoke(_currentPlayerClass);
     }
 }

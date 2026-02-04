@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlayerGods;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Sprite[] _spriteColours;
     [SerializeField]private Sprite ghostSprite;
     [SerializeField] private Gods _god;
+    public Gods God => _god;
     
     public bool IsStone { get; set; } = false;
 
@@ -53,17 +55,24 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     private Vector2 _moveDirection = Vector2.zero;
     public AudioClip damageSound;
-    
-    
+    private bool _isLobbyMode;
+
+
     public void HandleMove(InputAction.CallbackContext context)
     {
-        if (IsStone)
-            return;
         _moveDirection = context.ReadValue<Vector2>();
     }
 
     public void HandleAttack(InputAction.CallbackContext context)
     {
+        if (!context.started)
+            return;
+        if (_isLobbyMode)
+        {
+            _god.ChangeGod();
+            return;
+        }
+        
         if (_isGhost || IsStone)
             return;
         _damageSystem.PreformAttack();
@@ -104,11 +113,24 @@ public class PlayerController : MonoBehaviour
         _damageSystem.Initialize(this);
         _playerNumber++;
         name = $"Player {_playerNumber}";
-        
+        God.OnPlayerClassChanged += HandlePlayerClassChanged;
+    }
+
+    private void HandlePlayerClassChanged(PlayerClassBase playerClass)
+    {
+        if (playerClass.PlayerSprite != null)
+        {
+            _spriteRenderer.sprite = playerClass.PlayerSprite;
+        }
     }
 
     private void Update()
     {
+        if (IsStone)
+        {
+            _moveDirection = Vector2.zero;
+        }
+
         Quaternion oldRotation = transform.rotation;
         transform.rotation = Quaternion.identity;
         
@@ -192,5 +214,10 @@ public class PlayerController : MonoBehaviour
     public bool GetGhost()
     {
         return _isGhost;
+    }
+
+    public void SetLobbyMode(bool isLobbyMode)
+    {
+        _isLobbyMode = isLobbyMode;
     }
 }
