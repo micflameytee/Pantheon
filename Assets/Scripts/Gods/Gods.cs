@@ -11,6 +11,7 @@ public class Gods : MonoBehaviour
     public HealthSystem healthSystem;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite stoneBody;
+    public Sprite normalSprite;
     
     public enum godTypes
     {
@@ -25,20 +26,24 @@ public class Gods : MonoBehaviour
     private float curSpecialCooldown = 0f;
     public float maxSpecialCooldown = 20f;
 
+    private float curAbilityTime = 0f;
+    public float maxAbilityTime = 5f;
+
     public Trickster trickster;
     public SpellCaster spellcaster;
     public Speedster speedster;
-    public Defender defender;
 
     private void Awake()
     {
         player = this.GetComponent<PlayerController>();
-        setType(godTypes.Trickster);
+        healthSystem = this.GetComponent<HealthSystem>();
+        setType(godTypes.Defender);
+        //normalSprite = _spriteRenderer.sprite;
     }
 
     public void HandleSpecialAbility(InputAction.CallbackContext context)
     {
-        if(godType.HasValue && curSpecialCooldown <= 0)
+        if(godType.HasValue && curSpecialCooldown <= 0 && !player.GetGhost())
         {
         
             if (godType == godTypes.Trickster)
@@ -82,6 +87,9 @@ public class Gods : MonoBehaviour
     private void DefenderAbility()
     {
         player.IsStone = true;
+        healthSystem.IsStone = true;
+        curAbilityTime = maxAbilityTime;
+        _spriteRenderer.sprite = stoneBody;
     }
 
     
@@ -112,6 +120,13 @@ public class Gods : MonoBehaviour
     
     void Update()
     {
-        curSpecialCooldown -= Time.deltaTime;        
+        curSpecialCooldown -= Time.deltaTime;      
+        curAbilityTime -= Time.deltaTime;
+        if (godType == godTypes.Defender && player.IsStone && curAbilityTime <= 0)
+        {
+            player.IsStone = false;
+            healthSystem.IsStone = false;
+            _spriteRenderer.sprite = normalSprite;
+        }
     }
 }

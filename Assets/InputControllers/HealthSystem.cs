@@ -25,7 +25,7 @@ public class HealthSystem : MonoBehaviour
     public AudioClip hitSound;
     private Statue _statue;
     
-    private bool IsStone { get; set; } = false;
+    public bool IsStone { get; set; } = false;
 
     private float damageCooldown = 0f;
     [SerializeField] private float MaxCooldown = 0.1f;
@@ -64,6 +64,11 @@ public class HealthSystem : MonoBehaviour
             myType = HealthType.player;
         }
 
+        if (IsPlayer)
+        {
+            Debug.Log($"is player");
+        }
+        
         if (!IsPlayer)
         {
             Debug.Assert(SpriteStates.Count != 0, "no sprite states for health system", this);

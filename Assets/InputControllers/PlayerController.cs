@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private SpriteRenderer _spriteRenderer;
     [SerializeField]private Sprite[] _spriteColours;
     [SerializeField]private Sprite ghostSprite;
+    [SerializeField] private Gods _god;
     
-    private bool IsStone { get; set; } = false;
+    public bool IsStone { get; set; } = false;
 
     
     
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         _damageSystem.Initialize(this);
         _playerNumber++;
         name = $"Player {_playerNumber}";
+        
     }
 
     private void Update()
@@ -160,7 +162,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.Log($"index: {_playerNumber} \n size: {_spriteColours.Length}");
-            _spriteRenderer.sprite = _spriteColours[playerNumber];            
+            _spriteRenderer.sprite = _spriteColours[playerNumber];
+            _god.normalSprite = _spriteColours[playerNumber];
         }
         if (isGhost && OwnedStatue !=null && OwnedStatue.StillThere())
         {
