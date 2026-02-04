@@ -11,14 +11,7 @@ public class HealthSystem : MonoBehaviour
     
     private Collider2D _collider;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    /**
-    [SerializeField] private Sprite UnDamagedSprite;
-    [SerializeField] private Sprite DamagedSprite;
-    [SerializeField] private Sprite moreDamagedSprite;
-    [SerializeField] private Sprite alotMoreDamagedSprite;
-    [SerializeField] private Sprite almostDestroyedSprite;
-    [SerializeField] private Sprite DestroyedSprite;
-    */
+    
     
     [SerializeField] private HealthBar _healthBar;
     
@@ -31,6 +24,8 @@ public class HealthSystem : MonoBehaviour
     public int currentHealth;
     public AudioClip hitSound;
     private Statue _statue;
+    
+    private bool IsStone { get; set; } = false;
 
     private float damageCooldown = 0f;
     [SerializeField] private float MaxCooldown = 0.1f;
@@ -100,7 +95,7 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage, PlayerController damageSource)
     {
-        if (damageCooldown >= 0f)
+        if (damageCooldown >= 0f || (IsPlayer && IsStone))
         {
             return;
         }

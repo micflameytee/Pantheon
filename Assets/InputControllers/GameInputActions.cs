@@ -62,6 +62,15 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpecialAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""77505354-c176-4a92-804e-aca6adf3524d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -295,6 +304,39 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""LandMine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa432290-f5f6-4980-b0e0-71fb5ee875cc"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SpecialAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""760e4de3-51b9-4293-be20-eeefc64ccba6"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardLeft"",
+                    ""action"": ""SpecialAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e63983f-c505-445d-921e-b7b8a69beeed"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad2"",
+                    ""action"": ""SpecialAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -380,6 +422,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_GameActions_Attack = m_GameActions.FindAction("Attack", throwIfNotFound: true);
         m_GameActions_BearTrap = m_GameActions.FindAction("BearTrap", throwIfNotFound: true);
         m_GameActions_LandMine = m_GameActions.FindAction("LandMine", throwIfNotFound: true);
+        m_GameActions_SpecialAbility = m_GameActions.FindAction("SpecialAbility", throwIfNotFound: true);
         // MenuActions
         m_MenuActions = asset.FindActionMap("MenuActions", throwIfNotFound: true);
         m_MenuActions_NextScene = m_MenuActions.FindAction("NextScene", throwIfNotFound: true);
@@ -448,6 +491,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_GameActions_Attack;
     private readonly InputAction m_GameActions_BearTrap;
     private readonly InputAction m_GameActions_LandMine;
+    private readonly InputAction m_GameActions_SpecialAbility;
     public struct GameActionsActions
     {
         private @GameInputActions m_Wrapper;
@@ -456,6 +500,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_GameActions_Attack;
         public InputAction @BearTrap => m_Wrapper.m_GameActions_BearTrap;
         public InputAction @LandMine => m_Wrapper.m_GameActions_LandMine;
+        public InputAction @SpecialAbility => m_Wrapper.m_GameActions_SpecialAbility;
         public InputActionMap Get() { return m_Wrapper.m_GameActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -477,6 +522,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @LandMine.started += instance.OnLandMine;
             @LandMine.performed += instance.OnLandMine;
             @LandMine.canceled += instance.OnLandMine;
+            @SpecialAbility.started += instance.OnSpecialAbility;
+            @SpecialAbility.performed += instance.OnSpecialAbility;
+            @SpecialAbility.canceled += instance.OnSpecialAbility;
         }
 
         private void UnregisterCallbacks(IGameActionsActions instance)
@@ -493,6 +541,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @LandMine.started -= instance.OnLandMine;
             @LandMine.performed -= instance.OnLandMine;
             @LandMine.canceled -= instance.OnLandMine;
+            @SpecialAbility.started -= instance.OnSpecialAbility;
+            @SpecialAbility.performed -= instance.OnSpecialAbility;
+            @SpecialAbility.canceled -= instance.OnSpecialAbility;
         }
 
         public void RemoveCallbacks(IGameActionsActions instance)
@@ -589,6 +640,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnBearTrap(InputAction.CallbackContext context);
         void OnLandMine(InputAction.CallbackContext context);
+        void OnSpecialAbility(InputAction.CallbackContext context);
     }
     public interface IMenuActionsActions
     {

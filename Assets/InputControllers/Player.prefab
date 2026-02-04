@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1562376642465694606}
   - component: {fileID: 6441804837208826776}
   - component: {fileID: 5454137333266921778}
+  - component: {fileID: 8805012442506602661}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -214,6 +215,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 42d35958-c700-4e7b-8397-1958a2924d8b
     m_ActionName: GameActions/LandMine[/XInputControllerWindows/buttonEast,/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8805012442506602661}
+        m_TargetAssemblyTypeName: Gods, Assembly-CSharp
+        m_MethodName: HandleSpecialAbility
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 77505354-c176-4a92-804e-aca6adf3524d
+    m_ActionName: GameActions/SpecialAbility[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/XInputControllerWindows2/buttonWest,/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: KeyboardLeft
   m_DefaultActionMap: GameActions
@@ -300,6 +317,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.67
+--- !u!114 &8805012442506602661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295679720360646971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c65739299ac4664fa58f63a1ad6798f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  maxSpecialCooldown: 20
+  trickster: {fileID: 2140596760622010225, guid: b09bd42bae0beb6448d8f5730d25f913, type: 3}
+  spellcaster: {fileID: 0}
+  speedster: {fileID: 0}
+  defender: {fileID: 0}
 --- !u!1 &3664494587790424217
 GameObject:
   m_ObjectHideFlags: 0

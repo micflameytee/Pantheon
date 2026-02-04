@@ -15,17 +15,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Sprite[] _spriteColours;
     [SerializeField]private Sprite ghostSprite;
     
+    private bool IsStone { get; set; } = false;
+
+    
+    
+    
+    
+    
+    
     private int playerNumber = 0;
     
     public HealthSystem HealthSystem => _healthSystem;
     private bool _isGhost;
     public bool annoyingGhost;
+    
+    
     private float RespawnCooldown { get; set; }
     public float respawnCooldownMax = 3f;
     private float CurrentGlueTrapCooldown = 0f;
     private float CurrentBombCooldown = 0f;
     public float glueTrapCooldown = 1f;
     public float bombCooldown = 10f;
+
+    
     
     
     public Bomb bomb;
@@ -44,12 +56,14 @@ public class PlayerController : MonoBehaviour
     
     public void HandleMove(InputAction.CallbackContext context)
     {
+        if (IsStone)
+            return;
         _moveDirection = context.ReadValue<Vector2>();
     }
 
     public void HandleAttack(InputAction.CallbackContext context)
     {
-        if (_isGhost)
+        if (_isGhost || IsStone)
             return;
         _damageSystem.PreformAttack();
     }
@@ -75,6 +89,8 @@ public class PlayerController : MonoBehaviour
         newInstance.owner = this;
         CurrentGlueTrapCooldown = glueTrapCooldown;
     }
+
+    
 
     private void Start()
     {
