@@ -42,8 +42,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip glueReloadSfx;
     [SerializeField] private AudioClip bombSetSfx;
     [SerializeField] private AudioClip glueSetSfx;
-
+    
     [SerializeField] private TrapBar trapBar;
+    [SerializeField] private GameObject healthBarPrefab;
+    [SerializeField] private GameObject trapBarPrefab;
     
     public Bomb bomb;
     public BearTrap bearTrap;
@@ -182,13 +184,20 @@ public class PlayerController : MonoBehaviour
         if (isGhost)
         {
             _spriteRenderer.sprite = ghostSprite;
+            
+            healthBarPrefab.SetActive(false);
+            trapBarPrefab.SetActive(false);
         }
         else
         {
             Debug.Log($"index: {_playerNumber} \n size: {_spriteColours.Length}");
             _spriteRenderer.sprite = _spriteColours[playerNumber];
             _god.normalSprite = _spriteColours[playerNumber];
+            
+            healthBarPrefab.SetActive(true);
+            trapBarPrefab.SetActive(true);
         }
+        
         if (isGhost && OwnedStatue !=null && OwnedStatue.StillThere())
         {
             SFX.Instance.PlaySound("ui_chime", transform.position);
