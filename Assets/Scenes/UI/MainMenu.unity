@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 648830180}
   - component: {fileID: 648830179}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: VersionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,7 +947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alpha Release
+  m_text: Beta Release
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4691e5a2d7b60e632be2e7a66a7159ff, type: 2}
   m_sharedMaterial: {fileID: -4546552491117385484, guid: 4691e5a2d7b60e632be2e7a66a7159ff, type: 2}
