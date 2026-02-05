@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip glueReloadSfx;
     [SerializeField] private AudioClip bombSetSfx;
     [SerializeField] private AudioClip glueSetSfx;
+
+    [SerializeField] private TrapBar trapBar;
     
     public Bomb bomb;
     public BearTrap bearTrap;
@@ -80,8 +82,10 @@ public class PlayerController : MonoBehaviour
         var newInstance = Instantiate(bomb, transform.position, transform.rotation);
         newInstance.owner = this;
         CurrentBombCooldown = bombCooldown;
+        
         SFX.Instance.PlaySound(bombSetSfx, transform.position);
-        StartCoroutine(WaitAndPlaySound(bombCooldown, bombReloadSfx));
+        trapBar.SetBomb(false);
+        StartCoroutine(WaitThenReload(bombCooldown, bombReloadSfx, TrapBar.TrapType.Bomb));
     }
 
     public void HandleBearTrap(InputAction.CallbackContext context)
@@ -93,14 +97,24 @@ public class PlayerController : MonoBehaviour
         var newInstance = Instantiate(bearTrap, transform.position, transform.rotation);
         newInstance.owner = this;
         CurrentGlueTrapCooldown = glueTrapCooldown;
+        
         SFX.Instance.PlaySound(glueSetSfx, transform.position);
-        StartCoroutine(WaitAndPlaySound(glueTrapCooldown, glueReloadSfx));
+        trapBar.SetGlue(false);
+        StartCoroutine(WaitThenReload(glueTrapCooldown, glueReloadSfx, TrapBar.TrapType.Glue));
     }
 
-    private IEnumerator WaitAndPlaySound(float seconds, AudioClip sound)
+    private IEnumerator WaitThenReload(float seconds, AudioClip sound, TrapBar.TrapType trapType)
     {
         yield return new WaitForSeconds(seconds);
         SFX.Instance.PlaySound(sound, transform.position);
+        if (trapType == TrapBar.TrapType.Bomb)
+        {
+            trapBar.SetBomb(true);
+        }
+        else
+        {
+            trapBar.SetGlue(true);
+        }
     }
 
     private void Start()
