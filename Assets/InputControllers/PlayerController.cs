@@ -38,8 +38,10 @@ public class PlayerController : MonoBehaviour
     public float glueTrapCooldown = 1f;
     public float bombCooldown = 10f;
 
-    
-    
+    [SerializeField] private AudioClip bombReloadSfx;
+    [SerializeField] private AudioClip glueReloadSfx;
+    [SerializeField] private AudioClip bombSetSfx;
+    [SerializeField] private AudioClip glueSetSfx;
     
     public Bomb bomb;
     public BearTrap bearTrap;
@@ -78,6 +80,8 @@ public class PlayerController : MonoBehaviour
         var newInstance = Instantiate(bomb, transform.position, transform.rotation);
         newInstance.owner = this;
         CurrentBombCooldown = bombCooldown;
+        SFX.Instance.PlaySound(bombSetSfx, transform.position);
+        StartCoroutine(WaitAndPlaySound(bombCooldown, bombReloadSfx));
     }
 
     public void HandleBearTrap(InputAction.CallbackContext context)
@@ -89,9 +93,15 @@ public class PlayerController : MonoBehaviour
         var newInstance = Instantiate(bearTrap, transform.position, transform.rotation);
         newInstance.owner = this;
         CurrentGlueTrapCooldown = glueTrapCooldown;
+        SFX.Instance.PlaySound(glueSetSfx, transform.position);
+        StartCoroutine(WaitAndPlaySound(glueTrapCooldown, glueReloadSfx));
     }
 
-    
+    private IEnumerator WaitAndPlaySound(float seconds, AudioClip sound)
+    {
+        yield return new WaitForSeconds(seconds);
+        SFX.Instance.PlaySound(sound, transform.position);
+    }
 
     private void Start()
     {
@@ -167,6 +177,7 @@ public class PlayerController : MonoBehaviour
         }
         if (isGhost && OwnedStatue !=null && OwnedStatue.StillThere())
         {
+            SFX.Instance.PlaySound("ui_chime", transform.position);
             RespawnCooldown = respawnCooldownMax;
         }
         else

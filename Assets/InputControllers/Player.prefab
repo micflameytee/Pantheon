@@ -119,6 +119,10 @@ MonoBehaviour:
   respawnCooldownMax: 3
   glueTrapCooldown: 1
   bombCooldown: 10
+  bombReloadSfx: {fileID: 8300000, guid: 255456a3f96734aeeab8d319c689218a, type: 3}
+  glueReloadSfx: {fileID: 8300000, guid: ae9284555ce5b4696b1b7c5cb4e32fbc, type: 3}
+  bombSetSfx: {fileID: 8300000, guid: afde54a9d243943efa6712dad86d6346, type: 3}
+  glueSetSfx: {fileID: 8300000, guid: 720f230a30bb045f7ae9557325a2399c, type: 3}
   bomb: {fileID: 863313588442113378, guid: c460e88af10dad347b8993b5c926a8a6, type: 3}
   bearTrap: {fileID: 3835916652855587187, guid: ec7b7aef5ce3b5a449f56e621be0132d, type: 3}
   moveSpeed: 2.5
@@ -251,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 3190010535762698972}
   _healthBar: {fileID: 3916672027352721686}
+  deathSfx: {fileID: 8300000, guid: 1899fa69adb594b279cc4534ae8cef21, type: 3}
   SpriteStates: []
   startingHealth: 3
   currentHealth: 0
