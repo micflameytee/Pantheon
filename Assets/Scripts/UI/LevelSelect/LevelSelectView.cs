@@ -35,5 +35,11 @@ namespace UI.LevelSelect
             Utility.UnloadLevel("GameplayScene");
             Utility.LoadLevel("GameplayScene");
         }
+
+        public void CustomRules()
+        {
+            SFX.Instance.PlaySound("ui_select");
+            Utility.LoadLevelAdditive("CustomRules");
+        }
     }
 }

@@ -130,7 +130,20 @@ public class PlayerController : MonoBehaviour
         _damageSystem.Initialize(this);
         _playerNumber++;
         name = $"Player {_playerNumber}";
-        
+
+        SetAnnoyingGhost(PlayerPrefs.GetInt("AnnoyingGhosts", 0));
+    }
+
+    private void SetAnnoyingGhost(int playerPrefValue)
+    {
+        if (playerPrefValue == 0)
+        {
+            annoyingGhost = false;
+        }
+        else
+        {
+            annoyingGhost = true;
+        }
     }
 
     private void Update()
@@ -212,13 +225,16 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer.color = isGhost 
             ? new  Color32(255, 255, 255, 127)
             : new  Color32(255, 255, 255, 255);
-        
-        if (!annoyingGhost && _isGhost)
+
+        if (isGhost)
         {
-            GetComponent<Collider2D>().enabled = false;
-        }
-        else if (!annoyingGhost && !_isGhost)
-        {
+            if (annoyingGhost)
+            {
+                GetComponent<Collider2D>().enabled = true;
+            } else {
+                GetComponent<Collider2D>().enabled = false;
+            }
+        } else {
             GetComponent<Collider2D>().enabled = true;
         }
     }

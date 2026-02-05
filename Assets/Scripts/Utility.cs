@@ -14,4 +14,9 @@ public class Utility : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(levelName);
     }
+    
+    public static void LoadLevelAdditive(string levelName)
+    {
+        SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+    }
 }
