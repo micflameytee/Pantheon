@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5251c973194b79810353e4dc6aff19, type: 3}
   m_Name: No Class
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 0}
-  PlayerTransform: {fileID: 0}
+  PlayerSprite: {fileID: 21300000, guid: 6f43536d1b5273745afc6bbdc713c9d4, type: 3}
+  PlayerController: {fileID: 0}

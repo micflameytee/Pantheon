@@ -26,7 +26,6 @@ public class HealthSystem : MonoBehaviour
     public AudioClip hitSound;
     private Statue _statue;
     
-    public bool IsStone { get; set; } = false;
 
     private float damageCooldown = 0f;
     [SerializeField] private float MaxCooldown = 0.1f;

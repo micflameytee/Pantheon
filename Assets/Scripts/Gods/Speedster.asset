@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 777be8b8e6a3489b86c4004f6e79cf4c, type: 3}
-  m_Name: Trickster
+  m_Script: {fileID: 11500000, guid: 6241823c82fb42499e83daae777abdbf, type: 3}
+  m_Name: Speedster
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
+  PlayerSprite: {fileID: 0}
   PlayerController: {fileID: 0}
-  recallPrefab: {fileID: 2140596760622010225, guid: b09bd42bae0beb6448d8f5730d25f913, type: 3}
-  _placementCooldown: 10
-  _recallCooldown: 1

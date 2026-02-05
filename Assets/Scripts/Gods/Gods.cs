@@ -19,18 +19,7 @@ public class Gods : MonoBehaviour
     [SerializeField] private Sprite stoneBody;
     public Sprite normalSprite;
 
-    public event Action<godTypes> OnGodTypeChanged;
     public event Action<PlayerClassBase> OnPlayerClassChanged;
-    
-    public enum godTypes
-    {
-        None,
-        Trickster,
-        Defender,
-        Speedster,
-        SpellCaster
-    }
-    public godTypes godType;
     
     
     private float curSpecialCooldown = 0f;
@@ -39,7 +28,6 @@ public class Gods : MonoBehaviour
     private float curAbilityTime = 0f;
     public float maxAbilityTime = 5f;
 
-    public Trickster trickster;
     public SpellCaster spellcaster;
     public Speedster speedster;
 
@@ -54,91 +42,18 @@ public class Gods : MonoBehaviour
 
     public void HandleSpecialAbility(InputAction.CallbackContext context)
     {
-        if (curSpecialCooldown <= 0 && !player.GetGhost())
-        {
-            switch (godType)
-            {
-                case godTypes.Trickster:
-                    TricksterAbility();
-                    break;
-                case godTypes.Defender:
-                    DefenderAbility();
-                    break;
-                case godTypes.Speedster:
-                    SpeedsterAbility();
-                    break;
-                case godTypes.SpellCaster:
-                    SpellCasterAbility();
-                    break;
-                
-            }
-        }
+        
         
         
         //  Command pattern
         _currentPlayerClass.PerformSpecialAbility();
     }
 
-    private void SpellCasterAbility()
-    {
-        Debug.Log($"not implemented yet");
-    }
-    
-
-
-    private void SpeedsterAbility()
-    {
-        Debug.Log($"not implemented yet");
-    }
-
-    
-    
-    
-    private void DefenderAbility()
-    {
-        player.IsStone = true;
-        healthSystem.IsStone = true;
-        curAbilityTime = maxAbilityTime;
-        _spriteRenderer.sprite = stoneBody;
-    }
-
-    
-    
-    
-    private void TricksterAbility()
-    {
-        if (curSpecialCooldown > 0 || player.GetGhost())
-        {
-            Debug.Log($"{curSpecialCooldown} seconds left");
-            Debug.Log($"ghost is {player.GetGhost()}");
-            return;
-        }
-        curSpecialCooldown = maxSpecialCooldown;
-        Debug.Log($"{godType}");
-        var newInstance = Instantiate(trickster, transform.position, transform.rotation);
-        newInstance.owner = this;
-    }
-
-
-    private void setType(godTypes type)
-    {
-        godType =  type;
-    }
-    
-    
-    
     
     void Update()
     {
         _currentPlayerClass.Tick();
-        curSpecialCooldown -= Time.deltaTime;      
-        curAbilityTime -= Time.deltaTime;
-        if (godType == godTypes.Defender && player.IsStone && curAbilityTime <= 0)
-        {
-            player.IsStone = false;
-            healthSystem.IsStone = false;
-            _spriteRenderer.sprite = normalSprite;
-        }
+        curSpecialCooldown -= Time.deltaTime;
     }
 
     /// <summary>
@@ -146,17 +61,6 @@ public class Gods : MonoBehaviour
     /// </summary>
     public void ChangeGod()
     {
-        if (godType == godTypes.SpellCaster)
-        {
-            godType = godTypes.Trickster;
-        }
-        else
-        {
-            godType++;
-        }
-        OnGodTypeChanged?.Invoke(godType);
-
-
         // Command Pattern method
         _currentPlayerClassIndex++;
         SetPlayerClassIndex(_currentPlayerClassIndex);
@@ -178,6 +82,7 @@ public class Gods : MonoBehaviour
         _currentPlayerClass.name = playerClass.name;
         _currentPlayerClass.PlayerController = player;
         healthSystem.PlayerClass = _currentPlayerClass;
+        _currentPlayerClass.Setup();
         
         OnPlayerClassChanged?.Invoke(_currentPlayerClass);
     }

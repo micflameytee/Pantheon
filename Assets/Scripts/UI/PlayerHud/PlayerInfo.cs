@@ -18,10 +18,8 @@ namespace UI.PlayerHud
             PlayerName.text = playerName;
             PlayerClass.text = $"Player {PlayerName}";
             player.HealthSystem.OnPlayerDamaged += UpdateHealth;
-            player.God.OnGodTypeChanged += UpdateGod;
             player.God.OnPlayerClassChanged += UpdatePlayerClass;
             UpdateHealth(player);  
-            UpdateGod(player.God.godType);
         }
 
         private void UpdatePlayerClass(PlayerClassBase playerClass)
@@ -29,14 +27,10 @@ namespace UI.PlayerHud
             UpdatePlayerClassText();
         }
 
-        private void UpdateGod(Gods.godTypes godType)
-        {
-            UpdatePlayerClassText();
-        }
 
         private void UpdatePlayerClassText()
         {
-            PlayerClass.text = $"{_player.God.godType.ToString()}/{_player.God.CurrentPlayerClass?.name}";
+            PlayerClass.text = $"{_player.God.CurrentPlayerClass?.name}";
         }
 
         private void UpdateHealth(PlayerController player)

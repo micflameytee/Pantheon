@@ -334,15 +334,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f5da1f024dbf20458d183ac1d5c0598, type: 2}
   - {fileID: 11400000, guid: fb47c2e258ea4f94a96b9c3357c0ce78, type: 2}
   - {fileID: 11400000, guid: faa75d2d5a3a24e42a96c62f4440d362, type: 2}
+  - {fileID: 11400000, guid: c0dbd990d580ca94a8a00f94f6871d07, type: 2}
   player: {fileID: 3124456977024137407}
   healthSystem: {fileID: 1562376642465694606}
   _spriteRenderer: {fileID: 3190010535762698972}
   stoneBody: {fileID: 21300000, guid: 3c8aa64414bef414db20304d9e2256ca, type: 3}
   normalSprite: {fileID: 21300000, guid: 6f43536d1b5273745afc6bbdc713c9d4, type: 3}
-  godType: 0
   maxSpecialCooldown: 20
   maxAbilityTime: 5
-  trickster: {fileID: 2140596760622010225, guid: b09bd42bae0beb6448d8f5730d25f913, type: 3}
   spellcaster: {fileID: 0}
   speedster: {fileID: 0}
 --- !u!1 &3664494587790424217

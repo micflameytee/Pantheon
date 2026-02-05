@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Gods _god;
     public Gods God => _god;
     
-    public bool IsStone { get; set; } = false;
 
     
     
@@ -73,7 +72,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        if (_isGhost || IsStone)
+        if (_isGhost)
             return;
         _damageSystem.PreformAttack();
     }
@@ -126,10 +125,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (IsStone)
-        {
-            _moveDirection = Vector2.zero;
-        }
 
         Quaternion oldRotation = transform.rotation;
         transform.rotation = Quaternion.identity;
@@ -167,7 +162,7 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector2.zero;
             return;
         }
-        _rb.velocity = _moveDirection * moveSpeed;
+        _rb.velocity = _moveDirection * moveSpeed * _god.CurrentPlayerClass.SpeedMultiplier;
     }
 
     public void ResetCooldown()
