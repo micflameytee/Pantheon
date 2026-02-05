@@ -1582,6 +1582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 869580847}
   focusButton: {fileID: 846421402}
+  audioMixer: {fileID: 24100000, guid: 3196362feb2c24d27a5d27fa4a918da8, type: 2}
 --- !u!1 &913279643
 GameObject:
   m_ObjectHideFlags: 0
