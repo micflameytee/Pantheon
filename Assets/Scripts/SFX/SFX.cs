@@ -25,10 +25,22 @@ public class SFX : MonoBehaviour
     }
 
     // Play a sound loaded into the SFX bank
-    public void PlaySound(string soundName, Vector3 position = default)
+    public void PlaySound(string soundName, Vector3 position = default, bool singleton = false)
     {
+        if (singleton)
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.name == soundName)
+                {
+                    return;
+                }
+            }
+        }
+        
         AudioClip sound = _sounds.GetValueOrDefault(soundName);
         Transform instance = Instantiate(soundPlayerPrefab, transform);
+        instance.gameObject.name = soundName;
         
         AudioSource audioSource = instance.GetComponent<AudioSource>();
         audioSource.clip = sound;
@@ -39,9 +51,21 @@ public class SFX : MonoBehaviour
     }
 
     // Play an AudioClip sound
-    public void PlaySound(AudioClip sound, Vector3 position = default)
+    public void PlaySound(AudioClip sound, Vector3 position = default, bool singleton = false)
     {
+        if (singleton)
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.name == sound.name)
+                {
+                    return;
+                }
+            }
+        }
+        
         Transform instance = Instantiate(soundPlayerPrefab, transform);
+        instance.gameObject.name = sound.name;
         
         AudioSource audioSource = instance.GetComponent<AudioSource>();
         audioSource.clip = sound;
