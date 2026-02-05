@@ -12,7 +12,7 @@ public class SettingsMenu : MonoBehaviour
 
     void Start()
     {
-        SetVolume(PlayerPrefs.GetFloat("MasterVolume", 50));
+        SetVolume(PlayerPrefs.GetFloat("MasterVolume", 100));
     }
 
     public void SetVolume(float volume)
