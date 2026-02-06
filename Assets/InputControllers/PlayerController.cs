@@ -138,7 +138,6 @@ public class PlayerController : MonoBehaviour
         _damageSystem.Initialize(this);
         _playerNumber++;
         name = $"Player {_playerNumber}";
-<<<<<<< HEAD
         God.OnPlayerClassChanged += HandlePlayerClassChanged;
     }
 
@@ -147,7 +146,7 @@ public class PlayerController : MonoBehaviour
         if (playerClass.PlayerSprite != null)
         {
             _spriteRenderer.sprite = playerClass.PlayerSprite;
-=======
+        }
 
         SetAnnoyingGhost(PlayerPrefs.GetInt("AnnoyingGhosts", 0));
     }
@@ -161,7 +160,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             annoyingGhost = true;
->>>>>>> origin/BetaContent
         }
     }
 
