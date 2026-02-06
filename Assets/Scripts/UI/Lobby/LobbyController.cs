@@ -55,7 +55,6 @@ namespace UI.Lobby
         {
             _playerCount++;
             _view?.AddNewPlayer(player, "Player " + _playerCount);
-            SFX.Instance.PlaySound("ui_chime");
         }
     }
 }

@@ -15,6 +15,7 @@ public class HealthSystem : MonoBehaviour
     
     
     [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private AudioClip deathSfx;
     
     [SerializeField] private List<Sprite> SpriteStates;
     private int CurSpriteNum;
@@ -176,7 +177,10 @@ public class HealthSystem : MonoBehaviour
 
     public void OnDeath()
     {
-
+        if (deathSfx != null)
+        {
+            SFX.Instance.PlaySound(deathSfx, transform.position);
+        }
         if (_statue != null)
         {
             //Destroy(this.gameObject);

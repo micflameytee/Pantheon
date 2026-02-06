@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: controller_tutorial
     originalName: 
-    pivot: {x: 0.49390244, y: -0.13492063}
+    pivot: {x: 0.49390244, y: -0.12499999}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,7 +129,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 246
-      height: 126
+      height: 136
     spriteID: af3fbd743f2570d76b401e576c615638
     spriteBone: []
     spriteOutline: []
@@ -154,7 +154,7 @@ ScriptedImporter:
         x: 19
         y: 17
         width: 246
-        height: 126
+        height: 136
       spriteId: af3fbd743f2570d76b401e576c615638
     linkedCells: []
     parentIndex: -1

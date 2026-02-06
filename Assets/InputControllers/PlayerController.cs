@@ -39,8 +39,14 @@ public class PlayerController : MonoBehaviour
     public float glueTrapCooldown = 1f;
     public float bombCooldown = 10f;
 
+    [SerializeField] private AudioClip bombReloadSfx;
+    [SerializeField] private AudioClip glueReloadSfx;
+    [SerializeField] private AudioClip bombSetSfx;
+    [SerializeField] private AudioClip glueSetSfx;
     
-    
+    [SerializeField] private TrapBar trapBar;
+    [SerializeField] private GameObject healthBarPrefab;
+    [SerializeField] private GameObject trapBarPrefab;
     
     public Bomb bomb;
     public BearTrap bearTrap;
@@ -86,6 +92,10 @@ public class PlayerController : MonoBehaviour
         var newInstance = Instantiate(bomb, transform.position, transform.rotation);
         newInstance.owner = this;
         CurrentBombCooldown = bombCooldown;
+        
+        SFX.Instance.PlaySound(bombSetSfx, transform.position);
+        trapBar.SetBomb(false);
+        StartCoroutine(WaitThenReload(bombCooldown, bombReloadSfx, TrapBar.TrapType.Bomb));
     }
 
     public void HandleBearTrap(InputAction.CallbackContext context)
@@ -97,9 +107,25 @@ public class PlayerController : MonoBehaviour
         var newInstance = Instantiate(bearTrap, transform.position, transform.rotation);
         newInstance.owner = this;
         CurrentGlueTrapCooldown = glueTrapCooldown;
+        
+        SFX.Instance.PlaySound(glueSetSfx, transform.position);
+        trapBar.SetGlue(false);
+        StartCoroutine(WaitThenReload(glueTrapCooldown, glueReloadSfx, TrapBar.TrapType.Glue));
     }
 
-    
+    private IEnumerator WaitThenReload(float seconds, AudioClip sound, TrapBar.TrapType trapType)
+    {
+        yield return new WaitForSeconds(seconds);
+        SFX.Instance.PlaySound(sound, transform.position);
+        if (trapType == TrapBar.TrapType.Bomb)
+        {
+            trapBar.SetBomb(true);
+        }
+        else
+        {
+            trapBar.SetGlue(true);
+        }
+    }
 
     private void Start()
     {
@@ -112,6 +138,7 @@ public class PlayerController : MonoBehaviour
         _damageSystem.Initialize(this);
         _playerNumber++;
         name = $"Player {_playerNumber}";
+<<<<<<< HEAD
         God.OnPlayerClassChanged += HandlePlayerClassChanged;
     }
 
@@ -120,6 +147,21 @@ public class PlayerController : MonoBehaviour
         if (playerClass.PlayerSprite != null)
         {
             _spriteRenderer.sprite = playerClass.PlayerSprite;
+=======
+
+        SetAnnoyingGhost(PlayerPrefs.GetInt("AnnoyingGhosts", 0));
+    }
+
+    private void SetAnnoyingGhost(int playerPrefValue)
+    {
+        if (playerPrefValue == 0)
+        {
+            annoyingGhost = false;
+        }
+        else
+        {
+            annoyingGhost = true;
+>>>>>>> origin/BetaContent
         }
     }
 
@@ -175,15 +217,23 @@ public class PlayerController : MonoBehaviour
         if (isGhost)
         {
             _spriteRenderer.sprite = ghostSprite;
+            
+            healthBarPrefab.SetActive(false);
+            trapBarPrefab.SetActive(false);
         }
         else
         {
             Debug.Log($"index: {_playerNumber} \n size: {_spriteColours.Length}");
             _spriteRenderer.sprite = _spriteColours[playerNumber];
             _god.normalSprite = _spriteColours[playerNumber];
+            
+            healthBarPrefab.SetActive(true);
+            trapBarPrefab.SetActive(true);
         }
+        
         if (isGhost && OwnedStatue !=null && OwnedStatue.StillThere())
         {
+            SFX.Instance.PlaySound("ui_chime", transform.position);
             RespawnCooldown = respawnCooldownMax;
         }
         else
@@ -195,13 +245,16 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer.color = isGhost 
             ? new  Color32(255, 255, 255, 127)
             : new  Color32(255, 255, 255, 255);
-        
-        if (!annoyingGhost && _isGhost)
+
+        if (isGhost)
         {
-            GetComponent<Collider2D>().enabled = false;
-        }
-        else if (!annoyingGhost && !_isGhost)
-        {
+            if (annoyingGhost)
+            {
+                GetComponent<Collider2D>().enabled = true;
+            } else {
+                GetComponent<Collider2D>().enabled = false;
+            }
+        } else {
             GetComponent<Collider2D>().enabled = true;
         }
     }

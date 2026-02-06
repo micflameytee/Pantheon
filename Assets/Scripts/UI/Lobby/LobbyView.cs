@@ -24,6 +24,7 @@ namespace UI.Lobby
 
         public void AddNewPlayer(PlayerInput player, string playerName)
         {
+            SFX.Instance.PlaySound("ui_chime");
             SetFeedbackText($"{playerName} Joined the game");
         }
 

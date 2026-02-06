@@ -14,6 +14,8 @@ public class BearTrap : MonoBehaviour
     [SerializeField]private float MaxCooldown = 5f;
     private bool cooldownActive = false;
     
+    [SerializeField] private AudioClip deploySfx;
+    
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,6 +28,7 @@ public class BearTrap : MonoBehaviour
         }
         if (_otherController != null && other.CompareTag("Player") && owner != _otherController)
         {
+            SFX.Instance.PlaySound(deploySfx, transform.position);
             Debug.Log($"other player");
             cooldownActive = true;
             _otherController.CanMove = false;
