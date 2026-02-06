@@ -13,7 +13,7 @@ public class CustomRules : MonoBehaviour
     void Awake()
     {
         EventSystem.current.SetSelectedGameObject(focusButton);
-        SetGodsEnabled(PlayerPrefs.GetInt("GodsEnabled", 0));
+        SetGodsEnabled(PlayerPrefs.GetInt("GodsEnabled", 1));
         SetAnnoyingGhosts(PlayerPrefs.GetInt("AnnoyingGhosts", 0));
     }
 
@@ -27,7 +27,7 @@ public class CustomRules : MonoBehaviour
         {
             godsEnabledToggle.isOn = true;
         }
-        PlayerPrefs.SetInt("CustomGods", value);
+        PlayerPrefs.SetInt("GodsEnabled", value);
     }
 
     public void SetCustomGodsToggle()

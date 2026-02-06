@@ -16,11 +16,13 @@ public class Gods : MonoBehaviour
     public Sprite normalSprite;
 
     public event Action<PlayerClassBase> OnPlayerClassChanged;
-    
+
+    private int _godsEnabled;
 
 
     private void Awake()
     {
+        _godsEnabled = PlayerPrefs.GetInt("GodsEnabled", 1);
         player = this.GetComponent<PlayerController>();
         healthSystem = this.GetComponent<HealthSystem>();
         SetPlayerClassIndex(0);
@@ -45,6 +47,7 @@ public class Gods : MonoBehaviour
     /// </summary>
     public void ChangeGod()
     {
+        if (_godsEnabled == 0) { return; }
         // Command Pattern method
         _currentPlayerClassIndex++;
         SetPlayerClassIndex(_currentPlayerClassIndex);
