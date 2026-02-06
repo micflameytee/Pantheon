@@ -133,7 +133,7 @@ public class HealthSystem : MonoBehaviour
         }
 
         SFX.Instance.PlaySound(hitSound, transform.position);
-        Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
+        //Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
         CheckHealth();
     }
 

@@ -211,6 +211,11 @@ public class PlayerController : MonoBehaviour
         return _isGhost;
     }
 
+    public bool GetLobbyMode()
+    {
+        return _isLobbyMode;
+    }
+
     public void SetLobbyMode(bool isLobbyMode)
     {
         _isLobbyMode = isLobbyMode;

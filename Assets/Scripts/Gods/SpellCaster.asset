@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49013b60f754be7af6c31696eee24ff, type: 3}
+  m_Name: SpellCaster
+  m_EditorClassIdentifier: 
+  PlayerSprite: {fileID: 0}
+  PlayerController: {fileID: 0}
+  _fireBall: {fileID: 3751883873146894654, guid: 535db0be479c5e94d8e97570cdd37b6e, type: 3}
+  _spellCooldown: 10

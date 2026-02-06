@@ -330,11 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c65739299ac4664fa58f63a1ad6798f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerClasses:
-  - {fileID: 11400000, guid: 1f5da1f024dbf20458d183ac1d5c0598, type: 2}
-  - {fileID: 11400000, guid: fb47c2e258ea4f94a96b9c3357c0ce78, type: 2}
-  - {fileID: 11400000, guid: faa75d2d5a3a24e42a96c62f4440d362, type: 2}
-  - {fileID: 11400000, guid: c0dbd990d580ca94a8a00f94f6871d07, type: 2}
+  PlayerClasses: {fileID: 11400000, guid: 04b431fff285a7049a7e6a5036e5e339, type: 2}
   player: {fileID: 3124456977024137407}
   healthSystem: {fileID: 1562376642465694606}
   _spriteRenderer: {fileID: 3190010535762698972}
