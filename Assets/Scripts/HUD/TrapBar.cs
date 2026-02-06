@@ -6,6 +6,7 @@ public class TrapBar : MonoBehaviour
 {
     [SerializeField] private GameObject bomb;
     [SerializeField] private GameObject glue;
+    [SerializeField] private GameObject ability;
 
     public enum TrapType
     {
