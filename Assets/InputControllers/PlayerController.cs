@@ -109,17 +109,28 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(WaitThenReload(glueTrapCooldown, glueReloadSfx, TrapBar.TrapType.Glue));
     }
 
+    public void HandleAbility(float seconds, AudioClip reloadSfx)
+    {
+        trapBar.SetAbility(false);
+        StartCoroutine(WaitThenReload(seconds, reloadSfx, TrapBar.TrapType.Ability));
+    }
+
     private IEnumerator WaitThenReload(float seconds, AudioClip sound, TrapBar.TrapType trapType)
     {
         yield return new WaitForSeconds(seconds);
-        SFX.Instance.PlaySound(sound, transform.position);
-        if (trapType == TrapBar.TrapType.Bomb)
+        if (sound != null) { SFX.Instance.PlaySound(sound, transform.position); }
+        
+        switch (trapType)
         {
-            trapBar.SetBomb(true);
-        }
-        else
-        {
-            trapBar.SetGlue(true);
+            case TrapBar.TrapType.Bomb:
+                trapBar.SetBomb(true);
+                break;
+            case TrapBar.TrapType.Glue:
+                trapBar.SetGlue(true);
+                break;
+            case TrapBar.TrapType.Ability:
+                trapBar.SetAbility(true);
+                break;
         }
     }
 

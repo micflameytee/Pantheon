@@ -11,6 +11,9 @@ namespace PlayerGods
         [HideInInspector] public PlayerController PlayerController;
         private float _cooldown;
         protected bool IsOnCooldown => _cooldown > 0;
+        
+        public AudioClip abilitySfx;
+        public AudioClip abilityReloadSfx;
 
         public virtual void PerformSpecialAbility()
         {
@@ -33,6 +36,12 @@ namespace PlayerGods
         protected void StartCooldown(float cooldownLength)
         {
             _cooldown = cooldownLength;
+            
+            if (abilitySfx != null)
+            {
+                SFX.Instance.PlaySound(abilitySfx, PlayerController.transform.position);
+            }
+            PlayerController.HandleAbility(_cooldown, abilityReloadSfx);
         }
     }
     

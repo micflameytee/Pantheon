@@ -11,7 +11,8 @@ public class TrapBar : MonoBehaviour
     public enum TrapType
     {
         Bomb,
-        Glue
+        Glue,
+        Ability
     };
     
     public void SetBomb(bool visible)
@@ -22,5 +23,10 @@ public class TrapBar : MonoBehaviour
     public void SetGlue(bool visible)
     {
         glue.SetActive(visible);
+    }
+
+    public void SetAbility(bool visible)
+    {
+        ability.SetActive(visible);
     }
 }
