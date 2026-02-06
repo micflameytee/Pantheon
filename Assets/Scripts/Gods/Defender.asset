@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 21300000, guid: 62d34048b9cdb6743b0321cf0580582b, type: 3}
   PlayerController: {fileID: 0}
+  abilitySfx: {fileID: 8300000, guid: f6eb8cdbbf46b2f4ea40973483eb7947, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: ec8871776f79c4b6f9bc7af2b23fc71b, type: 3}
   _shieldTime: 3
   _shieldSpeedMultiplier: 0
   _shieldCooldown: 10

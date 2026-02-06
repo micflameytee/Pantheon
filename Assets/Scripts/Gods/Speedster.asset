@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 21300000, guid: 3b4d68455d7a360419333a27a1427145, type: 3}
   PlayerController: {fileID: 0}
+  abilitySfx: {fileID: 8300000, guid: 91fb80e508423804095f76dc4971d272, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: b862f29597ed5457ca55f55186994389, type: 3}
   blinkDistance: 5
   blinkCooldown: 4
