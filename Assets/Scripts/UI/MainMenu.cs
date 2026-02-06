@@ -28,6 +28,12 @@ public class MainMenu : MonoBehaviour
         Utility.LoadLevel("CustomRules");
         // Utility.LoadLevel("Lobby");
     }
+
+    public void LoadTutorial()
+    {
+        SFX.Instance.PlaySound("ui_select");
+        Utility.LoadLevel("Tutorial");
+    }
     
     public void LoadSettings()
     {
