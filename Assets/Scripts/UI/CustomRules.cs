@@ -56,7 +56,8 @@ public class CustomRules : MonoBehaviour
     public void ExitCustomRules()
     {
         SFX.Instance.PlaySound("ui_select");
-        Utility.LoadLevel("GameplayScene");
+        Utility.LoadLevel("MainMenu");
+        // Utility.LoadLevel("GameplayScene");
         // Utility.UnloadLevel("CustomRules");
     }
 }

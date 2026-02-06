@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a11fc4674e5debbebad8120f704c858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusButton: {fileID: 69513025}
+  focusButton: {fileID: 476790542}
   godsEnabledToggle: {fileID: 476790544}
   annoyingGhostsToggle: {fileID: 1084773295}
 --- !u!1 &1925581417
