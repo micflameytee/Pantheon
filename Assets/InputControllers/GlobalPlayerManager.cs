@@ -108,6 +108,7 @@ public class GlobalPlayerManager : MonoBehaviour
             {
                 Debug.Log($"MESSAGE: Player {players[0].name} has won");
                 _gameOver = true;
+                players[0].Reset();
             }
         }
     }

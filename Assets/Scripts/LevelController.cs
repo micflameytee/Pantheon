@@ -15,9 +15,11 @@ public class LevelController : MonoBehaviour
     {
         _players = players;
         int i = 0;
+        int statueNum = 0;
         
         foreach (PlayerController player in _players)
         {
+            
             //check that there is an angel for this player
             //player.SetPlayerColour(i);
             player.ResetCooldown();
@@ -25,20 +27,15 @@ public class LevelController : MonoBehaviour
             
             //player.transform.position = SpawnPoints[Random.Range(0, SpawnPoints.Length)].position;
             Statue angel;
-            if (angels.Count == 1)
-            {
-                angel = angels[0];
-            }
-            else
-            {
-                angel = angels[i];   
-            }
-            player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
-            angel.owner = player;
+            statueNum = i % angels.Count;
+            angel = angels[statueNum];
             player.OwnedStatue = angel;
-            
             player.transform.position = angel.GetSpawnPoint().position;
             
+            
+            player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
+            Debug.Log($"player {i} angel {statueNum} angels Count {angels.Count}");
+            player.InfoPanel.RegisterStatue(angel);
             
             i++;
         }
@@ -52,12 +49,12 @@ public class LevelController : MonoBehaviour
         foreach (Transform trapSpawn in trapSpawns)
         {
             int randomChance = Random.Range(1, 100);
-            if (randomChance <= 5)
+            if (randomChance <= 10)
             {
                 var newInstance = Instantiate(bomb, trapSpawn);
             }
             
-            if (randomChance >= 95)
+            if (randomChance >= 90)
             {
                 var newInstance = Instantiate(bearTrap, trapSpawn);
             }

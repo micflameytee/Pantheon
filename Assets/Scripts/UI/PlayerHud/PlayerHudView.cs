@@ -23,6 +23,9 @@ namespace UI.PlayerHud
             {
                 PlayerInfo playerInfoPanel = _playerInfoPanels[nextPlayerNum];
                 playerInfoPanel.SetPlayer($"Player {nextPlayerNum + 1}", player);
+                
+                player.RegisterInfoPanel(playerInfoPanel);
+                
                 _players.Add(player, playerInfoPanel);
                 playerInfoPanel.gameObject.SetActive(true);
             }

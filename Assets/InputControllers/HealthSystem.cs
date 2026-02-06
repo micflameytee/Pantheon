@@ -50,7 +50,7 @@ public class HealthSystem : MonoBehaviour
     }
 
     public event Action<PlayerController> OnPlayerDeath;
-    public event Action<PlayerController> OnPlayerDamaged;
+    public event Action<HealthSystem> OnDamaged;
     
     private void Awake()
     {
@@ -116,7 +116,9 @@ public class HealthSystem : MonoBehaviour
         {
             damageCooldown = MaxCooldown;
         }
-        if (_statue != null && _statue.owner !=null && _statue?.owner == damageSource)
+
+        
+        if (_statue != null && damageSource.OwnedStatue == _statue)
         {
             Debug.Log($"This statue is owned by {name} has {currentHealth} / {startingHealth} health");
             return;
@@ -128,10 +130,7 @@ public class HealthSystem : MonoBehaviour
             _healthBar.SetHealth(currentHealth);
         }
 
-        if (_player != null)
-        {
-            OnPlayerDamaged?.Invoke(_player);
-        }
+        OnDamaged?.Invoke(this);
 
         SFX.Instance.PlaySound(hitSound, transform.position);
         //Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");

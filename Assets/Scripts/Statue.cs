@@ -10,7 +10,6 @@ public class Statue : MonoBehaviour
     [SerializeField] private Sprite destroyedSprite;
     [SerializeField] private Transform[] spawnPoints;
     
-    public PlayerController owner { get; set; }
     public bool isStillThere = true;
     
     private int _currentSpawnPointIndex = 0;

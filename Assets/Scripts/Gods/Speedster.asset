@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6241823c82fb42499e83daae777abdbf, type: 3}
   m_Name: Speedster
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 0}
+  PlayerSprite: {fileID: 21300000, guid: 3b4d68455d7a360419333a27a1427145, type: 3}
   PlayerController: {fileID: 0}
+  blinkDistance: 5
+  blinkCooldown: 4

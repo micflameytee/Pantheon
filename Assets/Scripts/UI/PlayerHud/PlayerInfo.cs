@@ -9,22 +9,30 @@ namespace UI.PlayerHud
     {
         public TMP_Text PlayerName;
         public TMP_Text PlayerClass;
-        public Slider PlayerHealth;
+        public Slider StatueHealth;
         private PlayerController _player;
+        private Statue _statue;
 
         public void SetPlayer(string playerName, PlayerController player)
         {
             _player = player;
+            _statue = _player.OwnedStatue;
             PlayerName.text = playerName;
             PlayerClass.text = $"Player {PlayerName}";
-            player.HealthSystem.OnPlayerDamaged += UpdateHealth;
             player.God.OnPlayerClassChanged += UpdatePlayerClass;
-            UpdateHealth(player);  
         }
 
         private void UpdatePlayerClass(PlayerClassBase playerClass)
         {
             UpdatePlayerClassText();
+        }
+
+        public void RegisterStatue(Statue statue)
+        {
+            _statue = statue;
+            HealthSystem statueHealthSystem = _statue.GetComponent<HealthSystem>();
+            statueHealthSystem.OnDamaged += UpdateHealth;
+            UpdateHealth(statueHealthSystem);  
         }
 
 
@@ -33,10 +41,12 @@ namespace UI.PlayerHud
             PlayerClass.text = $"{_player.God.CurrentPlayerClass?.name}";
         }
 
-        private void UpdateHealth(PlayerController player)
+        private void UpdateHealth(HealthSystem statueHealth)
         {
-            PlayerHealth.maxValue = player.HealthSystem.startingHealth;
-            PlayerHealth.value = Mathf.Clamp(player.HealthSystem.currentHealth, 0,  player.HealthSystem.startingHealth);
+            int statueStartHealth = statueHealth.startingHealth;
+            int statueCurHealth = statueHealth.currentHealth;
+            StatueHealth.maxValue = statueStartHealth;
+            StatueHealth.value = Mathf.Clamp(statueCurHealth, 0,  statueStartHealth + 1);
         }
     }
 }

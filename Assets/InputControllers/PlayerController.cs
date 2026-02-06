@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using PlayerGods;
+using UI.PlayerHud;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -19,12 +20,6 @@ public class PlayerController : MonoBehaviour
     public Gods God => _god;
     
 
-    
-    
-    
-    
-    
-    
     private int playerNumber = 0;
     
     public HealthSystem HealthSystem => _healthSystem;
@@ -61,6 +56,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveDirection = Vector2.zero;
     public AudioClip damageSound;
     private bool _isLobbyMode;
+    public PlayerInfo InfoPanel { get; private set; }
 
 
     public void HandleMove(InputAction.CallbackContext context)
@@ -139,6 +135,11 @@ public class PlayerController : MonoBehaviour
         _playerNumber++;
         name = $"Player {_playerNumber}";
         God.OnPlayerClassChanged += HandlePlayerClassChanged;
+    }
+
+    public void Reset()
+    {
+        _playerNumber = 0;
     }
 
     private void HandlePlayerClassChanged(PlayerClassBase playerClass)
@@ -221,7 +222,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log($"index: {_playerNumber} \n size: {_spriteColours.Length}");
+//            Debug.Log($"index: {_playerNumber} \n size: {_spriteColours.Length}");
             _spriteRenderer.sprite = _spriteColours[playerNumber];
             _god.normalSprite = _spriteColours[playerNumber];
             
@@ -270,5 +271,10 @@ public class PlayerController : MonoBehaviour
     public void SetLobbyMode(bool isLobbyMode)
     {
         _isLobbyMode = isLobbyMode;
+    }
+
+    public void RegisterInfoPanel(PlayerInfo playerInfoPanel)
+    {
+        InfoPanel = playerInfoPanel;
     }
 }
