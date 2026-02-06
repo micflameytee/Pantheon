@@ -342,12 +342,7 @@ MonoBehaviour:
   player: {fileID: 3124456977024137407}
   healthSystem: {fileID: 1562376642465694606}
   _spriteRenderer: {fileID: 3190010535762698972}
-  stoneBody: {fileID: 21300000, guid: 3c8aa64414bef414db20304d9e2256ca, type: 3}
   normalSprite: {fileID: 21300000, guid: 6f43536d1b5273745afc6bbdc713c9d4, type: 3}
-  maxSpecialCooldown: 20
-  maxAbilityTime: 5
-  spellcaster: {fileID: 0}
-  speedster: {fileID: 0}
 --- !u!1 &3664494587790424217
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3314172017557158284, guid: b533e5d56e95340d1852478b9a42e0bd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3314172017557158284, guid: b533e5d56e95340d1852478b9a42e0bd, type: 3}
       propertyPath: m_AnchoredPosition.y
