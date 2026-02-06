@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
     public void LoadLobby()
     {
         SFX.Instance.PlaySound("ui_select");
-        Utility.LoadLevel("GameplayScene");
+        Utility.LoadLevel("CustomRules");
         // Utility.LoadLevel("Lobby");
     }
     

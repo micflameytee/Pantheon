@@ -7,32 +7,32 @@ using UnityEngine.UI;
 public class CustomRules : MonoBehaviour
 {
     [SerializeField] private GameObject focusButton;
-    [SerializeField] private Toggle customGodsToggle;
+    [SerializeField] private Toggle godsEnabledToggle;
     [SerializeField] private Toggle annoyingGhostsToggle;
 
     void Awake()
     {
         EventSystem.current.SetSelectedGameObject(focusButton);
-        SetCustomGods(PlayerPrefs.GetInt("CustomGods", 0));
+        SetGodsEnabled(PlayerPrefs.GetInt("GodsEnabled", 0));
         SetAnnoyingGhosts(PlayerPrefs.GetInt("AnnoyingGhosts", 0));
     }
 
-    void SetCustomGods(int value)
+    void SetGodsEnabled(int value)
     {
         if (value == 0)
         {
-            customGodsToggle.isOn = false;
+            godsEnabledToggle.isOn = false;
         }
         else
         {
-            customGodsToggle.isOn = true;
+            godsEnabledToggle.isOn = true;
         }
         PlayerPrefs.SetInt("CustomGods", value);
     }
 
     public void SetCustomGodsToggle()
     {
-        SetCustomGods(customGodsToggle.isOn ? 1 : 0);
+        SetGodsEnabled(godsEnabledToggle.isOn ? 1 : 0);
     }
     
     void SetAnnoyingGhosts(int value)
@@ -55,6 +55,8 @@ public class CustomRules : MonoBehaviour
     
     public void ExitCustomRules()
     {
-        Utility.UnloadLevel("CustomRules");
+        SFX.Instance.PlaySound("ui_select");
+        Utility.LoadLevel("GameplayScene");
+        // Utility.UnloadLevel("CustomRules");
     }
 }
