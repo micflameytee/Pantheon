@@ -102,4 +102,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  playerInputManager: {fileID: 0}
+  playerInputManager: {fileID: 3738602040479737913}
