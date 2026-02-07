@@ -73,4 +73,5 @@ public class Gods : MonoBehaviour
         normalSprite = _currentPlayerClass.PlayerSprite;
         OnPlayerClassChanged?.Invoke(_currentPlayerClass);
     }
+
 }

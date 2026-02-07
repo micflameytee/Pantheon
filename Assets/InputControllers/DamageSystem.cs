@@ -12,6 +12,7 @@ public class DamageSystem : MonoBehaviour
     public float strikeCooldown = 0.25f;
     public float radius = 1;
     private float _cooldownTimer = 0f;
+    private float baseCooldown;
     
     private RaycastHit2D[] _hits = new RaycastHit2D[20];
     private HealthSystem _myHealthSystem;
@@ -24,16 +25,19 @@ public class DamageSystem : MonoBehaviour
         _player = player;
         _myHealthSystem = player.GetComponent<HealthSystem>();
         _swordAnimation.SwingTime = strikeCooldown;
+        baseCooldown = strikeCooldown;
     }
     
-    public void HandleAttackSpeedMultiplier(float multiplier)
+
+    public int CalculateDamage()
     {
-        strikeCooldown = strikeCooldown * multiplier;
+        return _player.God.CurrentPlayerClass.CalculateDamage(damage);
     }
+    
 
     private void Update()
     {
-        _cooldownTimer -= Time.deltaTime;
+        _cooldownTimer -= _player.God.CurrentPlayerClass.CalculateAttackSpeed(Time.deltaTime);
     }
 
     public void PreformAttack()
@@ -57,7 +61,7 @@ public class DamageSystem : MonoBehaviour
             {
 //                Debug.Log($"{_myHealthSystem.name} is attacking {targetSystem.name}");
                 
-                targetSystem.TakeDamage(damage, _player);
+                targetSystem.TakeDamage(CalculateDamage(), _player);
             }
         }
 

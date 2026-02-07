@@ -15,6 +15,6 @@ public class Recall : MonoBehaviour
 
     public void SetExpired(bool isExpired)
     {
-        _spriteRenderer.sprite = isExpired ? _recallSprite : _usedRecallSprite;
+        _spriteRenderer.sprite = !isExpired ? _recallSprite : _usedRecallSprite;
     }
 }

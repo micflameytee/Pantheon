@@ -12,23 +12,19 @@ namespace PlayerGods
         [SerializeField] private float _shieldSpeedMultiplier = 0f;
         private float _abilityTimer;
         [SerializeField] private float _shieldCooldown = 10f;
-        private DamageSystem _damageSystem;
         [SerializeField] private float attackSpeedMultiplier = 1;
         [SerializeField] private float trapCooldownMultiplier = 1f;
-        private float resetValue = 1f;
 
         
 
+        
         public override void PerformSpecialAbility()
         {
-            _damageSystem = PlayerController.GetComponent<DamageSystem>();
             if (IsOnCooldown)
                 return;
             
             _abilityTimer = _shieldTime;
             StartCooldown(_shieldCooldown);
-            _damageSystem.HandleAttackSpeedMultiplier(attackSpeedMultiplier);
-            PlayerController.HandleTrapCooldownMultiplier(trapCooldownMultiplier);
 
         }
 
@@ -55,17 +51,33 @@ namespace PlayerGods
             return inputDamage;
         }
 
-        
+        public override float CalculateTrapCooldown(float inputCooldown)
+        {
+            
+            float baseSpeed = base.CalculateTrapCooldown(inputCooldown);
+
+            if (_abilityTimer > 0)
+            {
+                return baseSpeed *  trapCooldownMultiplier;
+            }
+            return baseSpeed;
+        }
+
+
+        public override float CalculateAttackSpeed(float inputSpeed)
+        {
+            float baseAttackSpeed = base.CalculateAttackSpeed(inputSpeed);
+            if (_abilityTimer > 0)
+            {
+                return  baseAttackSpeed * attackSpeedMultiplier;
+            }
+            return baseAttackSpeed;
+        }
+
         public override void Tick()
         {
             _abilityTimer -= Time.deltaTime;
             base.Tick();
-            if (_abilityTimer <= 0 && _damageSystem != null)
-            {
-                _damageSystem.HandleAttackSpeedMultiplier(resetValue);
-                PlayerController.HandleTrapCooldownMultiplier(resetValue);
-
-            }
         }
     }
 }

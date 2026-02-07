@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private Sprite ghostSprite;
     [SerializeField]private Gods _god;
     public Gods God => _god;
-    
+    public DamageSystem  PlayerDamageSystem => _damageSystem;
 
     private int playerNumber = 0;
     
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     private float CurrentBombCooldown = 0f;
     public float glueTrapCooldown = 1f;
     public float bombCooldown = 10f;
+    private float baseGlueCooldown;
+    private float baseBombCooldown;
 
     [SerializeField] private AudioClip bombReloadSfx;
     [SerializeField] private AudioClip glueReloadSfx;
@@ -117,12 +119,7 @@ public class PlayerController : MonoBehaviour
         trapBar.SetAbility(false);
         StartCoroutine(WaitThenReload(seconds, reloadSfx, TrapBar.TrapType.Ability));
     }
-
-    public void HandleTrapCooldownMultiplier(float multiplier)
-    {
-        bombCooldown = bombCooldown * multiplier;
-        glueTrapCooldown = glueTrapCooldown * multiplier;
-    }
+    
     
     private IEnumerator WaitThenReload(float seconds, AudioClip sound, TrapBar.TrapType trapType)
     {
@@ -155,6 +152,8 @@ public class PlayerController : MonoBehaviour
         _playerNumber++;
         name = $"Player {_playerNumber}";
         God.OnPlayerClassChanged += HandlePlayerClassChanged;
+        baseBombCooldown = bombCooldown;
+        baseGlueCooldown = glueTrapCooldown;
     }
 
     public void Reset()
@@ -186,14 +185,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
+        ;
         waitTime -= 1;
         Quaternion oldRotation = transform.rotation;
         transform.rotation = Quaternion.identity;
         
         transform.rotation = oldRotation;
         
-        CurrentGlueTrapCooldown -= Time.deltaTime;
-        CurrentBombCooldown -= Time.deltaTime;
+        CurrentGlueTrapCooldown -= God.CurrentPlayerClass.CalculateTrapCooldown(Time.deltaTime);
+        CurrentBombCooldown -= God.CurrentPlayerClass.CalculateTrapCooldown(Time.deltaTime);
         RespawnCooldown -= Time.deltaTime;
 
         if (_isGhost && RespawnCooldown <= 0f)

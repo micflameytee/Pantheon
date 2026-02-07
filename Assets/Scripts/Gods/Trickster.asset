@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
   PlayerController: {fileID: 0}
+  _statueSprites: []
   abilitySfx: {fileID: 8300000, guid: 80792f0c49cc85c4a90fece84eff7667, type: 3}
   abilityReloadSfx: {fileID: 8300000, guid: 2cd84cb990de246138b266a52de5f4f2, type: 3}
   recallPrefab: {fileID: 2140596760622010225, guid: b09bd42bae0beb6448d8f5730d25f913, type: 3}
   _placementCooldown: 5
   _recallCooldown: 1
-  trapCooldownMultiplier: 0.7
+  trapCooldownMultiplier: 1.2
