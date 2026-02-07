@@ -36,6 +36,11 @@ public class LevelController : MonoBehaviour
             player.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
             Debug.Log($"player {i} angel {statueNum} angels Count {angels.Count}");
             player.InfoPanel.RegisterStatue(angel);
+
+            if (angels.Count > 1)
+            {
+                player.God.CurrentPlayerClass.levelStart();
+            }
             
             i++;
         }

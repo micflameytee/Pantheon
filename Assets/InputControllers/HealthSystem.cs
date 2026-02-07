@@ -16,7 +16,7 @@ public class HealthSystem : MonoBehaviour
     
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private AudioClip deathSfx;
-    
+
     [SerializeField] private List<Sprite> SpriteStates;
     private int CurSpriteNum;
     
@@ -51,6 +51,11 @@ public class HealthSystem : MonoBehaviour
 
     public event Action<PlayerController> OnPlayerDeath;
     public event Action<HealthSystem> OnDamaged;
+
+    public void OverrideSprites(List<Sprite> sprites)
+    {
+        SpriteStates = sprites;
+    }
     
     private void Awake()
     {

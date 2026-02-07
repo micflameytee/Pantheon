@@ -38,7 +38,7 @@ namespace PlayerGods
             }
             else
             {
-            PlayerController.HandleTrapCooldownMultiplier(trapCooldownMultiplier);
+                PlayerController.HandleTrapCooldownMultiplier(trapCooldownMultiplier);
                 _recall = Instantiate(recallPrefab, PlayerController.transform.position, PlayerController.transform.rotation);
                 _recall.SetExpired(false);
                 StartCooldown(_recallCooldown);

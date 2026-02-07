@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private SpriteRenderer _spriteRenderer;
     [SerializeField]private Sprite[] _spriteColours;
     [SerializeField]private Sprite ghostSprite;
-    [SerializeField] private Gods _god;
+    [SerializeField]private Gods _god;
     public Gods God => _god;
     
 

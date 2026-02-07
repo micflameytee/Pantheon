@@ -30,7 +30,7 @@ public class Statue : MonoBehaviour
     {
         isStillThere = false;
         // change sprite to crumbled statue
-        _spriteRenderer.sprite = destroyedSprite;
+        // _spriteRenderer.sprite = destroyedSprite;
     }
 
     public bool StillThere()

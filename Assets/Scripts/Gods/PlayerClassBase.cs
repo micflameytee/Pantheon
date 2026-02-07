@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace PlayerGods
 {
@@ -10,6 +11,9 @@ namespace PlayerGods
         public Sprite PlayerSprite;
         [HideInInspector] public PlayerController PlayerController;
         private float _cooldown;
+        private Statue _playerStatue;
+        [SerializeField] private List<Sprite> _statueSprites;
+        private SpriteRenderer _statueRenderer;
         protected bool IsOnCooldown => _cooldown > 0;
         
         public AudioClip abilitySfx;
@@ -22,8 +26,19 @@ namespace PlayerGods
 
         public virtual void Setup()
         {
-            
         }
+
+        public virtual void levelStart()
+        {
+            if (_statueSprites.Count > 1)
+            {
+                _playerStatue = PlayerController.OwnedStatue;
+                _statueRenderer = _playerStatue.GetComponent<SpriteRenderer>();
+                _statueRenderer.sprite = _statueSprites[0];
+                _playerStatue.GetComponent<HealthSystem>().OverrideSprites(_statueSprites);
+            }
+        }
+        
         public virtual int CalculateDamage(int inputDamage) => inputDamage;
         
         public virtual float SpeedMultiplier => 1f;
