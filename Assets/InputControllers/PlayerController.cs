@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveDirection = Vector2.zero;
     public AudioClip damageSound;
     private bool _isLobbyMode;
+    private float waitTime = 0.1f;
     public PlayerInfo InfoPanel { get; private set; }
 
 
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
     public void HandleAttack(InputAction.CallbackContext context)
     {
+        if (waitTime > 0)
+            return;
         if (!context.started)
             return;
         if (_isLobbyMode)
@@ -115,6 +118,12 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(WaitThenReload(seconds, reloadSfx, TrapBar.TrapType.Ability));
     }
 
+    public void HandleTrapCooldownMultiplier(float multiplier)
+    {
+        bombCooldown = bombCooldown * multiplier;
+        glueTrapCooldown = glueTrapCooldown * multiplier;
+    }
+    
     private IEnumerator WaitThenReload(float seconds, AudioClip sound, TrapBar.TrapType trapType)
     {
         yield return new WaitForSeconds(seconds);
@@ -177,7 +186,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        waitTime -= 1;
         Quaternion oldRotation = transform.rotation;
         transform.rotation = Quaternion.identity;
         
@@ -233,9 +242,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _spriteRenderer.sprite = _god.normalSprite;
 //            Debug.Log($"index: {_playerNumber} \n size: {_spriteColours.Length}");
-            _spriteRenderer.sprite = _spriteColours[playerNumber];
-            _god.normalSprite = _spriteColours[playerNumber];
+            //_spriteRenderer.sprite = _spriteColours[playerNumber];
+            //_god.normalSprite = _spriteColours[playerNumber];
             
             healthBarPrefab.SetActive(true);
             trapBarPrefab.SetActive(true);

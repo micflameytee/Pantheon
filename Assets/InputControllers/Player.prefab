@@ -117,8 +117,8 @@ MonoBehaviour:
   _god: {fileID: 8805012442506602661}
   annoyingGhost: 0
   respawnCooldownMax: 3
-  glueTrapCooldown: 1
-  bombCooldown: 10
+  glueTrapCooldown: 3
+  bombCooldown: 8
   bombReloadSfx: {fileID: 8300000, guid: 255456a3f96734aeeab8d319c689218a, type: 3}
   glueReloadSfx: {fileID: 8300000, guid: ae9284555ce5b4696b1b7c5cb4e32fbc, type: 3}
   bombSetSfx: {fileID: 8300000, guid: afde54a9d243943efa6712dad86d6346, type: 3}
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   strikeCooldown: 1
-  radius: 0.2
+  radius: 0.3
   _swordAnimation: {fileID: 6999610110435603417}
 --- !u!1 &3998778595341886215
 GameObject:

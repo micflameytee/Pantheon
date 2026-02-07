@@ -70,7 +70,7 @@ public class Gods : MonoBehaviour
         _currentPlayerClass.PlayerController = player;
         healthSystem.PlayerClass = _currentPlayerClass;
         _currentPlayerClass.Setup();
-        
+        normalSprite = _currentPlayerClass.PlayerSprite;
         OnPlayerClassChanged?.Invoke(_currentPlayerClass);
     }
 }

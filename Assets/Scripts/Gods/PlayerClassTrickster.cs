@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using System;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using UnityEngine;
@@ -15,7 +16,12 @@ namespace PlayerGods
         private Recall? _recall;
         [SerializeField] private float _placementCooldown = 10f;
         [SerializeField] private float _recallCooldown = 1f;
-        
+        [SerializeField] private float trapCooldownMultiplier = 1f;
+
+        private void Awake()
+        {
+        }
+
         public override void PerformSpecialAbility()
         {
             if (IsOnCooldown)
@@ -23,6 +29,7 @@ namespace PlayerGods
             
             if (_recall != null)
             {
+                PlayerController.HandleTrapCooldownMultiplier(1);
                 PlayerController.transform.position = _recall.transform.position;
                 _recall.SetExpired(true);
                 _recall = null;
@@ -30,6 +37,7 @@ namespace PlayerGods
             }
             else
             {
+            PlayerController.HandleTrapCooldownMultiplier(trapCooldownMultiplier);
                 _recall = Instantiate(recallPrefab, PlayerController.transform.position, PlayerController.transform.rotation);
                 _recall.SetExpired(false);
                 StartCooldown(_recallCooldown);

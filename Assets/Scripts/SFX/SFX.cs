@@ -71,7 +71,7 @@ public class SFX : MonoBehaviour
         audioSource.clip = sound;
         instance.position = position;
         
-        Debug.Log("[SFX] Playing sound " + sound.name);
+//        Debug.Log("[SFX] Playing sound " + sound.name);
         StartCoroutine(PlaySoundAndWait(audioSource, instance.gameObject));
     }
 

@@ -26,6 +26,10 @@ public class DamageSystem : MonoBehaviour
         _swordAnimation.SwingTime = strikeCooldown;
     }
     
+    public void HandleAttackSpeedMultiplier(float multiplier)
+    {
+        strikeCooldown = strikeCooldown * multiplier;
+    }
 
     private void Update()
     {
@@ -41,7 +45,7 @@ public class DamageSystem : MonoBehaviour
         
         _swordAnimation.PerformAnimation();
         
-        Debug.Log(name + " is attacking");
+//        Debug.Log(name + " is attacking");
         SFX.Instance.PlaySound(_player.damageSound, transform.position);
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         int numHits = Physics2D.CircleCastNonAlloc(position, radius, Vector2.zero, _hits, 0f);
@@ -51,7 +55,7 @@ public class DamageSystem : MonoBehaviour
             HealthSystem targetSystem = hit.collider.gameObject.GetComponent<HealthSystem>();
             if (targetSystem != null && _myHealthSystem != targetSystem)
             {
-                Debug.Log($"{_myHealthSystem.name} is attacking {targetSystem.name}");
+//                Debug.Log($"{_myHealthSystem.name} is attacking {targetSystem.name}");
                 
                 targetSystem.TakeDamage(damage, _player);
             }

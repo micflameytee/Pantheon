@@ -17,4 +17,4 @@ MonoBehaviour:
   abilitySfx: {fileID: 8300000, guid: 086b166c90db1466d92c43a097f304fc, type: 3}
   abilityReloadSfx: {fileID: 8300000, guid: c4be7757bb41c41ec8727ada3d4fd4fb, type: 3}
   _fireBall: {fileID: 3751883873146894654, guid: 535db0be479c5e94d8e97570cdd37b6e, type: 3}
-  _spellCooldown: 10
+  _spellCooldown: 5

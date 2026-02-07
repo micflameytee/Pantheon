@@ -134,7 +134,7 @@ public class HealthSystem : MonoBehaviour
 
         SFX.Instance.PlaySound(hitSound, transform.position);
         //Debug.Log($"Player {name} has {currentHealth} / {startingHealth} health");
-        CheckHealth();
+        CheckHealth(damageSource);
     }
 
     public void ResetHealth()
@@ -146,7 +146,7 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    public int CheckHealth()
+    public int CheckHealth(PlayerController damageSource)
     {
         if (currentHealth < 0)
         {
@@ -167,15 +167,20 @@ public class HealthSystem : MonoBehaviour
             {
                 _collider.enabled = false;
             }
-            OnDeath();
+            OnDeath(damageSource);
         }
 
         return currentHealth;
     }
 
 
-    public void OnDeath()
+    public void OnDeath(PlayerController damageSource)
     {
+        if (damageSource != null && IsPlayer && damageSource.HealthSystem.currentHealth < 3 && damageSource.HealthSystem.IsPlayer)
+        {
+            damageSource.HealthSystem.currentHealth += 1;
+            damageSource.HealthSystem._healthBar.SetHealth(currentHealth);
+        }
         if (deathSfx != null)
         {
             SFX.Instance.PlaySound(deathSfx, transform.position);

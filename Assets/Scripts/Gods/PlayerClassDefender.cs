@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace PlayerGods
@@ -11,8 +12,15 @@ namespace PlayerGods
         [SerializeField] private float _shieldSpeedMultiplier = 0f;
         private float _abilityTimer;
         [SerializeField] private float _shieldCooldown = 10f;
-        
-        
+        private DamageSystem _damageSystem;
+        [SerializeField] private float attackSpeedMultiplier = 1;
+        [SerializeField] private float trapCooldownMultiplier = 1f;
+
+        private void Awake()
+        {
+            _damageSystem = PlayerController.GetComponent<DamageSystem>();
+        }
+
         public override void PerformSpecialAbility()
         {
             if (IsOnCooldown)
@@ -20,6 +28,9 @@ namespace PlayerGods
             
             _abilityTimer = _shieldTime;
             StartCooldown(_shieldCooldown);
+            _damageSystem.HandleAttackSpeedMultiplier(attackSpeedMultiplier);
+            PlayerController.HandleTrapCooldownMultiplier(trapCooldownMultiplier);
+
         }
 
         public override float SpeedMultiplier
@@ -50,6 +61,12 @@ namespace PlayerGods
         {
             _abilityTimer -= Time.deltaTime;
             base.Tick();
+            if (_abilityTimer <= 0 && _damageSystem != null)
+            {
+                _damageSystem.HandleAttackSpeedMultiplier(1);
+                PlayerController.HandleTrapCooldownMultiplier(1);
+
+            }
         }
     }
 }
