@@ -72,7 +72,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/GameOver.unity
     guid: 394cc4ac9e9024081b34f4453afdea78
   - enabled: 1
-    path: Assets/Scripts/UI/PlayerHud/PlayerHud.unity
+    path: Assets/Scenes/UI/PlayerHud.unity
     guid: d61a7a814684a0147a3b0fcbd7e40556
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 015a516c520680e4b8c5077200185f63, type: 2}
