@@ -17,6 +17,7 @@ namespace PlayerGods
         [SerializeField] private float _placementCooldown = 10f;
         [SerializeField] private float _recallCooldown = 1f;
         [SerializeField] private float trapCooldownMultiplier = 1f;
+        private float resetValue = 1f;
 
         private void Awake()
         {
@@ -29,7 +30,7 @@ namespace PlayerGods
             
             if (_recall != null)
             {
-                PlayerController.HandleTrapCooldownMultiplier(1);
+                PlayerController.HandleTrapCooldownMultiplier(resetValue);
                 PlayerController.transform.position = _recall.transform.position;
                 _recall.SetExpired(true);
                 _recall = null;

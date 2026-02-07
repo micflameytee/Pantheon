@@ -15,6 +15,7 @@ namespace PlayerGods
         private DamageSystem _damageSystem;
         [SerializeField] private float attackSpeedMultiplier = 1;
         [SerializeField] private float trapCooldownMultiplier = 1f;
+        private float resetValue = 1f;
 
         private void Awake()
         {
@@ -63,8 +64,8 @@ namespace PlayerGods
             base.Tick();
             if (_abilityTimer <= 0 && _damageSystem != null)
             {
-                _damageSystem.HandleAttackSpeedMultiplier(1);
-                PlayerController.HandleTrapCooldownMultiplier(1);
+                _damageSystem.HandleAttackSpeedMultiplier(resetValue);
+                PlayerController.HandleTrapCooldownMultiplier(resetValue);
 
             }
         }

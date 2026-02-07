@@ -191,5 +191,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 2
-  radius: 0.25
+  radius: 0.5
   direction: {x: 0, y: 0}

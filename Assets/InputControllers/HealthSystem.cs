@@ -178,8 +178,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (damageSource != null && IsPlayer && damageSource.HealthSystem.currentHealth < 3 && damageSource.HealthSystem.IsPlayer)
         {
-            damageSource.HealthSystem.currentHealth += 1;
-            damageSource.HealthSystem._healthBar.SetHealth(currentHealth);
+            damageSource.HealthSystem.ResetHealth();
         }
         if (deathSfx != null)
         {
