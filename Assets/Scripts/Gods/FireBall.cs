@@ -10,6 +10,7 @@ public class FireBall : MonoBehaviour
     public int damage = 3;    
     private RaycastHit2D[] _hits = new RaycastHit2D[20];
     public float radius = 1;
+    [SerializeField] private SpriteAnimation Exsplosion;
 
     public Vector2 direction;
     
@@ -36,6 +37,8 @@ public class FireBall : MonoBehaviour
     
     public void Explode()
     {
+        
+        var newInstance = Instantiate(Exsplosion, transform.position, transform.rotation);
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         int numHits = Physics2D.CircleCastNonAlloc(position, radius, Vector2.zero, _hits, 0f);
         for (int i = 0; i < numHits; i++)

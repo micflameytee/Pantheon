@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2593a2d1d008450f83d2a44f4a81e359, type: 3}
   m_Name: Builder
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 21300000, guid: 62d34048b9cdb6743b0321cf0580582b, type: 3}
+  PlayerSprite: {fileID: 21300000, guid: 0260e536c7a05d049a7e1318c1d9753a, type: 3}
   PlayerController: {fileID: 0}
   _statueSprites: []
   abilitySfx: {fileID: 0}

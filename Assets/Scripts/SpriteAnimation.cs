@@ -12,10 +12,13 @@ public class SpriteAnimation : MonoBehaviour
     [SerializeField] private float AnimationTime;
     [SerializeField] private bool AutoPlay;
     [SerializeField] private bool LoopAnimation;
+    [SerializeField] private bool DeleteOnComplete = true;
 
     private float _timer;
     private bool _isAnimating = true;
 
+    public event Action OnAnimationEnd;
+    
     private void Awake()
     {
         Debug.Assert(_sprites.Length > 0,  "SpriteAnimation sprite array is empty", this);
@@ -24,6 +27,11 @@ public class SpriteAnimation : MonoBehaviour
         {
             PlayAnimation();
         }
+    }
+
+    public void SetAnimationTime(float time)
+    {
+        AnimationTime = time;
     }
 
     private void Reset()
@@ -40,7 +48,11 @@ public class SpriteAnimation : MonoBehaviour
 
     public void StopAnimation()
     {
-        _spriteRenderer.enabled = false;
+        if (DeleteOnComplete)
+        {
+            _spriteRenderer.enabled = false;
+        }
+        OnAnimationEnd?.Invoke();
         _timer = 0;
         _isAnimating = false;
     }
@@ -52,7 +64,8 @@ public class SpriteAnimation : MonoBehaviour
             _timer += Time.deltaTime;
             float animationPercent = _timer / AnimationTime;
             int animationFrame = (int)(animationPercent * _sprites.Length) % _sprites.Length;
-            _spriteRenderer.sprite = _sprites[animationFrame];
+            if(_sprites[animationFrame] != null)
+                _spriteRenderer.sprite = _sprites[animationFrame];
 
             if (!LoopAnimation && animationPercent >= 1)
             {

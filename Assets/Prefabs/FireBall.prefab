@@ -108,6 +108,7 @@ MonoBehaviour:
   AnimationTime: 0.2
   AutoPlay: 1
   LoopAnimation: 1
+  DeleteOnComplete: 1
 --- !u!1 &8373584354365354926
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,4 +193,5 @@ MonoBehaviour:
   speed: 5
   damage: 2
   radius: 0.5
+  Exsplosion: {fileID: 8213516127176075011, guid: 6c91430ad06cb0449908f8d0dd80c864, type: 3}
   direction: {x: 0, y: 0}
