@@ -39,6 +39,7 @@ public class FireBall : MonoBehaviour
     {
         
         var newInstance = Instantiate(Exsplosion, transform.position, transform.rotation);
+        newInstance.PlayAnimation();
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         int numHits = Physics2D.CircleCastNonAlloc(position, radius, Vector2.zero, _hits, 0f);
         for (int i = 0; i < numHits; i++)

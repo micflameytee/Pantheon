@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Statue : MonoBehaviour
 {
+    [HideInInspector] public HealthSystem owner;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite UnDamagedSprite;
     [SerializeField] private Sprite destroyedSprite;
@@ -16,7 +17,7 @@ public class Statue : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer.sprite = UnDamagedSprite;
+        //_spriteRenderer.sprite = UnDamagedSprite;
     }
 
     public Transform GetSpawnPoint()
@@ -29,6 +30,8 @@ public class Statue : MonoBehaviour
     public void SetRemoved()
     {
         isStillThere = false;
+        owner.ResetHealth();
+        
         // change sprite to crumbled statue
         // _spriteRenderer.sprite = destroyedSprite;
     }

@@ -126,3 +126,4 @@ MonoBehaviour:
   AnimationTime: 0.5
   AutoPlay: 0
   LoopAnimation: 0
+  DeleteOnComplete: 1

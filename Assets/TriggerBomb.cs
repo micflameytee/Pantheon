@@ -33,7 +33,7 @@ public class TriggerBomb : MonoBehaviour
     {
 //        SFX.Instance.PlaySound(deploySfx, transform.position);
         SpriteAnimation explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-        explosionPrefab.PlayAnimation();
+        explosion.PlayAnimation();
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         int numHits = Physics2D.CircleCastNonAlloc(position, radius * tileSize, Vector2.zero, _hits, 0f);
         for (int i = 0; i < numHits; i++)
