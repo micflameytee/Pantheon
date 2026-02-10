@@ -10,16 +10,17 @@ public class HealthPotion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log($"healthPotion");
-        _otherController = other.GetComponent<PlayerController>();
-        
-        // Ignore if player is ghost 
-        if (_otherController.GetGhost())
+
+        if (other.CompareTag("Player"))
         {
-            return;
-        }
-        
-        if (_otherController != null && other.CompareTag("Player"))
-        {
+            _otherController = other.GetComponent<PlayerController>();
+            
+            // Ignore if player is ghost 
+            if (_otherController.GetGhost())
+            {
+                return;
+            }
+            
             // Health potion effect, destroy self  
             SFX.Instance.PlaySound(deploySfx, transform.position);
             _otherController.HealthSystem.ResetHealth();
