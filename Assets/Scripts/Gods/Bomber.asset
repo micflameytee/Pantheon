@@ -24,7 +24,7 @@ MonoBehaviour:
   abilitySfx: {fileID: 0}
   abilityReloadSfx: {fileID: 0}
   _cooldownTimer: 10
-  _abilityDamage: 5
+  _abilityDamage: 4
   radius: 3
-  bombTime: 5
+  bombTime: 3
   bomb: {fileID: 371047670927869084, guid: b3c9f1152cecd124aa45089d6bfef837, type: 3}
