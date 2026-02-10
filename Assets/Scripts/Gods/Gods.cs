@@ -30,7 +30,7 @@ public class Gods : MonoBehaviour
 
     public void HandleSpecialAbility(InputAction.CallbackContext context)
     {
-        if (player.GetGhost() || player.GetLobbyMode())
+        if (player.GetGhost() || player.GetLobbyMode() || !context.started)
             return;
         //  Command pattern
         _currentPlayerClass.PerformSpecialAbility();

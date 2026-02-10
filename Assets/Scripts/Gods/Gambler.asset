@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22604a0a21d4a95a5e0d55a5f651e69, type: 3}
+  m_Name: Gambler
+  m_EditorClassIdentifier: 
+  PlayerSprite: {fileID: 21300000, guid: 642adbcb164f7fb44b64b7e79d13354d, type: 3}
+  PlayerController: {fileID: 0}
+  _statueSprites: []
+  abilitySfx: {fileID: 0}
+  abilityReloadSfx: {fileID: 0}
+  _attackDamageMultiplier: 2
+  _attackSpeedMultiplier: 2
+  _trapCooldownMultiplier: 2
+  _jackpotDuration: 5
+  _speedMultiplier: 1.5
+  explosionPrefab: {fileID: 8213516127176075011, guid: 6c91430ad06cb0449908f8d0dd80c864, type: 3}
+  radius: 4
+  damage: 2
+  damageTaken: 1
+  explosionDamage: 5
+  _secretJackpotTimer: 251
+  _secretCooldownMultiplier: 10
+  _secretDamageMultiplier: 3
+  _pokeMachine: {fileID: 2613496097035197494, guid: 3058a41d5aaec0f4ab822f6cb3fcea81, type: 3}

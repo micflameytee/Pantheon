@@ -31,7 +31,7 @@ public class DamageSystem : MonoBehaviour
 
     public int CalculateDamage()
     {
-        return _player.God.CurrentPlayerClass.CalculateDamage(damage);
+        return _player.God.CurrentPlayerClass.CalculateDealDamage(damage);
     }
     
 

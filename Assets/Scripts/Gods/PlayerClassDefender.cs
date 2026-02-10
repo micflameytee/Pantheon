@@ -41,7 +41,7 @@ namespace PlayerGods
             }
         }
 
-        public override int CalculateDamage(int inputDamage)
+        public override int CalculateTakeDamage(int inputDamage)
         {
             if (_abilityTimer > 0)
             {

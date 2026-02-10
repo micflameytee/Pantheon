@@ -225,6 +225,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
         _rb.velocity = _moveDirection * moveSpeed * _god.CurrentPlayerClass.SpeedMultiplier;
+        
+        
     }
 
     public void ResetCooldown()

@@ -13,11 +13,6 @@ namespace PlayerGods
         private int _resetValue = 1;
 
 
-        public override void Setup()
-        {
-            base.Setup();
-        }
-
         public override void PerformSpecialAbility()
         {
             if (IsOnCooldown)
@@ -26,13 +21,13 @@ namespace PlayerGods
             StartCooldown(_abilityCooldown);
         }
 
-        public override int CalculateDamage(int inputDamage)
+        public override int CalculateDealDamage(int inputDamage)
         {
             if (_abilityTimer > 0)
             {
                 return inputDamage * _attackDamageMultiplier;
             }
-            return base.CalculateDamage(inputDamage);
+            return base.CalculateDealDamage(inputDamage);
         }
 
         public override void Tick()
