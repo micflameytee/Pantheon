@@ -25,8 +25,11 @@ public class GamemodeContainer : MonoBehaviour
         // TODO: NOTE: Temporarily disabled other map modes here, uncomment previous line to enable
         // <fudge>
         List <string> options = new List<string>();
-        options.Add(MapData.GetMapModeString(MapData.MapMode.GODLESS));
-        options.Add(MapData.GetMapModeString(MapData.MapMode.GODLESS_DEATHMATCH));
+        //options.Add(MapData.GetMapModeString(MapData.MapMode.GODLESS));
+        //options.Add(MapData.GetMapModeString(MapData.MapMode.GODLESS_DEATHMATCH));
+        
+        options.Add("Standard");
+        options.Add("Deathmatch");
         // </fudge>
         
         gamemode.AddOptions(options);
@@ -42,11 +45,12 @@ public class GamemodeContainer : MonoBehaviour
         // <fudge>
         if (gamemode.value == 0)
         {
-            description.text = MapData.GetMapModeDescription(MapData.MapMode.GODLESS);
+            // description.text = MapData.GetMapModeDescription(MapData.MapMode.GODLESS);
+            description.text = "Break opponents statues, then kill them to win";
         }
         else
         {
-            description.text = MapData.GetMapModeDescription(MapData.MapMode.GODLESS_DEATHMATCH);
+            description.text = "One life, last person standing wins";
         }
         // </fudge>
         
