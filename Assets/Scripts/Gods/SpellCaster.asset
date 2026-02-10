@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49013b60f754be7af6c31696eee24ff, type: 3}
+  m_Name: SpellCaster
+  m_EditorClassIdentifier: 
+  PlayerSprite: {fileID: 21300000, guid: 69ac68a29a15edb4ab7a979977fe7cfc, type: 3}
+  PlayerController: {fileID: 0}
+  _statueSprites:
+  - {fileID: 21300000, guid: d88c2cafbd6ed434a83805e332a51025, type: 3}
+  - {fileID: 21300000, guid: ac3b5514cee8c424c9cbf6d922cf44d9, type: 3}
+  - {fileID: 21300000, guid: 7b209a12a76547b43bd8ba3d6cb055d9, type: 3}
+  - {fileID: 21300000, guid: f2bfc52fd796ec044b2c1f4cc5d81e23, type: 3}
+  - {fileID: 21300000, guid: b73d0593ed7e8184597787f304d7ef0c, type: 3}
+  - {fileID: 21300000, guid: 0c4b5bbe6a0ceea4489d2e7c157ac030, type: 3}
+  abilitySfx: {fileID: 8300000, guid: 086b166c90db1466d92c43a097f304fc, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: c4be7757bb41c41ec8727ada3d4fd4fb, type: 3}
+  _fireBall: {fileID: 3751883873146894654, guid: 535db0be479c5e94d8e97570cdd37b6e, type: 3}
+  _spellCooldown: 5

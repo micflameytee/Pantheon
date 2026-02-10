@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UI.LevelSelect;
 using UI.Lobby;
+using UI.PlayerHud;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -17,11 +18,14 @@ public class GlobalPlayerManager : MonoBehaviour
     private LevelController _levelController;
     private GameOver _gameOverController;
     private bool _gameOver;
+    private PlayerHudController _playerHudController;
 
     private void Awake()
     {
         _lobbyController = new LobbyController();
         _levelSelectController = new LevelSelectController();
+        _playerHudController = new PlayerHudController();
+        playerInputManager.DisableJoining();
     }
 
     private void Start()
@@ -31,14 +35,16 @@ public class GlobalPlayerManager : MonoBehaviour
 
     private IEnumerator LoadGameSequence()
     {
+        playerInputManager.DisableJoining();
+        yield return _playerHudController.LoadHUD();
         playerInputManager.EnableJoining();
         yield return _lobbyController.LoadLobby();
+        SetPlayerLobbyMode(false);
         playerInputManager.DisableJoining();
         yield return _levelSelectController.LoadLevelSelect();
         string selectedLevel = _levelSelectController.SelectedLevel;
         yield return LoadLevel(selectedLevel);
     }
-    
 
     private IEnumerator LoadLevel(string selectedLevel)
     {
@@ -51,12 +57,14 @@ public class GlobalPlayerManager : MonoBehaviour
         {
             player.SetGhost(false);
         }
+        SetPlayerLobbyMode(false);
         _levelController.StartGame(players);
         while (!_gameOver)
         {
             yield return null;
         }
         yield return SceneManager.UnloadSceneAsync(selectedLevel);
+        yield return _playerHudController.UnloadHUD();
         
         // Not how you're meant to do this
         yield return SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Additive);
@@ -70,9 +78,20 @@ public class GlobalPlayerManager : MonoBehaviour
         Debug.Log($"MESSAGE: Player {pc?.name ?? "Null"} has been added", player.gameObject);
         pc.HealthSystem.OnPlayerDeath += HandlePlayerDeath;
         players.Add(pc);
+        pc.SetLobbyMode(true);
         pc.SetGhost(true);
         _lobbyController.AddNewPlayer(player);
-        
+        _playerHudController.AddPlayer(pc);
+    }
+
+    
+
+    private void SetPlayerLobbyMode(bool isLobbyMode)
+    {
+        foreach (PlayerController player in players)
+        {
+            player.SetLobbyMode(isLobbyMode);
+        }
     }
 
     private void HandlePlayerDeath(PlayerController player)
@@ -89,6 +108,7 @@ public class GlobalPlayerManager : MonoBehaviour
             {
                 Debug.Log($"MESSAGE: Player {players[0].name} has won");
                 _gameOver = true;
+                players[0].Reset();
             }
         }
     }

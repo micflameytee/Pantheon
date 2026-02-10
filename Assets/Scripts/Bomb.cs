@@ -16,6 +16,8 @@ public class Bomb : MonoBehaviour
     [SerializeField] private SpriteAnimation _spriteAnimation;
     [SerializeField] private Sprite destroyedBomb;
 
+    [SerializeField] private AudioClip deploySfx;
+
     private void Awake()
     {
         ResizeExplosion();
@@ -46,6 +48,7 @@ public class Bomb : MonoBehaviour
 
     public void Explode()
     {
+        SFX.Instance.PlaySound(deploySfx, transform.position);
         BombSprite.sprite = destroyedBomb;
         _spriteAnimation.PlayAnimation();
         Vector2 position = new Vector2(transform.position.x, transform.position.y);

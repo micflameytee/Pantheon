@@ -1,132 +1,77 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using PlayerGods;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Gods : MonoBehaviour
 {
-    
+    [SerializeField] private PlayerList PlayerClasses;
+    private PlayerClassBase _currentPlayerClass;
+    private int _currentPlayerClassIndex;
+    public PlayerClassBase CurrentPlayerClass => _currentPlayerClass;
+
     public PlayerController player;
     public HealthSystem healthSystem;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private Sprite stoneBody;
     public Sprite normalSprite;
-    
-    public enum godTypes
-    {
-        Trickster,
-        Defender,
-        Speedster,
-        SpellCaster
-    }
-    public godTypes? godType;
-    
-    
-    private float curSpecialCooldown = 0f;
-    public float maxSpecialCooldown = 20f;
 
-    private float curAbilityTime = 0f;
-    public float maxAbilityTime = 5f;
+    public event Action<PlayerClassBase> OnPlayerClassChanged;
 
-    public Trickster trickster;
-    public SpellCaster spellcaster;
-    public Speedster speedster;
+    private int _godsEnabled;
+
 
     private void Awake()
     {
+        _godsEnabled = PlayerPrefs.GetInt("GodsEnabled", 1);
         player = this.GetComponent<PlayerController>();
         healthSystem = this.GetComponent<HealthSystem>();
-        setType(godTypes.Defender);
-        //normalSprite = _spriteRenderer.sprite;
+        SetPlayerClassIndex(0);
     }
 
     public void HandleSpecialAbility(InputAction.CallbackContext context)
     {
-        if(godType.HasValue && curSpecialCooldown <= 0 && !player.GetGhost())
-        {
-        
-            if (godType == godTypes.Trickster)
-            {
-                TricksterAbility();
-            }
-
-            if (godType == godTypes.Defender)
-            {
-                DefenderAbility();
-            }
-
-            if (godType == godTypes.Speedster)
-            {
-                SpeedsterAbility();
-            }
-
-            if (godType == godTypes.SpellCaster)
-            {
-                SpellCasterAbility();
-            }
-            
-        }
-    }
-
-    private void SpellCasterAbility()
-    {
-        throw new NotImplementedException();
-    }
-    
-
-
-    private void SpeedsterAbility()
-    {
-        throw new NotImplementedException();
-    }
-
-    
-    
-    
-    private void DefenderAbility()
-    {
-        player.IsStone = true;
-        healthSystem.IsStone = true;
-        curAbilityTime = maxAbilityTime;
-        _spriteRenderer.sprite = stoneBody;
-    }
-
-    
-    
-    
-    private void TricksterAbility()
-    {
-        if (curSpecialCooldown > 0 || player.GetGhost())
-        {
-            Debug.Log($"{curSpecialCooldown} seconds left");
-            Debug.Log($"ghost is {player.GetGhost()}");
+        if (player.GetGhost() || player.GetLobbyMode())
             return;
-        }
-        curSpecialCooldown = maxSpecialCooldown;
-        Debug.Log($"{godType}");
-        var newInstance = Instantiate(trickster, transform.position, transform.rotation);
-        newInstance.owner = this;
+        //  Command pattern
+        _currentPlayerClass.PerformSpecialAbility();
     }
 
-
-    private void setType(godTypes type)
-    {
-        godType =  type;
-    }
-    
-    
-    
     
     void Update()
     {
-        curSpecialCooldown -= Time.deltaTime;      
-        curAbilityTime -= Time.deltaTime;
-        if (godType == godTypes.Defender && player.IsStone && curAbilityTime <= 0)
-        {
-            player.IsStone = false;
-            healthSystem.IsStone = false;
-            _spriteRenderer.sprite = normalSprite;
-        }
+        _currentPlayerClass.Tick();
     }
+
+    /// <summary>
+    /// Trigger god change
+    /// </summary>
+    public void ChangeGod()
+    {
+        if (_godsEnabled == 0) { return; }
+        // Command Pattern method
+        _currentPlayerClassIndex++;
+        SetPlayerClassIndex(_currentPlayerClassIndex);
+    }
+
+    private void SetPlayerClassIndex(int index)
+    {
+        if (index >= PlayerClasses.playerList.Count)
+        {
+            index = 0;
+        }
+        _currentPlayerClassIndex  = index;
+        var playerClass = PlayerClasses.playerList[index];
+        if (_currentPlayerClass != null)
+        {
+            Destroy(_currentPlayerClass);
+        }
+        _currentPlayerClass = Instantiate(playerClass);
+        _currentPlayerClass.name = playerClass.name;
+        _currentPlayerClass.PlayerController = player;
+        healthSystem.PlayerClass = _currentPlayerClass;
+        _currentPlayerClass.Setup();
+        normalSprite = _currentPlayerClass.PlayerSprite;
+        OnPlayerClassChanged?.Invoke(_currentPlayerClass);
+    }
+
 }

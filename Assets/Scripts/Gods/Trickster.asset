@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777be8b8e6a3489b86c4004f6e79cf4c, type: 3}
+  m_Name: Trickster
+  m_EditorClassIdentifier: 
+  PlayerSprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
+  PlayerController: {fileID: 0}
+  _statueSprites:
+  - {fileID: 21300000, guid: 9998f7669148a6a458eaeffd4291d5de, type: 3}
+  - {fileID: 21300000, guid: 02f86e0da950f1247b9d8c1609b964bd, type: 3}
+  - {fileID: 21300000, guid: 80a2555cd04f1c7408ad31390d1e2262, type: 3}
+  - {fileID: 21300000, guid: 17a562418d40ab4409c203ea53c45e86, type: 3}
+  - {fileID: 21300000, guid: 82657f92e4bef0e408a0ee5163d3f09a, type: 3}
+  - {fileID: 21300000, guid: 41015f023b3ce664988bc5b1b80357a4, type: 3}
+  abilitySfx: {fileID: 8300000, guid: 80792f0c49cc85c4a90fece84eff7667, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: 2cd84cb990de246138b266a52de5f4f2, type: 3}
+  recallPrefab: {fileID: 2140596760622010225, guid: b09bd42bae0beb6448d8f5730d25f913, type: 3}
+  _placementCooldown: 5
+  _recallCooldown: 1
+  trapCooldownMultiplier: 1.2
