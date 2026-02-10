@@ -103,7 +103,8 @@ MonoBehaviour:
   bombAnimation: {fileID: 6679711837546254706}
   radius: 1
   damage: 3
-  deploySfx: {fileID: 0}
+  deploySfx: {fileID: 8300000, guid: 255456a3f96734aeeab8d319c689218a, type: 3}
+  fuseSfx: {fileID: 8300000, guid: b8081cba3bfb34303b43cde7dffede47, type: 3}
 --- !u!114 &6679711837546254706
 MonoBehaviour:
   m_ObjectHideFlags: 0

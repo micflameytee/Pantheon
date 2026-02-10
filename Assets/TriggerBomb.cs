@@ -18,10 +18,12 @@ public class TriggerBomb : MonoBehaviour
     private int spriteCount;
     
     [SerializeField] private AudioClip deploySfx;
+    [SerializeField] private AudioClip fuseSfx;
 
 
     private void Start()
     {
+        SFX.Instance.PlaySound(fuseSfx, transform.position);
         bombAnimation.SetAnimationTime(StartTime);
         bombAnimation.OnAnimationEnd += Explode;
         bombAnimation.PlayAnimation();
@@ -31,7 +33,7 @@ public class TriggerBomb : MonoBehaviour
 
     private void Explode()
     {
-//        SFX.Instance.PlaySound(deploySfx, transform.position);
+        SFX.Instance.PlaySound(deploySfx, transform.position);
         SpriteAnimation explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
         explosion.PlayAnimation();
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
