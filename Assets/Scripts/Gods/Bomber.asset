@@ -21,8 +21,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 772baff5f556bf14994fd7b53590f89d, type: 3}
   - {fileID: 21300000, guid: 9a41b16b9984ea5489d4dbc245b1b6c0, type: 3}
   - {fileID: 21300000, guid: 7d64ad92fee242d4da76e2f2ce4372dc, type: 3}
-  abilitySfx: {fileID: 0}
-  abilityReloadSfx: {fileID: 0}
+  abilitySfx: {fileID: 8300000, guid: afde54a9d243943efa6712dad86d6346, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: 255456a3f96734aeeab8d319c689218a, type: 3}
   _cooldownTimer: 10
   _abilityDamage: 4
   radius: 3
