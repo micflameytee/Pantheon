@@ -14,6 +14,7 @@ public class Tutorial : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        SFX.Instance.PlaySound("ui_select");
         Utility.LoadLevel("MainMenu");
     }
 }
