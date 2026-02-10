@@ -10,6 +10,7 @@ public class Statue : MonoBehaviour
     [SerializeField] private Sprite UnDamagedSprite;
     [SerializeField] private Sprite destroyedSprite;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private HealthPotSpawning _healthSpawner;
     
     public bool isStillThere = true;
     
@@ -29,6 +30,7 @@ public class Statue : MonoBehaviour
 
     public void SetRemoved()
     {
+        _healthSpawner.PlacePotions();
         isStillThere = false;
         owner.ResetHealth();
         
