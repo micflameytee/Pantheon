@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6cca5fc8e6f4d9985cb38d8598a9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deploySfx: {fileID: 0}
+  deploySfx: {fileID: 8300000, guid: da578548c5831465ea7c828236f945e8, type: 3}
