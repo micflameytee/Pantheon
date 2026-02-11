@@ -15,8 +15,8 @@ MonoBehaviour:
   PlayerSprite: {fileID: 21300000, guid: 642adbcb164f7fb44b64b7e79d13354d, type: 3}
   PlayerController: {fileID: 0}
   _statueSprites: []
-  abilitySfx: {fileID: 0}
-  abilityReloadSfx: {fileID: 0}
+  abilitySfx: {fileID: 8300000, guid: 2dd7ce6b74abf433d825c73d295ac15b, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: 5f5ea14d25b7248f8b8c0e523f120332, type: 3}
   _attackDamageMultiplier: 2
   _attackSpeedMultiplier: 2
   _trapCooldownMultiplier: 2
@@ -29,5 +29,16 @@ MonoBehaviour:
   explosionDamage: 5
   _secretJackpotTimer: 251
   _secretCooldownMultiplier: 10
+  _secretAttackMultiplier: 3
   _secretDamageMultiplier: 3
+  _secretSpeedMultiplier: 3
   _pokeMachine: {fileID: 2613496097035197494, guid: 3058a41d5aaec0f4ab822f6cb3fcea81, type: 3}
+  _abilityTimer: 0
+  pokeSounds:
+  - {fileID: 8300000, guid: 4b57ad4080911457098ffe20b80f345b, type: 3}
+  - {fileID: 8300000, guid: 93d1df52d92924171b90f9c310cfbef1, type: 3}
+  - {fileID: 8300000, guid: 46e088fde98b249c0a216fbef357a0d6, type: 3}
+  - {fileID: 8300000, guid: a109fbc7c23ca4bc2b6fadc480e6a874, type: 3}
+  - {fileID: 8300000, guid: 4e1725a95153b4a25a5e977624f05d41, type: 3}
+  - {fileID: 8300000, guid: 51b6b1bc137e14ae1b3367b26bc4deee, type: 3}
+  - {fileID: 8300000, guid: 8ec9186e3e5584d628b721e59c6d31a9, type: 3}

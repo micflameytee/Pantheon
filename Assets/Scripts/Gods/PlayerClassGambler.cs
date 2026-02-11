@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -36,6 +37,8 @@ namespace PlayerGods
         private float _abilityCooldown = 10f;
         private HealthSystem _healthSystem;
 
+        [SerializeField] private AudioClip[] pokeSounds;
+
         public override void Setup()
         {
             _healthSystem = PlayerController.HealthSystem;
@@ -59,37 +62,43 @@ namespace PlayerGods
             {
                 pokeMachine.EffectSpriteChange(1);
                 Explode();
-                
+                PlaySound(pokeSounds[0]);
             }
             else if (randomChance <= 0.20)
             {
                 pokeMachine.EffectSpriteChange(2);
                 _healthSystem.TakeDamage(explosionDamage, null);
+                PlaySound(pokeSounds[1]);
             }
             else if (randomChance <= 0.30)
             {
                 pokeMachine.EffectSpriteChange(3);
                 _healthSystem.TakeDamage(damageTaken, null);
+                PlaySound(pokeSounds[2]);
             }
             else if (randomChance <= 0.80)
             {
                 pokeMachine.ChangeSprite();
+                PlaySound(pokeSounds[3]);
             }
             else if (randomChance <= 0.90)
             {
                 pokeMachine.EffectSpriteChange(4);
                 _healthSystem.ResetHealth();
+                PlaySound(pokeSounds[4]);
             }
             else if (randomChance <= 0.9999)
             {
                 pokeMachine.EffectSpriteChange(5);
                 _abilityTimer = _jackpotDuration;
+                PlaySound(pokeSounds[5]);
             }
             else
             {
                 _secretJackpot = true;
                 _abilityTimer = _secretJackpotTimer;
                 pokeMachine.BigWin();
+                PlaySound(pokeSounds[6]);
             }
             
         }
@@ -189,7 +198,14 @@ namespace PlayerGods
             }
             return baseAttackSpeed;
         }
-        
+
+        private void PlaySound(AudioClip sound)
+        {
+            if (sound != null && SFX.Instance != null)
+            {
+                SFX.Instance.PlayDelayedSound(sound, 1.4f, PlayerController.gameObject.transform.position);
+            }
+        }
         
     }
 }
