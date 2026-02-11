@@ -203,7 +203,7 @@ namespace PlayerGods
         {
             if (sound != null && SFX.Instance != null)
             {
-                SFX.Instance.PlayDelayedSound(sound, 1.4f, PlayerController.gameObject.transform.position);
+                SFX.Instance.PlayDelayedSound(sound, abilitySfx.length, PlayerController.gameObject.transform.position);
             }
         }
         
