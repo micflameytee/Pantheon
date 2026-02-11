@@ -352,6 +352,15 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d45764f-907b-4690-8164-0055bde56e82"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -374,6 +383,28 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""NextScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b0b3541-75cd-4777-9a91-9f30046ee425"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""122b181d-2a5a-4c50-b903-ca681a5c432a"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -426,6 +457,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         // MenuActions
         m_MenuActions = asset.FindActionMap("MenuActions", throwIfNotFound: true);
         m_MenuActions_NextScene = m_MenuActions.FindAction("NextScene", throwIfNotFound: true);
+        m_MenuActions_MenuButton = m_MenuActions.FindAction("MenuButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -566,11 +598,13 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_MenuActions;
     private List<IMenuActionsActions> m_MenuActionsActionsCallbackInterfaces = new List<IMenuActionsActions>();
     private readonly InputAction m_MenuActions_NextScene;
+    private readonly InputAction m_MenuActions_MenuButton;
     public struct MenuActionsActions
     {
         private @GameInputActions m_Wrapper;
         public MenuActionsActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @NextScene => m_Wrapper.m_MenuActions_NextScene;
+        public InputAction @MenuButton => m_Wrapper.m_MenuActions_MenuButton;
         public InputActionMap Get() { return m_Wrapper.m_MenuActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -583,6 +617,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @NextScene.started += instance.OnNextScene;
             @NextScene.performed += instance.OnNextScene;
             @NextScene.canceled += instance.OnNextScene;
+            @MenuButton.started += instance.OnMenuButton;
+            @MenuButton.performed += instance.OnMenuButton;
+            @MenuButton.canceled += instance.OnMenuButton;
         }
 
         private void UnregisterCallbacks(IMenuActionsActions instance)
@@ -590,6 +627,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @NextScene.started -= instance.OnNextScene;
             @NextScene.performed -= instance.OnNextScene;
             @NextScene.canceled -= instance.OnNextScene;
+            @MenuButton.started -= instance.OnMenuButton;
+            @MenuButton.performed -= instance.OnMenuButton;
+            @MenuButton.canceled -= instance.OnMenuButton;
         }
 
         public void RemoveCallbacks(IMenuActionsActions instance)
@@ -645,5 +685,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     public interface IMenuActionsActions
     {
         void OnNextScene(InputAction.CallbackContext context);
+        void OnMenuButton(InputAction.CallbackContext context);
     }
 }
