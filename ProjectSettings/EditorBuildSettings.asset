@@ -38,9 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3 player/3PlayerFilledWorld.unity
     guid: 932d4e704f0b8aa459221f43e10b5c7c
-  - enabled: 0
-    path: Assets/Scenes/3 player/3PlayerMazeWorld.unity
-    guid: b9eabdbbd4f164e499875f61bf82268e
   - enabled: 1
     path: Assets/Scenes/3 player/3PlayerRoomWorld.unity
     guid: 8c182108aaecf7443abb5bd944727691

@@ -60,18 +60,24 @@ namespace PlayerGods
             
             if (randomChance <= 0.10)
             {
+                if (!_secretJackpot)
+                    _abilityTimer = 0f;
                 pokeMachine.EffectSpriteChange(1);
                 Explode();
                 PlaySound(pokeSounds[0]);
             }
             else if (randomChance <= 0.20)
             {
+                if (!_secretJackpot)
+                    _abilityTimer = 0f;
                 pokeMachine.EffectSpriteChange(2);
                 _healthSystem.TakeDamage(explosionDamage, null);
                 PlaySound(pokeSounds[1]);
             }
             else if (randomChance <= 0.30)
             {
+                if (!_secretJackpot)
+                    _abilityTimer = 0f;
                 pokeMachine.EffectSpriteChange(3);
                 _healthSystem.TakeDamage(damageTaken, null);
                 PlaySound(pokeSounds[2]);
@@ -122,6 +128,8 @@ namespace PlayerGods
         public override void Tick()
         {
             _abilityTimer -= Time.deltaTime;
+            if (_secretJackpot && _abilityTimer < 0)
+                _secretJackpot = false;
             base.Tick();
         }
         
