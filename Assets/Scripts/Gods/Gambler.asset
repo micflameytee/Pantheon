@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 21300000, guid: 642adbcb164f7fb44b64b7e79d13354d, type: 3}
   PlayerController: {fileID: 0}
-  _statueSprites: []
+  _statueSprites:
+  - {fileID: 21300000, guid: 43315b6c402c42244b7935534b735c25, type: 3}
+  - {fileID: 21300000, guid: ea338bc8c9676074da22ec85b1b10412, type: 3}
+  - {fileID: 21300000, guid: 139722a102daf0246a9205f9589221b7, type: 3}
+  - {fileID: 21300000, guid: 54f692b60d4b40941a03cc3b4e375cca, type: 3}
+  - {fileID: 21300000, guid: ee6a7b52e8dd03442a1cfa5a720ac7de, type: 3}
+  - {fileID: 21300000, guid: 8810ccca31fd6ad4fa14106e89204243, type: 3}
   abilitySfx: {fileID: 8300000, guid: 2dd7ce6b74abf433d825c73d295ac15b, type: 3}
   abilityReloadSfx: {fileID: 8300000, guid: 5f5ea14d25b7248f8b8c0e523f120332, type: 3}
   _attackDamageMultiplier: 2
