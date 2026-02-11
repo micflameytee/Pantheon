@@ -63,7 +63,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadStory()
     {
-        // PlayerPrefs.SetInt("StoryEnabled", 1);
+        PlayerPrefs.SetInt("StoryEnabled", 1);
         SFX.Instance.PlaySound("ui_select");
         Utility.LoadLevel("Story");
     }
