@@ -13,11 +13,23 @@ namespace PlayerGods
         private int _resetValue = 1;
 
 
+        
+        
+        private SpriteRenderer _playerSpriteRenderer;
+        [SerializeField] private Sprite AbilitySprite;
+        
+        public override void Setup()
+        {
+            _playerSpriteRenderer = PlayerController.GetComponent<SpriteRenderer>();
+        }
+        
+        
         public override void PerformSpecialAbility()
         {
             if (IsOnCooldown)
                 return;
             _abilityTimer = _abilityDuration;
+            _playerSpriteRenderer.sprite = AbilitySprite;
             StartCooldown(_abilityCooldown);
         }
 
@@ -33,6 +45,10 @@ namespace PlayerGods
         public override void Tick()
         {
             _abilityTimer -= Time.deltaTime;
+            if(_abilityTimer < 0 && _playerSpriteRenderer.sprite == AbilitySprite)
+            {
+                _playerSpriteRenderer.sprite = PlayerSprite;
+            }
             base.Tick();
         }
     }
