@@ -26,3 +26,4 @@ MonoBehaviour:
   _attackDamageMultiplier: 2
   _abilityCooldown: 10
   _abilityDuration: 5
+  AbilitySprite: {fileID: 21300000, guid: e499ed689b1d7c94c84ab3fffab99111, type: 3}

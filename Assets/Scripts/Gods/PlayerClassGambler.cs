@@ -14,6 +14,9 @@ namespace PlayerGods
         [SerializeField] private float _trapCooldownMultiplier = 2f;
         [SerializeField] private float _jackpotDuration = 5f;
         [SerializeField] private float _speedMultiplier = 1.5f;
+        
+        private SpriteRenderer _playerSpriteRenderer;
+        [SerializeField] private Sprite AbilitySprite;
 
 
         [SerializeField] private SpriteAnimation explosionPrefab;
@@ -42,6 +45,7 @@ namespace PlayerGods
         public override void Setup()
         {
             _healthSystem = PlayerController.HealthSystem;
+            _playerSpriteRenderer = PlayerController.GetComponent<SpriteRenderer>();
         }
 
         public override void PerformSpecialAbility()
@@ -98,6 +102,7 @@ namespace PlayerGods
                 pokeMachine.EffectSpriteChange(5);
                 _abilityTimer = _jackpotDuration;
                 PlaySound(pokeSounds[5]);
+                _playerSpriteRenderer.sprite = AbilitySprite;
             }
             else
             {
@@ -105,6 +110,7 @@ namespace PlayerGods
                 _abilityTimer = _secretJackpotTimer;
                 pokeMachine.BigWin();
                 PlaySound(pokeSounds[6]);
+                _playerSpriteRenderer.sprite = AbilitySprite;
             }
             
         }
@@ -130,6 +136,10 @@ namespace PlayerGods
             _abilityTimer -= Time.deltaTime;
             if (_secretJackpot && _abilityTimer < 0)
                 _secretJackpot = false;
+            if(_abilityTimer < 0 && _playerSpriteRenderer.sprite == AbilitySprite)
+            {
+                _playerSpriteRenderer.sprite = PlayerSprite;
+            }
             base.Tick();
         }
         

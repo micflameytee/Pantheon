@@ -16,8 +16,15 @@ namespace PlayerGods
         [SerializeField] private float trapCooldownMultiplier = 1f;
 
         
+        private SpriteRenderer _playerSpriteRenderer;
+        [SerializeField] private Sprite AbilitySprite;
 
-        
+
+        public override void Setup()
+        {
+            _playerSpriteRenderer = PlayerController.GetComponent<SpriteRenderer>();
+        }
+
         public override void PerformSpecialAbility()
         {
             if (IsOnCooldown)
@@ -25,6 +32,7 @@ namespace PlayerGods
             
             _abilityTimer = _shieldTime;
             StartCooldown(_shieldCooldown);
+            _playerSpriteRenderer.sprite = AbilitySprite;
 
         }
 
@@ -77,6 +85,10 @@ namespace PlayerGods
         public override void Tick()
         {
             _abilityTimer -= Time.deltaTime;
+            if(_abilityTimer < 0 && _playerSpriteRenderer.sprite == AbilitySprite)
+            {
+                _playerSpriteRenderer.sprite = PlayerSprite;
+            }
             base.Tick();
         }
     }
