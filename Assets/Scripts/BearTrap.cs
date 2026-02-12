@@ -13,8 +13,7 @@ public class BearTrap : MonoBehaviour
     private float _movementCooldown = 5f;
     [SerializeField]private float MaxCooldown = 5f;
     private bool cooldownActive = false;
-    private float destroyCountdown = 10f;
-    private bool destroyActive = false;
+    private float destroyCountdown = 500f;
     
     [SerializeField] private AudioClip deploySfx;
 
@@ -41,7 +40,7 @@ public class BearTrap : MonoBehaviour
             _movementCooldown = MaxCooldown;
             _otherController.CanMove = false;
             GetComponent<Collider2D>().enabled = false;
-            destroyActive = true;
+            destroyCountdown = 10f;
         }
         
     }
@@ -62,10 +61,8 @@ public class BearTrap : MonoBehaviour
             _movementCooldown = MaxCooldown;
         }
 
-        if (destroyActive)
-        {
-            destroyCountdown -= Time.deltaTime;
-        }
+        destroyCountdown -= Time.deltaTime;
+        
         if (destroyCountdown <= 0f)
         {
             Destroy(gameObject);

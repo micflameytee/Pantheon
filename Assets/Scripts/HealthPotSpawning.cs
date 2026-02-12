@@ -22,7 +22,7 @@ public class HealthPotSpawning : MonoBehaviour
         {
             if (Random.Range(0, 100) > 90)
             {
-                var newInstance = Instantiate(Potion, transform.position,  Quaternion.identity);
+                var newInstance = Instantiate(Potion, placementLocation.position,  Quaternion.identity);
             }
         }
     }

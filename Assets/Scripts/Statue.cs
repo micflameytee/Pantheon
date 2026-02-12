@@ -11,14 +11,26 @@ public class Statue : MonoBehaviour
     [SerializeField] private Sprite destroyedSprite;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private HealthPotSpawning _healthSpawner;
-    
     public bool isStillThere = true;
+
+    private float curTimer = 0f;
+    private float startTimer = 300f;
     
     private int _currentSpawnPointIndex = 0;
 
     private void Awake()
     {
-        //_spriteRenderer.sprite = UnDamagedSprite;
+        curTimer = startTimer;
+    }
+
+    private void Update()
+    {
+        curTimer -= Time.deltaTime;
+        if (curTimer <= 0f)
+        {
+            this.GetComponent<HealthSystem>().TakeDamage(2, null);
+            curTimer = startTimer;
+        }
     }
 
     public Transform GetSpawnPoint()

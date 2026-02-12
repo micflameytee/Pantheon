@@ -15,8 +15,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private SpriteRenderer ExplosionSprite;
     [SerializeField] private SpriteAnimation _spriteAnimation;
     [SerializeField] private Sprite destroyedBomb;
-    private bool destroyActive = false;
-    private float destroyCountdown = 10f;
+    private float destroyCountdown = 500f;
     [SerializeField] private AudioClip deploySfx;
 
     private void Awake()
@@ -61,7 +60,7 @@ public class Bomb : MonoBehaviour
             targetSystem?.TakeDamage(damage, owner);
         }
 
-        destroyActive = true;
+        destroyCountdown = 10f;
     }
 
     public void OnDrawGizmos()
@@ -74,10 +73,7 @@ public class Bomb : MonoBehaviour
 
     private void Update()
     {
-        if (destroyActive)
-        {
-            destroyCountdown -= Time.deltaTime;
-        }
+        destroyCountdown -= Time.deltaTime;
         if (destroyCountdown <= 0f)
         {
             Destroy(gameObject);
