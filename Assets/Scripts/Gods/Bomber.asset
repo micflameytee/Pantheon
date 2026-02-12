@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad63894eb5c4ed1b3e93cb60260c4b0, type: 3}
   m_Name: Bomber
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 21300000, guid: d0c7d86191654874a97614107b98271e, type: 3}
+  PlayerSprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
   PlayerController: {fileID: 0}
   _statueSprites:
   - {fileID: 21300000, guid: bdba3cf9f0f891146baed7cd7b7c76e0, type: 3}

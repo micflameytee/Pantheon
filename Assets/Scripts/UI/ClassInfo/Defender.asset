@@ -16,4 +16,4 @@ MonoBehaviour:
   description: 'Can become invincible
 
     for 5 seconds.'
-  sprite: {fileID: 21300000, guid: 62d34048b9cdb6743b0321cf0580582b, type: 3}
+  sprite: {fileID: 21300000, guid: 3b4d68455d7a360419333a27a1427145, type: 3}

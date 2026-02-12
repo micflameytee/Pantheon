@@ -16,4 +16,4 @@ MonoBehaviour:
   description: 'Can dash through
 
     obstacles.'
-  sprite: {fileID: 21300000, guid: 3b4d68455d7a360419333a27a1427145, type: 3}
+  sprite: {fileID: 21300000, guid: 69ac68a29a15edb4ab7a979977fe7cfc, type: 3}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: Trickster
   description: "Can set a teleport point, \nthen return to it later."
-  sprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
+  sprite: {fileID: 21300000, guid: 62d34048b9cdb6743b0321cf0580582b, type: 3}

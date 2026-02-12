@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: Bomber
   description: "Can place insta-kill \nbombs with a fuse."
-  sprite: {fileID: 21300000, guid: d0c7d86191654874a97614107b98271e, type: 3}
+  sprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}

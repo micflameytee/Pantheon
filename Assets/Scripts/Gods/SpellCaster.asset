@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49013b60f754be7af6c31696eee24ff, type: 3}
   m_Name: SpellCaster
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 21300000, guid: 69ac68a29a15edb4ab7a979977fe7cfc, type: 3}
+  PlayerSprite: {fileID: 21300000, guid: d0c7d86191654874a97614107b98271e, type: 3}
   PlayerController: {fileID: 0}
   _statueSprites:
   - {fileID: 21300000, guid: d88c2cafbd6ed434a83805e332a51025, type: 3}
