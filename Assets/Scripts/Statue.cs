@@ -13,23 +13,35 @@ public class Statue : MonoBehaviour
     [SerializeField] private HealthPotSpawning _healthSpawner;
     public bool isStillThere = true;
 
-    private float curTimer = 0f;
-    private float startTimer = 300f;
+    [SerializeField] private StatueDecayList statueDecayList;
+    private StatueDecay _statueDecayOption;
+    private HealthSystem _healthSystem;
+    private float curTimer;
+    private float startTimer;
     
     private int _currentSpawnPointIndex = 0;
 
     private void Awake()
     {
+        _healthSystem = this.GetComponent<HealthSystem>();
+        
+        _statueDecayOption = statueDecayList.list[PlayerPrefs.GetInt("StatueDecay", 0)];
+        // Calculate statue decay tick length
+        startTimer = _statueDecayOption.GetLengthSeconds() / _healthSystem.startingHealth;
         curTimer = startTimer;
     }
 
     private void Update()
     {
-        curTimer -= Time.deltaTime;
-        if (curTimer <= 0f)
+        if (_statueDecayOption.lengthMinutes > 0) // If lengthMinutes is -1, statue decay is disabled.
         {
-            this.GetComponent<HealthSystem>().TakeDamage(2, null);
-            curTimer = startTimer;
+            curTimer -= Time.deltaTime;
+            
+            if (curTimer <= 0f)
+            {
+                _healthSystem.TakeDamage(1, null);
+                curTimer = startTimer;
+            }
         }
     }
 

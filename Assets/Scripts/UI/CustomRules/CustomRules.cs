@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,12 +10,20 @@ public class CustomRules : MonoBehaviour
     [SerializeField] private GameObject focusButton;
     [SerializeField] private Toggle godsEnabledToggle;
     [SerializeField] private Toggle annoyingGhostsToggle;
-
+    
+    [SerializeField] private TMP_Dropdown statueDecayDropdown;
+    [SerializeField] private StatueDecayList statueDecayList;
+ 
     void Awake()
     {
         EventSystem.current.SetSelectedGameObject(focusButton);
+        
+        statueDecayDropdown.ClearOptions();
+        statueDecayDropdown.AddOptions(statueDecayList.GetOptionNames());
+        
         SetGodsEnabled(PlayerPrefs.GetInt("GodsEnabled", 1));
         SetAnnoyingGhosts(PlayerPrefs.GetInt("AnnoyingGhosts", 0));
+        SetStatueDecay(PlayerPrefs.GetInt("StatueDecay", 0));
     }
 
     void SetGodsEnabled(int value)
@@ -51,6 +60,17 @@ public class CustomRules : MonoBehaviour
     public void SetAnnoyingGhostsToggle()
     {
         SetAnnoyingGhosts(annoyingGhostsToggle.isOn ? 1 : 0);
+    }
+
+    void SetStatueDecay(int value)
+    {
+        statueDecayDropdown.value = value;
+        PlayerPrefs.SetInt("StatueDecay", value);
+    }
+
+    public void SetStatueDecayOption()
+    {
+        SetStatueDecay(statueDecayDropdown.value);
     }
     
     public void ExitCustomRules()
