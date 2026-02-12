@@ -30,7 +30,7 @@ public class LevelController : MonoBehaviour
             statueNum = i % angels.Count;
             angel = angels[statueNum];
             player.OwnedStatue = angel;
-            angel.owner = player.GetComponent<HealthSystem>();
+            angel.owner.Add(player.GetComponent<HealthSystem>());
             player.transform.position = angel.GetSpawnPoint().position;
             
             
