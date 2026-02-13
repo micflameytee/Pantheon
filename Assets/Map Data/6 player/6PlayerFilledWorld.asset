@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 6PlayerFilledWorld
   mapName: Filled - 6
-  icon: {fileID: 2319602156343172213, guid: bce82e3ed816f330794e5aab20fff072, type: 3}
+  icon: {fileID: 21300000, guid: 8c11c3ebfa0c7461a83fa55fbe1fd17a, type: 3}
   supportedModes: 0000000001000000
   playerMin: 6
   playerMax: 6

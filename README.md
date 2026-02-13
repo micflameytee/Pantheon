@@ -12,4 +12,4 @@ Pantheon is a game about battling your friends with gods.
 
 ## Instructions
 
-- This game supports 2-8 players, and at least one controller is required.
+This game supports 2-8 players, and at least one controller is required.
