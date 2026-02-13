@@ -5,8 +5,8 @@
 **/[Ll]ibrary/
 **/[Tt]emp/
 **/[Oo]bj/
-**/[Bb]uild/
-**/[Bb]uilds/
+#**/[Bb]uild/
+#**/[Bb]uilds/
 **/[Ll]ogs/
 **/[Uu]ser[Ss]ettings/
 
@@ -99,3 +99,5 @@ Assets/Plugins/Android/FirebaseCrashlytics.androidlib/res/values/crashlytics_bui
 /Assets/StreamingAssets/
 Assets/TextMesh Pro/Fonts/Glyphs/
 Assets/TextMesh Pro/Fonts/Glyphs.meta
+FullReleaseBuild/
+FullReleaseBuild.zip

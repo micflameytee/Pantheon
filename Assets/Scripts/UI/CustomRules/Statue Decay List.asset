@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e47ecb6998453a92971b8134154b34, type: 3}
+  m_Name: Statue Decay List
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 11400000, guid: dcf64ef1768adc290b271ce38fe48beb, type: 2}
+  - {fileID: 11400000, guid: 838737df863e5b3b5b6b0bc09c7c98e7, type: 2}
+  - {fileID: 11400000, guid: d10c9017f0489d064959bde529119a16, type: 2}
+  - {fileID: 11400000, guid: a912533f82cab664bb2df104b7573797, type: 2}
+  - {fileID: 11400000, guid: d6bde548f0a62c1d9bf94cd75d5ac37b, type: 2}
+  - {fileID: 11400000, guid: d773a2414759e3db0a506f389a3b7970, type: 2}

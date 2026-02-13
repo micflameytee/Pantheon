@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 3PlayerDefaultWorld
   mapName: Default - 3
-  icon: {fileID: 21300000, guid: ef9bc60d77997a828a547bdb37a4815e, type: 3}
+  icon: {fileID: 21300000, guid: c9c9faf9cbca74a9e9674dbd6be5d53e, type: 3}
   supportedModes: 0000000001000000
   playerMin: 3
   playerMax: 3

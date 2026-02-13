@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class MainMenu : MonoBehaviour
     
     public AudioMixer audioMixer;
 
+    void Awake()
+    {
+        if (PlayerPrefs.GetInt("StoryEnabled", 1) == 1)
+        {
+            SceneManager.LoadScene("Story");
+        }
+    }
+    
     void Start()
     {
         // Focus a button so you can select them on controller
@@ -39,11 +48,24 @@ public class MainMenu : MonoBehaviour
         SFX.Instance.PlaySound("ui_select");
         Utility.LoadLevel("Tutorial");
     }
+
+    public void LoadClassInfo()
+    {
+        SFX.Instance.PlaySound("ui_select");
+        Utility.LoadLevel("ClassInfo");
+    }
     
     public void LoadSettings()
     {
         SFX.Instance.PlaySound("ui_select");
         Utility.LoadLevel("SettingsMenu");
+    }
+
+    public void LoadStory()
+    {
+        PlayerPrefs.SetInt("StoryEnabled", 1);
+        SFX.Instance.PlaySound("ui_select");
+        Utility.LoadLevel("Story");
     }
 
     public void QuitGame()

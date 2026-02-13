@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad63894eb5c4ed1b3e93cb60260c4b0, type: 3}
   m_Name: Bomber
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 21300000, guid: d0c7d86191654874a97614107b98271e, type: 3}
+  PlayerSprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
   PlayerController: {fileID: 0}
   _statueSprites:
   - {fileID: 21300000, guid: bdba3cf9f0f891146baed7cd7b7c76e0, type: 3}
@@ -21,8 +21,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 772baff5f556bf14994fd7b53590f89d, type: 3}
   - {fileID: 21300000, guid: 9a41b16b9984ea5489d4dbc245b1b6c0, type: 3}
   - {fileID: 21300000, guid: 7d64ad92fee242d4da76e2f2ce4372dc, type: 3}
-  abilitySfx: {fileID: 0}
-  abilityReloadSfx: {fileID: 0}
+  abilitySfx: {fileID: 8300000, guid: 55d27494468f64b078d18ca86bbd3a7c, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: a7e9b09783235432687cca66593071e5, type: 3}
   _cooldownTimer: 10
   _abilityDamage: 4
   radius: 3

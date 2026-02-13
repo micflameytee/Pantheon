@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777be8b8e6a3489b86c4004f6e79cf4c, type: 3}
   m_Name: Trickster
   m_EditorClassIdentifier: 
-  PlayerSprite: {fileID: 21300000, guid: 7efac8bedb4622844b8906f3693a2754, type: 3}
+  PlayerSprite: {fileID: 21300000, guid: 62d34048b9cdb6743b0321cf0580582b, type: 3}
   PlayerController: {fileID: 0}
   _statueSprites:
   - {fileID: 21300000, guid: 9998f7669148a6a458eaeffd4291d5de, type: 3}

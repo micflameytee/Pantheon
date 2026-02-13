@@ -110,7 +110,7 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage, PlayerController damageSource)
     {
-        damage = PlayerClass?.CalculateDamage(damage) ?? damage;
+        damage = PlayerClass?.CalculateTakeDamage(damage) ?? damage;
         
         
         if (damageCooldown >= 0f || damage <= 0)
@@ -122,8 +122,15 @@ public class HealthSystem : MonoBehaviour
             damageCooldown = MaxCooldown;
         }
 
+        bool playerStatue = false;
         
-        if (_statue != null && damageSource.OwnedStatue == _statue)
+        if (damageSource != null && damageSource.OwnedStatue == _statue)
+        {
+            playerStatue = true;
+        }
+
+        
+        if (_statue != null && playerStatue)
         {
             Debug.Log($"This statue is owned by {name} has {currentHealth} / {startingHealth} health");
             return;

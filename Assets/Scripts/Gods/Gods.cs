@@ -30,7 +30,7 @@ public class Gods : MonoBehaviour
 
     public void HandleSpecialAbility(InputAction.CallbackContext context)
     {
-        if (player.GetGhost() || player.GetLobbyMode())
+        if (player.GetGhost() || player.GetLobbyMode() || !context.started)
             return;
         //  Command pattern
         _currentPlayerClass.PerformSpecialAbility();
@@ -48,6 +48,8 @@ public class Gods : MonoBehaviour
     public void ChangeGod()
     {
         if (_godsEnabled == 0) { return; }
+
+        SFX.Instance.PlaySound("ui_select");
         // Command Pattern method
         _currentPlayerClassIndex++;
         SetPlayerClassIndex(_currentPlayerClassIndex);

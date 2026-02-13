@@ -39,7 +39,9 @@ namespace PlayerGods
             }
         }
         
-        public virtual int CalculateDamage(int inputDamage) => inputDamage;
+        public virtual int CalculateDealDamage(int inputDamage) => inputDamage;
+        
+        public virtual int CalculateTakeDamage(int inputDamage) => inputDamage;
 
         public virtual float CalculateAttackSpeed(float inputSpeed) => inputSpeed;
         

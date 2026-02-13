@@ -13,10 +13,16 @@ public class BearTrap : MonoBehaviour
     private float _movementCooldown = 5f;
     [SerializeField]private float MaxCooldown = 5f;
     private bool cooldownActive = false;
+    private float destroyCountdown = 500f;
     
     [SerializeField] private AudioClip deploySfx;
-    
-    
+
+
+    private void Awake()
+    {
+        destroyCountdown += MaxCooldown;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log($"bearTrap");
@@ -34,6 +40,7 @@ public class BearTrap : MonoBehaviour
             _movementCooldown = MaxCooldown;
             _otherController.CanMove = false;
             GetComponent<Collider2D>().enabled = false;
+            destroyCountdown = 10f;
         }
         
     }
@@ -45,13 +52,20 @@ public class BearTrap : MonoBehaviour
         {
             _movementCooldown -= Time.deltaTime;
         }
-
+        
         if (_movementCooldown <= 0f)
         {
             GlueSprite.sprite = driedGlue;
             cooldownActive = false;
             _otherController.CanMove = true;
             _movementCooldown = MaxCooldown;
+        }
+
+        destroyCountdown -= Time.deltaTime;
+        
+        if (destroyCountdown <= 0f)
+        {
+            Destroy(gameObject);
         }
     }
 }

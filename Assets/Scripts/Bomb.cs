@@ -15,7 +15,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private SpriteRenderer ExplosionSprite;
     [SerializeField] private SpriteAnimation _spriteAnimation;
     [SerializeField] private Sprite destroyedBomb;
-
+    private float destroyCountdown = 500f;
     [SerializeField] private AudioClip deploySfx;
 
     private void Awake()
@@ -59,6 +59,8 @@ public class Bomb : MonoBehaviour
             HealthSystem targetSystem = hit.collider.GetComponent<HealthSystem>(); 
             targetSystem?.TakeDamage(damage, owner);
         }
+
+        destroyCountdown = 10f;
     }
 
     public void OnDrawGizmos()
@@ -66,5 +68,15 @@ public class Bomb : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, radius);
         //Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+
+    private void Update()
+    {
+        destroyCountdown -= Time.deltaTime;
+        if (destroyCountdown <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/SettingsMenu.unity
     guid: 269ed04e5e4ea4b3ea1ffd3993133d22
   - enabled: 1
+    path: Assets/Scenes/UI/Story.unity
+    guid: fb1c7ffe497474145b4038f80584cf16
+  - enabled: 1
     path: Assets/Scenes/UI/Lobby.unity
     guid: 2d5106c9b04e875ceb45c5f54d2ec4b2
   - enabled: 1
@@ -26,33 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameplayScene.unity
     guid: a392f451ffe033841a7250bfae05e5c4
-  - enabled: 1
-    path: Assets/Scenes/Free for all/AnyNumber.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/3 player/3PlayerDefaultWorld.unity
-    guid: 795e34baa75feb24e96975eff0e02f75
-  - enabled: 1
-    path: Assets/Scenes/3 player/3PlayerFilledWorld.unity
-    guid: 932d4e704f0b8aa459221f43e10b5c7c
-  - enabled: 1
-    path: Assets/Scenes/3 player/3PlayerMazeWorld.unity
-    guid: b9eabdbbd4f164e499875f61bf82268e
-  - enabled: 1
-    path: Assets/Scenes/3 player/3PlayerRoomWorld.unity
-    guid: 8c182108aaecf7443abb5bd944727691
-  - enabled: 1
-    path: Assets/Scenes/4 player/4PlayerDefaultWorld.unity
-    guid: ed7c6ec920469d94895946ed59cb3a31
-  - enabled: 1
-    path: Assets/Scenes/4 player/4PlayerFilledWorld.unity
-    guid: da4a83c934fab524a903adc6057ea3c8
-  - enabled: 1
-    path: Assets/Scenes/8 player/8PlayerDefaultWorld.unity
-    guid: 98ab31ee7acfc744780f5cf79bb7c9ba
-  - enabled: 1
-    path: Assets/Scenes/8 player/8PlayerFilledWorld.unity
-    guid: 27724c31c5079aa44930fa5cc9ed8b88
   - enabled: 1
     path: Assets/Scenes/2 player/2PlayerDefaultWorld.unity
     guid: 9b6ed9cebd29d8a4d9b50e3ec514c028
@@ -66,11 +42,53 @@ EditorBuildSettings:
     path: Assets/Scenes/2 player/2PlayerRoomWorld.unity
     guid: dbc2cefcf3f698e40887bd1c5386dae4
   - enabled: 1
+    path: Assets/Scenes/3 player/3PlayerDefaultWorld.unity
+    guid: 795e34baa75feb24e96975eff0e02f75
+  - enabled: 1
+    path: Assets/Scenes/3 player/3PlayerFilledWorld.unity
+    guid: 932d4e704f0b8aa459221f43e10b5c7c
+  - enabled: 1
+    path: Assets/Scenes/3 player/3PlayerRoomWorld.unity
+    guid: 8c182108aaecf7443abb5bd944727691
+  - enabled: 1
+    path: Assets/Scenes/4 player/4PlayerDefaultWorld.unity
+    guid: ed7c6ec920469d94895946ed59cb3a31
+  - enabled: 1
+    path: Assets/Scenes/4 player/4PlayerFilledWorld.unity
+    guid: da4a83c934fab524a903adc6057ea3c8
+  - enabled: 1
     path: Assets/Scenes/4 player/4PlayerMazeWorld.unity
     guid: 2c0bd3fd84123fe4e91d8e8ab08da8e6
   - enabled: 1
+    path: Assets/Scenes/5 player/5PlayerDefaultWorld.unity
+    guid: 160c81b87da61a0428349470a67e0e20
+  - enabled: 1
+    path: Assets/Scenes/5 player/5PlayerFilledWorld.unity
+    guid: be2525762233ae74c8bbd200df094463
+  - enabled: 1
+    path: Assets/Scenes/6 player/6PlayerDefaultWorld.unity
+    guid: 7b7ebdbad73bf3847921256d9ca45b68
+  - enabled: 1
+    path: Assets/Scenes/6 player/6PlayerFilledWorld.unity
+    guid: 5a1051d40eecf4b4ea6a136da50101c6
+  - enabled: 1
+    path: Assets/Scenes/8 player/8PlayerDefaultWorld.unity
+    guid: 98ab31ee7acfc744780f5cf79bb7c9ba
+  - enabled: 1
+    path: Assets/Scenes/8 player/8PlayerFilledWorld.unity
+    guid: 27724c31c5079aa44930fa5cc9ed8b88
+  - enabled: 1
+    path: Assets/Scenes/Free for all/AnyNumber.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Free for all/AnyNumberObstacles.unity
+    guid: 17edcfb9efac41548a84cc4e81e04c61
+  - enabled: 1
     path: Assets/Scenes/UI/GameOver.unity
     guid: 394cc4ac9e9024081b34f4453afdea78
+  - enabled: 1
+    path: Assets/Scenes/UI/ClassInfo.unity
+    guid: 828915e868a7140ecb04877c30978175
   - enabled: 1
     path: Assets/Scripts/UI/PlayerHud/PlayerHud.unity
     guid: d61a7a814684a0147a3b0fcbd7e40556

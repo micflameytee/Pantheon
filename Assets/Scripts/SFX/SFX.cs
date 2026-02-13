@@ -46,7 +46,7 @@ public class SFX : MonoBehaviour
         audioSource.clip = sound;
         instance.position = position;
         
-        Debug.Log("[SFX] Playing sound " + soundName);
+        // Debug.Log("[SFX] Playing sound " + soundName);
         StartCoroutine(PlaySoundAndWait(audioSource, instance.gameObject));
     }
 
@@ -73,6 +73,17 @@ public class SFX : MonoBehaviour
         
 //        Debug.Log("[SFX] Playing sound " + sound.name);
         StartCoroutine(PlaySoundAndWait(audioSource, instance.gameObject));
+    }
+
+    public void PlayDelayedSound(AudioClip sound, float seconds, Vector3 position = default, bool singleton = false)
+    {
+        StartCoroutine(_PlayDelayedSound(sound, seconds, position, singleton));
+    }
+
+    private IEnumerator _PlayDelayedSound(AudioClip sound, float seconds, Vector3 position = default, bool singleton = false)
+    {
+        yield return new WaitForSeconds(seconds);
+        PlaySound(sound, position, singleton);
     }
 
     // Play sound, destroy SoundPlayer when done

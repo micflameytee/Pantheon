@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22604a0a21d4a95a5e0d55a5f651e69, type: 3}
+  m_Name: Gambler
+  m_EditorClassIdentifier: 
+  PlayerSprite: {fileID: 21300000, guid: 642adbcb164f7fb44b64b7e79d13354d, type: 3}
+  PlayerController: {fileID: 0}
+  _statueSprites:
+  - {fileID: 21300000, guid: 43315b6c402c42244b7935534b735c25, type: 3}
+  - {fileID: 21300000, guid: ea338bc8c9676074da22ec85b1b10412, type: 3}
+  - {fileID: 21300000, guid: 139722a102daf0246a9205f9589221b7, type: 3}
+  - {fileID: 21300000, guid: 54f692b60d4b40941a03cc3b4e375cca, type: 3}
+  - {fileID: 21300000, guid: ee6a7b52e8dd03442a1cfa5a720ac7de, type: 3}
+  - {fileID: 21300000, guid: 8810ccca31fd6ad4fa14106e89204243, type: 3}
+  abilitySfx: {fileID: 8300000, guid: 2dd7ce6b74abf433d825c73d295ac15b, type: 3}
+  abilityReloadSfx: {fileID: 8300000, guid: 5f5ea14d25b7248f8b8c0e523f120332, type: 3}
+  _attackDamageMultiplier: 2
+  _attackSpeedMultiplier: 2
+  _trapCooldownMultiplier: 2
+  _jackpotDuration: 5
+  _speedMultiplier: 1.5
+  AbilitySprite: {fileID: 21300000, guid: 157b5a2e77def2f48a8c2a828ae13ebb, type: 3}
+  explosionPrefab: {fileID: 8213516127176075011, guid: 6c91430ad06cb0449908f8d0dd80c864, type: 3}
+  radius: 4
+  damage: 2
+  damageTaken: 1
+  explosionDamage: 5
+  _secretJackpotTimer: 251
+  _secretCooldownMultiplier: 10
+  _secretAttackMultiplier: 3
+  _secretDamageMultiplier: 3
+  _secretSpeedMultiplier: 3
+  _pokeMachine: {fileID: 2613496097035197494, guid: 3058a41d5aaec0f4ab822f6cb3fcea81, type: 3}
+  _abilityTimer: 0
+  pokeSounds:
+  - {fileID: 8300000, guid: 4b57ad4080911457098ffe20b80f345b, type: 3}
+  - {fileID: 8300000, guid: 93d1df52d92924171b90f9c310cfbef1, type: 3}
+  - {fileID: 8300000, guid: 46e088fde98b249c0a216fbef357a0d6, type: 3}
+  - {fileID: 8300000, guid: a109fbc7c23ca4bc2b6fadc480e6a874, type: 3}
+  - {fileID: 8300000, guid: 4e1725a95153b4a25a5e977624f05d41, type: 3}
+  - {fileID: 8300000, guid: 51b6b1bc137e14ae1b3367b26bc4deee, type: 3}
+  - {fileID: 8300000, guid: 8ec9186e3e5584d628b721e59c6d31a9, type: 3}
